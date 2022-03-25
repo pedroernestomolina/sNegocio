@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DC4081C-DC07-4591-A42F-F68241ABB29C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OOB</RootNamespace>
+    <AssemblyName>OOB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerados.cs" />
+    <Compile Include="LibSistema\Cobrador\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\Cobrador\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\Cobrador\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\Cobrador\Lista\Filtro.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoCostoPrecioDivisa.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoCostoSinDivisa.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoPrecioHistorico.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\CapturarData\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaRecepcionPos\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Enumerados.cs" />
+    <Compile Include="LibSistema\Configuracion\Inicializar\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Modulo\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Modulo\Capturar\Ficha.cs" />
+    <Compile Include="LibSistema\ControlAcceso\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\ControlAcceso\Actualizar\ItemAcceso.cs" />
+    <Compile Include="LibSistema\ControlAcceso\Data\Ficha.cs" />
+    <Compile Include="LibSistema\Deposito\Agregar.cs" />
+    <Compile Include="LibSistema\Deposito\Editar.cs" />
+    <Compile Include="LibSistema\Deposito\Ficha.cs" />
+    <Compile Include="LibSistema\Empresa\Data\Ficha.cs" />
+    <Compile Include="LibSistema\Funcion\Ficha.cs" />
+    <Compile Include="LibSistema\Negocio\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\Negocio\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\Permiso\Enumerados.cs" />
+    <Compile Include="LibSistema\Permiso\Ficha.cs" />
+    <Compile Include="LibSistema\Precio\Etiquetar\Actualizar.cs" />
+    <Compile Include="LibSistema\Precio\Etiquetar\Ficha.cs" />
+    <Compile Include="LibSistema\Precio\Ficha.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemHistCosto.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemHistPrecio.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemPrd.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemProv.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemSaldoPorPagar.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\Ficha.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\ItemPrd.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\ItemProv.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\ItemSaldoPorPagar.cs" />
+    <Compile Include="LibSistema\SerieFiscal\ActivarInactivar\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Lista\Filtro.cs" />
+    <Compile Include="LibSistema\SucursalGrupo\Agregar.cs" />
+    <Compile Include="LibSistema\SucursalGrupo\Editar.cs" />
+    <Compile Include="LibSistema\SucursalGrupo\Ficha.cs" />
+    <Compile Include="LibSistema\Sucursal\Agregar.cs" />
+    <Compile Include="LibSistema\Sucursal\AsignarDepositoPrincipal.cs" />
+    <Compile Include="LibSistema\Sucursal\Editar.cs" />
+    <Compile Include="LibSistema\Sucursal\Ficha.cs" />
+    <Compile Include="LibSistema\UsuarioGrupo\Agregar.cs" />
+    <Compile Include="LibSistema\UsuarioGrupo\Editar.cs" />
+    <Compile Include="LibSistema\UsuarioGrupo\Ficha.cs" />
+    <Compile Include="LibSistema\UsuarioGrupo\PermisoAgregar.cs" />
+    <Compile Include="LibSistema\UsuarioGrupo\Usuario.cs" />
+    <Compile Include="LibSistema\Usuario\Activar.cs" />
+    <Compile Include="LibSistema\Usuario\ActualizarSesion\Ficha.cs" />
+    <Compile Include="LibSistema\Usuario\Agregar.cs" />
+    <Compile Include="LibSistema\Usuario\Buscar\Ficha.cs" />
+    <Compile Include="LibSistema\Usuario\Editar.cs" />
+    <Compile Include="LibSistema\Usuario\Enumerados.cs" />
+    <Compile Include="LibSistema\Usuario\Ficha.cs" />
+    <Compile Include="LibSistema\Usuario\Inactivar.cs" />
+    <Compile Include="LibSistema\Usuario\Lista\Filtro.cs" />
+    <Compile Include="LibSistema\Vendedor\ActivarInactivar\Ficha.cs" />
+    <Compile Include="LibSistema\Vendedor\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\Vendedor\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\Vendedor\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\Vendedor\Lista\Filtro.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resultado.cs" />
+    <Compile Include="ResultadoAuto.cs" />
+    <Compile Include="ResultadoEntidad.cs" />
+    <Compile Include="ResultadoId.cs" />
+    <Compile Include="ResultadoLista.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
