@@ -30,17 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DtoLib">
-      <HintPath>..\..\..\..\Proyectos FoxSystem\CompraVentaService\ServiceSistema\bin\Debug\DtoLib.dll</HintPath>
+    <Reference Include="DtoLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BackEnd\bNegocio\ServiceSistema\bin\Debug\DtoLib.dll</HintPath>
     </Reference>
-    <Reference Include="DtoLibSistema">
-      <HintPath>..\..\..\..\Proyectos FoxSystem\CompraVentaService\ServiceSistema\bin\Debug\DtoLibSistema.dll</HintPath>
+    <Reference Include="DtoLibSistema, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BackEnd\bNegocio\ServiceSistema\bin\Debug\DtoLibSistema.dll</HintPath>
     </Reference>
-    <Reference Include="ILibSistema">
-      <HintPath>..\..\..\..\Proyectos FoxSystem\CompraVentaService\ServiceSistema\bin\Debug\ILibSistema.dll</HintPath>
+    <Reference Include="ILibSistema, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BackEnd\bNegocio\ServiceSistema\bin\Debug\ILibSistema.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceSistema">
-      <HintPath>..\..\..\..\Proyectos FoxSystem\CompraVentaService\ServiceSistema\bin\Debug\ServiceSistema.dll</HintPath>
+    <Reference Include="ServiceSistema, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BackEnd\bNegocio\ServiceSistema\bin\Debug\ServiceSistema.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
