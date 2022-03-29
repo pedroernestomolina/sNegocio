@@ -1,4 +1,4 @@
-﻿namespace ModSistema.SucursalGrupo
+﻿namespace ModSistema.MaestrosMod.Sucursales.Grupo
 {
     partial class MaestroFrm
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.L_TITULO = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -84,7 +84,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Yellow;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.L_TITULO);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
@@ -93,16 +93,16 @@
             this.panel1.Size = new System.Drawing.Size(539, 42);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // L_TITULO
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(535, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Maestro: Grupo Sucursales";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.L_TITULO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_TITULO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_TITULO.Location = new System.Drawing.Point(2, 2);
+            this.L_TITULO.Name = "L_TITULO";
+            this.L_TITULO.Size = new System.Drawing.Size(535, 38);
+            this.L_TITULO.TabIndex = 0;
+            this.L_TITULO.Text = "Maestro: Grupo Sucursales";
+            this.L_TITULO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -177,11 +177,11 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(311, 1);
+            this.panel5.Location = new System.Drawing.Point(310, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(106, 44);
+            this.panel5.Size = new System.Drawing.Size(107, 44);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -199,7 +199,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(104, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(105, 42);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel6
@@ -237,7 +237,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(49, 38);
+            this.panel7.Size = new System.Drawing.Size(50, 38);
             this.panel7.TabIndex = 1;
             // 
             // BT_EDITAR
@@ -250,7 +250,7 @@
             this.BT_EDITAR.Location = new System.Drawing.Point(1, 1);
             this.BT_EDITAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_EDITAR.Name = "BT_EDITAR";
-            this.BT_EDITAR.Size = new System.Drawing.Size(47, 36);
+            this.BT_EDITAR.Size = new System.Drawing.Size(48, 36);
             this.BT_EDITAR.TabIndex = 1;
             this.toolTip1.SetToolTip(this.BT_EDITAR, "Editar Item");
             this.BT_EDITAR.UseVisualStyleBackColor = true;
@@ -497,7 +497,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label L_TITULO;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

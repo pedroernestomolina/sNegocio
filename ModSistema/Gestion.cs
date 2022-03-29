@@ -26,6 +26,13 @@ namespace ModSistema
         private ReconversionMonetaria.Gestion _gestionRecMon;
         private DatosNegocio.Editar.Gestion _gestionDatosNegocio;
         private IGestion _gConfModulo;
+        //
+        //
+        //
+        private MaestrosMod.ILista _gMaestroLista;
+        private MaestrosMod.IMaestro _gMaestro;
+        private MaestrosMod.ITipoMaestro _gGrupoSuc;
+        private MaestrosMod.Sucursales.Grupo.IAgregarEditar _gAgregarGrupo;
 
 
         public string Host 
@@ -73,6 +80,11 @@ namespace ModSistema
             _gestionDatosNegocio = new DatosNegocio.Editar.Gestion();
             //
             _gConfModulo = new Configuracion.Modulo.Gestion();
+            //
+            _gMaestroLista = new MaestrosMod.Lista();
+            _gMaestro = new MaestrosMod.Maestro(_gMaestroLista);
+            _gAgregarGrupo = new MaestrosMod.Sucursales.Grupo.Agregar() ;
+            _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Grupo(_gAgregarGrupo, _gAgregarGrupo);
         }
 
 
@@ -81,21 +93,6 @@ namespace ModSistema
             var frm = new Form1();
             frm.setControlador(this);
             frm.ShowDialog();
-        }
-
-        public void MaestroSucursalGrupo()
-        {
-            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            {
-                _gestionSucGrupo.Inicia();
-            }
         }
 
         public void MaestroSucursales()
@@ -361,6 +358,25 @@ namespace ModSistema
                 _gConfModulo.Inicia();
             }
         }
+
+        public void MaestroSucursalGrupo()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                //_gMaestro.Inicializa();
+                //_gMaestro.setTipoMaestro(_gGrupoSuc);
+                //_gMaestro.Inicia();
+                _gestionSucGrupo.Inicia();
+            }
+        }
+
 
     }
 
