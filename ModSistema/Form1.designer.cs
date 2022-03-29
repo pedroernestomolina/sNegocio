@@ -101,8 +101,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.preciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -167,11 +165,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(643, 1);
+            this.panel2.Location = new System.Drawing.Point(642, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(180, 52);
+            this.panel2.Size = new System.Drawing.Size(181, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -182,7 +180,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(176, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(177, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -197,7 +195,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(328, 52);
+            this.panel7.Size = new System.Drawing.Size(327, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -216,7 +214,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(324, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(323, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -250,7 +248,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(245, 22);
+            this.panel14.Size = new System.Drawing.Size(244, 22);
             this.panel14.TabIndex = 3;
             // 
             // L_FECHA
@@ -260,7 +258,7 @@
             this.L_FECHA.ForeColor = System.Drawing.Color.Yellow;
             this.L_FECHA.Location = new System.Drawing.Point(2, 2);
             this.L_FECHA.Name = "L_FECHA";
-            this.L_FECHA.Size = new System.Drawing.Size(241, 18);
+            this.L_FECHA.Size = new System.Drawing.Size(240, 18);
             this.L_FECHA.TabIndex = 5;
             this.L_FECHA.Text = "Hoy";
             this.L_FECHA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -296,7 +294,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(245, 22);
+            this.panel16.Size = new System.Drawing.Size(244, 22);
             this.panel16.TabIndex = 4;
             // 
             // L_HOST
@@ -306,7 +304,7 @@
             this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
             this.L_HOST.Location = new System.Drawing.Point(2, 2);
             this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(241, 18);
+            this.L_HOST.Size = new System.Drawing.Size(240, 18);
             this.L_HOST.TabIndex = 4;
             this.L_HOST.Text = "label2";
             this.L_HOST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -315,7 +313,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(331, 1);
+            this.panel17.Location = new System.Drawing.Point(330, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -387,7 +385,7 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(533, 1);
+            this.panel20.Location = new System.Drawing.Point(532, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -512,8 +510,6 @@
             // sucursalesToolStripMenuItem
             // 
             this.sucursalesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preciosToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.TSM_MAESTRO_SucursalGrupo,
             this.TSM_MAESTRO_Sucursal,
             this.toolStripMenuItem3});
@@ -526,7 +522,7 @@
             // 
             this.TSM_MAESTRO_SucursalGrupo.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTRO_SucursalGrupo.Name = "TSM_MAESTRO_SucursalGrupo";
-            this.TSM_MAESTRO_SucursalGrupo.Size = new System.Drawing.Size(160, 22);
+            this.TSM_MAESTRO_SucursalGrupo.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_SucursalGrupo.Text = "Grupos";
             this.TSM_MAESTRO_SucursalGrupo.Click += new System.EventHandler(this.TSM_MAESTRO_SucursalGrupo_Click);
             // 
@@ -534,14 +530,14 @@
             // 
             this.TSM_MAESTRO_Sucursal.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTRO_Sucursal.Name = "TSM_MAESTRO_Sucursal";
-            this.TSM_MAESTRO_Sucursal.Size = new System.Drawing.Size(160, 22);
+            this.TSM_MAESTRO_Sucursal.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_Sucursal.Text = "Sucursales";
             this.TSM_MAESTRO_Sucursal.Click += new System.EventHandler(this.TSM_MAESTRO_Sucursal_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(157, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
             // 
             // toolStripMenuItem2
             // 
@@ -901,18 +897,6 @@
             this.panel10.Size = new System.Drawing.Size(147, 360);
             this.panel10.TabIndex = 0;
             // 
-            // preciosToolStripMenuItem
-            // 
-            this.preciosToolStripMenuItem.Image = global::ModSistema.Properties.Resources.master;
-            this.preciosToolStripMenuItem.Name = "preciosToolStripMenuItem";
-            this.preciosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.preciosToolStripMenuItem.Text = "Tabla de Precios";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(157, 6);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1033,8 +1017,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_CONF_MODULO;
-        private System.Windows.Forms.ToolStripMenuItem preciosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 
