@@ -11,6 +11,7 @@ namespace ModSistema.MaestrosMod
     public class data
     {
 
+        public int id { get; set; }
         public string auto { get; set; }
         public string codigo { get; set; }
         public string descripcion { get; set; }
@@ -20,6 +21,7 @@ namespace ModSistema.MaestrosMod
 
         public data() 
         {
+            id = -1;
             auto = "";
             codigo = "";
             descripcion = "";

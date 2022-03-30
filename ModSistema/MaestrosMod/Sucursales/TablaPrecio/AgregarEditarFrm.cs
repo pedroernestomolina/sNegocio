@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+
+namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
+{
+
+    public partial class AgregarEditarFrm : Form
+    {
+        
+        private ITablaPrecioAgregarEditar _controlador;
+
+
+        public AgregarEditarFrm()
+        {
+            InitializeComponent();
+        }
+
+
+        private bool _modoInicializa;
+        private void AgregarEditarFrm_Load(object sender, EventArgs e)
+        {
+            L_TITULO.Text = _controlador.Titulo;
+            _modoInicializa = true;
+            TB_NOMBRE.Text = _controlador.GetNombre;
+            _modoInicializa = false;
+            TB_NOMBRE.Focus();
+        }
+       
+        public void setControlador(ITablaPrecioAgregarEditar ctr)
+        {
+            _controlador=ctr;
+        }
+
+        private void TB_NOMBRE_TextChanged(object sender, EventArgs e)
+        {
+            _controlador.setNombre(TB_NOMBRE.Text);
+        }
+
+        private void TB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Abandonar();
+        }
+        private void Abandonar()
+        {
+            _controlador.Abandonar();
+            if (_controlador.AbandonarIsOk)
+            {
+                Salir();
+            }
+        }
+
+        private void BT_GUARDAR_Click(object sender, EventArgs e)
+        {
+            Procesar();
+        }
+        private void Procesar()
+        {
+            _controlador.Procesar();
+            if (_controlador.ProcesarIsOk)
+            {
+                Salir();
+            }
+        }
+
+        private void Salir()
+        {
+            this.Close();
+        }
+
+        private void AgregarEditarFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            if (_controlador.ProcesarIsOk || _controlador.AbandonarIsOk) 
+            {
+                e.Cancel = false;
+            }
+        }
+
+    }
+
+}

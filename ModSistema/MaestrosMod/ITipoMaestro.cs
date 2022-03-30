@@ -17,12 +17,15 @@ namespace ModSistema.MaestrosMod
 
 
         bool CargarData();
+        void Inicializa();
         void Inicia(IMaestro ctr);
 
 
+        data ItemAgregarEditar { get; }
         bool AgregarIsOk { get; }
-        data ItemAgregar { get; }
         void AgregarItem();
+        void EditarItem(data ItemActual);
+        bool EditarIsOk { get; }
 
     }
 

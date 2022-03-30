@@ -10,37 +10,38 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
 {
     
 
-    public class Agregar: ITablaPrecioAgregarEditar
+    public class Editar: ITablaPrecioAgregarEditar
     {
 
+        private int _idItemEditar;
         private string _nombre;
-        private int _idItemRegistrado;
         private bool _procesarIsOk;
         private bool _abandonarIsOk;
 
 
-        public string Titulo { get { return "Agregar: PRECIO"; } }
+        public string Titulo { get { return "Editar: PRECIO"; } }
         public bool IsOk { get { return _procesarIsOk; } }
         public bool ProcesarIsOk { get { return _procesarIsOk; } }
         public bool AbandonarIsOk { get { return _abandonarIsOk; } }
         public string GetNombre { get { return _nombre; } }
-        public object IdItemRegistrado { get { return _idItemRegistrado; } }
+        public object IdItemRegistrado { get { return null; } }
 
 
-        public Agregar()
+        public Editar()
         {
             _nombre = "";
             _procesarIsOk = false;
             _abandonarIsOk = false;
-            _idItemRegistrado = -1;
+            _idItemEditar = -1;
         }
+
 
         public void Inicializa()
         {
             _nombre = "";
             _procesarIsOk = false;
             _abandonarIsOk = false;
-            _idItemRegistrado = -1;
+            _idItemEditar = -1;
         }
 
         AgregarEditarFrm frm;
@@ -60,6 +61,14 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
 
         private bool CargarData()
         {
+            var r01 = Sistema.MyData.TablaPrecio_GetById(_idItemEditar);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            var rg = r01.Entidad;
+            _nombre = rg.descripcion;
             return true;
         }
 
@@ -72,30 +81,28 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
         public void Procesar()
         {
             _procesarIsOk = false;
-            _idItemRegistrado = -1;
-
             if (_nombre.Trim() == "")
             {
                 Helpers.Msg.Error("Campo [ NOMBRE ] No Puede Estar Vacio");
                 return;
             }
-            var xmsg = "Guardar Ficha ?";
+            var xmsg = "Guardar Cambios ?";
             var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes) 
             {
-                var fichaOOB = new OOB.LibSistema.TablaPrecio.Agregar.Ficha()
+                var fichaOOB = new OOB.LibSistema.TablaPrecio.Editar.Ficha()
                 {
+                    id = _idItemEditar,
                     descripcion = _nombre,
                 };
-                var r01 = Sistema.MyData.TablaPrecio_Agregar(fichaOOB);
+                var r01 = Sistema.MyData.TablaPrecio_Editar(fichaOOB);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 
                 {
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
-                _idItemRegistrado = r01.Id;
                 _procesarIsOk = true;
-                Helpers.Msg.AgregarOk();
+                Helpers.Msg.EditarOk();
             }
         }
 
@@ -110,8 +117,9 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
             }
         }
 
-        public void setIdItemEditar(int p)
+        public void setIdItemEditar(int id)
         {
+            _idItemEditar = id;
         }
 
     }

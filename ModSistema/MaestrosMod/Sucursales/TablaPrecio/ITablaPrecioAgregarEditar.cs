@@ -9,11 +9,11 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
 {
 
     
-    public interface IAgregarEditar: IGestion
+    public interface ITablaPrecioAgregarEditar: IAgregarEditar
     {
 
-        bool IsOk { get;  }
-        data DataAgregar { get;  }
+        string GetNombre { get; }
+        void setNombre(string p);
 
     }
 

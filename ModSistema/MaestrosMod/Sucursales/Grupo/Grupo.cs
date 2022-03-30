@@ -65,14 +65,28 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
         }
 
 
+        public data ItemAgregarEditar { get { return null; } }
         public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
-        public data ItemAgregar { get { return _gAgregar.DataAgregar; } }
         public void AgregarItem()
         {
             _gAgregar.Inicializa();
             _gAgregar.Inicia();
         }
 
+        public void Inicializa()
+        {
+        }
+
+
+        public bool EditarIsOk
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void EditarItem(data ItemActual)
+        {
+        }
+        
     }
 
 }

@@ -3,27 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
-namespace ModSistema.MaestrosMod.Sucursales.Grupo
+namespace ModSistema.MaestrosMod
 {
-
     
+
     public interface IAgregarEditar: IGestion
     {
 
         bool IsOk { get; }
-        data DataAgregar { get; }
-
         string Titulo { get; }
 
-        BindingSource PrecioSource { get;  }
-        string GetPrecioId { get;  }
-        string GetNombre { get; }
-
-        void setNombre(string p);
-        void SetPrecio(string id);
 
         void Procesar();
         bool ProcesarIsOk { get; }
@@ -31,6 +22,11 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
         void Abandonar();
         bool AbandonarIsOk { get; }
 
+
+        object IdItemRegistrado { get; }
+
+
+        void setIdItemEditar(int p);
     }
 
 }

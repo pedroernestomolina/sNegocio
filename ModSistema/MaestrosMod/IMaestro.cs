@@ -24,6 +24,10 @@ namespace ModSistema.MaestrosMod
         void AgregarItem();
         bool AgregarIsOk { get; }
 
+
+        void EditarItem();
+        bool EditarIsOk { get; }
+
     }
 
 }

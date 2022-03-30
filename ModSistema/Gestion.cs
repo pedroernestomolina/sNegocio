@@ -32,9 +32,10 @@ namespace ModSistema
         private MaestrosMod.ILista _gMaestroLista;
         private MaestrosMod.IMaestro _gMaestro;
         private MaestrosMod.ITipoMaestro _gGrupoSuc;
-        private MaestrosMod.ITipoMaestro _gTablaPrecioSuc;
         private MaestrosMod.Sucursales.Grupo.IAgregarEditar _gAgregarGrupo;
-        private MaestrosMod.Sucursales.TablaPrecio.IAgregarEditar _gAgregarTablaPrecioSuc;
+        private MaestrosMod.ITipoMaestro _gTablaPrecioSuc;
+        private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gAgregarTablaPrecioSuc;
+        private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gEditarTablaPrecioSuc;
 
 
         public string Host 
@@ -87,8 +88,12 @@ namespace ModSistema
             _gMaestro = new MaestrosMod.Maestro(_gMaestroLista);
             _gAgregarGrupo = new MaestrosMod.Sucursales.Grupo.Agregar() ;
             _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Grupo(_gAgregarGrupo, _gAgregarGrupo);
-            _gAgregarTablaPrecioSuc= new MaestrosMod.Sucursales.TablaPrecio.Agregar();
-            _gTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Maestro(_gAgregarTablaPrecioSuc, _gAgregarTablaPrecioSuc);
+            //
+            _gAgregarTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Agregar();
+            _gEditarTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Editar();
+            _gTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Maestro(
+                _gAgregarTablaPrecioSuc, 
+                _gEditarTablaPrecioSuc);
         }
 
 
@@ -392,6 +397,8 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
+                _gTablaPrecioSuc.Inicializa();
+
                 _gMaestro.Inicializa();
                 _gMaestro.setTipoMaestro(_gTablaPrecioSuc);
                 _gMaestro.Inicia();

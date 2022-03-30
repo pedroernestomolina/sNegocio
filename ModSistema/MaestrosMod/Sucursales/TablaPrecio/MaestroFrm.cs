@@ -65,19 +65,19 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
             DGV.ReadOnly = true;
 
             var c1 = new DataGridViewTextBoxColumn();
-            c1.DataPropertyName = "Descripcion";
-            c1.HeaderText = "Nombre";
+            c1.DataPropertyName = "Codigo";
+            c1.HeaderText = "Código";
             c1.Visible = true;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
-            c1.MinimumWidth = 120;
-            c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c1.Width = 100;
 
             var c2 = new DataGridViewTextBoxColumn();
-            c2.DataPropertyName = "PrecioManejar";
-            c2.HeaderText = "Precio/Desc";
+            c2.DataPropertyName = "Descripcion";
+            c2.HeaderText = "Descripción";
             c2.Visible = true;
-            c2.Width= 180;
+            c2.MinimumWidth = 100;
+            c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 
@@ -106,6 +106,7 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
                 ActualizarItems();
             }
         }
+
         private void ActualizarItems()
         {
             L_ITEMS.Text = _controlador.CntItems.ToString("n0");
@@ -115,11 +116,13 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
         {
             EditarItem();
         }
-
         private void EditarItem()
         {
-            //_controlador.EditarItem();
-            //L_ITEMS.Text = _controlador.Items.ToString("n0");
+            _controlador.EditarItem();
+            if (_controlador.EditarIsOk)
+            {
+                ActualizarItems();
+            }
         }
      
     }

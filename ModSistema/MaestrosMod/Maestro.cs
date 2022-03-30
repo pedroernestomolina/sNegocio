@@ -22,6 +22,7 @@ namespace ModSistema.MaestrosMod
         public string Titulo { get { return _gTipo.GetTitulo; } }
         public int CntItems { get { return _gLista.CntItems; } }
         public BindingSource Source { get { return _gLista.Source; } }
+        public data ItemActual { get { return _gLista.ItemActual; } }
 
 
         public Maestro(ILista lista) 
@@ -67,7 +68,21 @@ namespace ModSistema.MaestrosMod
             _gTipo.AgregarItem();
             if (_gTipo.AgregarIsOk) 
             {
-                _gLista.Agregar(_gTipo.ItemAgregar);
+                _gLista.Agregar(_gTipo.ItemAgregarEditar);
+            }
+        }
+
+        public bool EditarIsOk { get { return _gTipo.EditarIsOk; } }
+        public void EditarItem()
+        {
+            if (ItemActual == null)
+            {
+                return;
+            }
+            _gTipo.EditarItem(ItemActual);
+            if (_gTipo.EditarIsOk)
+            {
+                _gLista.Actualizar(_gTipo.ItemAgregarEditar);
             }
         }
 
