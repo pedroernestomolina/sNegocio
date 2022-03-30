@@ -161,6 +161,15 @@
     <Compile Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaestrosMod\Sucursales\TablaPrecio\Agregar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\TablaPrecio\IAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\TablaPrecio\Maestro.cs" />
+    <Compile Include="MaestrosMod\Sucursales\TablaPrecio\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosMod\Sucursales\TablaPrecio\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maestros\Cobrador\AgregarEditar.cs" />
     <Compile Include="Maestros\Cobrador\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
@@ -364,6 +373,9 @@
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosMod\Sucursales\TablaPrecio\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\Cobrador\AgregarEditarFrm.resx">

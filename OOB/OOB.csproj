@@ -91,6 +91,9 @@
     <Compile Include="LibSistema\Sucursal\AsignarDepositoPrincipal.cs" />
     <Compile Include="LibSistema\Sucursal\Editar.cs" />
     <Compile Include="LibSistema\Sucursal\Ficha.cs" />
+    <Compile Include="LibSistema\TablaPrecio\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\TablaPrecio\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\TablaPrecio\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\UsuarioGrupo\Agregar.cs" />
     <Compile Include="LibSistema\UsuarioGrupo\Editar.cs" />
     <Compile Include="LibSistema\UsuarioGrupo\Ficha.cs" />

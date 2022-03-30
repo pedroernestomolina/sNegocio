@@ -69,6 +69,7 @@
     <Compile Include="Data\ServConf.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\SucursalGrupo.cs" />
+    <Compile Include="Data\TablaPrecio.cs" />
     <Compile Include="Data\Usuario.cs" />
     <Compile Include="Data\UsuarioGrupo.cs" />
     <Compile Include="Data\Vendedor.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Infra\IServConf.cs" />
     <Compile Include="Infra\ISucursal.cs" />
     <Compile Include="Infra\ISucursalGrupo.cs" />
+    <Compile Include="Infra\ITablaPrecio.cs" />
     <Compile Include="Infra\IUsuario.cs" />
     <Compile Include="Infra\IUsuarioGrupo.cs" />
     <Compile Include="Infra\IVendedor.cs" />

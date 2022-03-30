@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 namespace DataProvSistema.Infra
 {
     
-    public interface IData: IDeposito, ISucursalGrupo, ISucursal, IUsuario, IPrecio,
+    public interface IData: IDeposito, ISucursal, IUsuario, IPrecio,
         IFuncion, IUsuarioGrupo, IServConf, IPermisos, IConfiguracion, IVendedor, ICobrador ,
-        ISerieFiscal, IReconversionMonetaria, INegocio, IControlAcceso, IPrueba
+        ISerieFiscal, IReconversionMonetaria, INegocio, IControlAcceso, IPrueba,
+        ITablaPrecio, ISucursalGrupo
 
     {
 

@@ -32,7 +32,9 @@ namespace ModSistema
         private MaestrosMod.ILista _gMaestroLista;
         private MaestrosMod.IMaestro _gMaestro;
         private MaestrosMod.ITipoMaestro _gGrupoSuc;
+        private MaestrosMod.ITipoMaestro _gTablaPrecioSuc;
         private MaestrosMod.Sucursales.Grupo.IAgregarEditar _gAgregarGrupo;
+        private MaestrosMod.Sucursales.TablaPrecio.IAgregarEditar _gAgregarTablaPrecioSuc;
 
 
         public string Host 
@@ -85,6 +87,8 @@ namespace ModSistema
             _gMaestro = new MaestrosMod.Maestro(_gMaestroLista);
             _gAgregarGrupo = new MaestrosMod.Sucursales.Grupo.Agregar() ;
             _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Grupo(_gAgregarGrupo, _gAgregarGrupo);
+            _gAgregarTablaPrecioSuc= new MaestrosMod.Sucursales.TablaPrecio.Agregar();
+            _gTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Maestro(_gAgregarTablaPrecioSuc, _gAgregarTablaPrecioSuc);
         }
 
 
@@ -359,6 +363,7 @@ namespace ModSistema
             }
         }
 
+
         public void MaestroSucursalGrupo()
         {
             var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
@@ -370,13 +375,28 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                //_gMaestro.Inicializa();
-                //_gMaestro.setTipoMaestro(_gGrupoSuc);
-                //_gMaestro.Inicia();
-                _gestionSucGrupo.Inicia();
+                _gMaestro.Inicializa();
+                _gMaestro.setTipoMaestro(_gGrupoSuc);
+                _gMaestro.Inicia();
             }
         }
 
+        public void TablaPreciosSuc()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gMaestro.Inicializa();
+                _gMaestro.setTipoMaestro(_gTablaPrecioSuc);
+                _gMaestro.Inicia();
+            }
+        }
 
     }
 

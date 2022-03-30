@@ -64,16 +64,6 @@ namespace ModSistema
             L_HORA.Text = "";
         }
 
-        private void TSM_MAESTRO_SucursalGrupo_Click(object sender, EventArgs e)
-        {
-            SucursalGrupo();
-        }
-
-        private void SucursalGrupo()
-        {
-            _controlador.MaestroSucursalGrupo();
-        }
-
         private void TSM_MAESTRO_Sucursal_Click(object sender, EventArgs e)
         {
             Sucursales();
@@ -231,6 +221,25 @@ namespace ModSistema
         private void ConfiguracionModulo()
         {
             _controlador.ConfiguracionModulo();
+        }
+
+
+        private void TSM_MAESTRO_TablaPrecio_Click(object sender, EventArgs e)
+        {
+            TablaPreciosSuc();
+        }
+        private void TablaPreciosSuc()
+        {
+            _controlador.TablaPreciosSuc();
+        }
+
+        private void TSM_MAESTRO_SucursalGrupo_Click(object sender, EventArgs e)
+        {
+            SucursalGrupo();
+        }
+        private void SucursalGrupo()
+        {
+            _controlador.MaestroSucursalGrupo();
         }
 
     }
