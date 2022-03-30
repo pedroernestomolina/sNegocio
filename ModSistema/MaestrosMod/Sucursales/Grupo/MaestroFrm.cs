@@ -74,7 +74,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c2 = new DataGridViewTextBoxColumn();
-            c2.DataPropertyName = "PrecioManejar";
+            c2.DataPropertyName = "mGrupoPrecioRef";
             c2.HeaderText = "Precio/Desc";
             c2.Visible = true;
             c2.Width= 180;
@@ -106,20 +106,45 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
                 ActualizarItems();
             }
         }
-        private void ActualizarItems()
-        {
-            L_ITEMS.Text = _controlador.CntItems.ToString("n0");
-        }
 
         private void BT_EDITAR_Click(object sender, EventArgs e)
         {
             EditarItem();
         }
-
         private void EditarItem()
         {
-            //_controlador.EditarItem();
-            //L_ITEMS.Text = _controlador.Items.ToString("n0");
+            _controlador.EditarItem();
+            if (_controlador.EditarIsOk)
+            {
+                ActualizarItems();
+            }
+        }
+
+        private void BT_ELIMINAR_Click(object sender, EventArgs e)
+        {
+            EliminarItem();
+        }
+        private void EliminarItem()
+        {
+            _controlador.EliminarItem();
+            if (_controlador.EliminarItemIsOk)
+            {
+                ActualizarItems();
+            }
+        }
+
+        private void BT_SUCURSAL_Click(object sender, EventArgs e)
+        {
+            Sucursales();
+        }
+        private void Sucursales()
+        {
+            _controlador.Funcion_Sucursales();
+        }
+
+        private void ActualizarItems()
+        {
+            L_ITEMS.Text = _controlador.CntItems.ToString("n0");
         }
      
     }

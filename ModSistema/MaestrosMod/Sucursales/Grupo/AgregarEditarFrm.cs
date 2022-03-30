@@ -15,7 +15,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
     public partial class AgregarEditarFrm : Form
     {
         
-        private IAgregarEditar _controlador;
+        private IGrupoAgregarEditar _controlador;
 
 
         public AgregarEditarFrm()
@@ -75,7 +75,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             }
         }
         
-        public void setControlador(IAgregarEditar ctr)
+        public void setControlador(IGrupoAgregarEditar ctr)
         {
             _controlador=ctr;
         }

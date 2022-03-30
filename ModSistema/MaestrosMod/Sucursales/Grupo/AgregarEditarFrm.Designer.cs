@@ -237,7 +237,7 @@
             this.TB_NOMBRE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TB_NOMBRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_NOMBRE.Location = new System.Drawing.Point(2, 2);
-            this.TB_NOMBRE.MaxLength = 60;
+            this.TB_NOMBRE.MaxLength = 30;
             this.TB_NOMBRE.Name = "TB_NOMBRE";
             this.TB_NOMBRE.Size = new System.Drawing.Size(223, 22);
             this.TB_NOMBRE.TabIndex = 0;

@@ -12,11 +12,16 @@ namespace DataProvSistema.Data
     public partial class DataProv: IData
     {
 
-        public OOB.ResultadoLista<OOB.LibSistema.Sucursal.Ficha> Sucursal_GetLista()
+        public OOB.ResultadoLista<OOB.LibSistema.Sucursal.Ficha> 
+            Sucursal_GetLista(OOB.LibSistema.Sucursal.Lista.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibSistema.Sucursal.Ficha>();
 
-            var r01 = MyData.Sucursal_GetLista();
+            var filtroDTO = new DtoLibSistema.Sucursal.Lista.Filtro()
+            {
+                autoGrupo = filtro.autoGrupo,
+            };
+            var r01 = MyData.Sucursal_GetLista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

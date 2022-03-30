@@ -41,7 +41,8 @@ namespace ModSistema.SucursalDeposito
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Sucursal_GetLista();
+            var filtroOOB = new OOB.LibSistema.Sucursal.Lista.Filtro();
+            var r01 = Sistema.MyData.Sucursal_GetLista(filtroOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r01.Mensaje);

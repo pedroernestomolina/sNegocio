@@ -26,6 +26,11 @@ namespace ModSistema.MaestrosMod
         void AgregarItem();
         void EditarItem(data ItemActual);
         bool EditarIsOk { get; }
+        bool EliminarItemIsOk { get; }
+        void EliminarItem(data ItemActual);
+
+
+        void Funcion_Sucursales(data ItemActual);
 
     }
 

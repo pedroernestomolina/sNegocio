@@ -9,13 +9,14 @@ using System.Windows.Forms;
 namespace ModSistema.MaestrosMod.Sucursales.Grupo
 {
     
-    public class Agregar: IAgregarEditar
+    public class Agregar: IGrupoAgregarEditar
     {
 
 
         private string _nombre;
         private bool _procesarIsOk;
         private bool _abandonarIsOk;
+        private string _idItemRegistrado;
         private Helpers.Opcion.IOpcion _gPrecio;
 
 
@@ -26,7 +27,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
         public BindingSource PrecioSource { get { return _gPrecio.Source; } }
         public string GetPrecioId { get { return _gPrecio.GetId; } }
         public string GetNombre { get { return _nombre; } }
-        public data DataAgregar        {            get { throw new NotImplementedException(); }        }
+        public object IdItemRegistrado { get { return _idItemRegistrado; } }
 
 
         public Agregar() 
@@ -35,7 +36,9 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             _nombre = "";
             _procesarIsOk = false;
             _abandonarIsOk = false;
+            _idItemRegistrado = "";
         }
+
 
         public void Inicializa()
         {
@@ -43,6 +46,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             _nombre = "";
             _procesarIsOk = false;
             _abandonarIsOk = false;
+            _idItemRegistrado = "";
         }
 
         AgregarEditarFrm frm;
@@ -62,6 +66,19 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
 
         private bool CargarData()
         {
+            var r01 = Sistema.MyData.TablaPrecio_GetLista();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            var lst = new List<Helpers.ficha>();
+            foreach (var rg in r01.Lista.OrderBy(o => o.descripcion).ToList())
+            {
+                lst.Add(new Helpers.ficha(rg.id.ToString(), rg.codigo, rg.descripcion));
+            }
+            _gPrecio.setData(lst);
+
             return true;
         }
 
@@ -77,6 +94,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
 
         public void Procesar()
         {
+            _procesarIsOk = false;
+            _idItemRegistrado = "";
             if (_nombre.Trim() == "") 
             {
                 Helpers.Msg.Error("Campo [ NOMBRE ] No Puede Estar Vacio");
@@ -87,11 +106,25 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
                 Helpers.Msg.Error("Campo [ PRECIO ] No Puede Estar Vacio");
                 return;
             }
-
-            _procesarIsOk = false;
             var xmsg = "Guardar Ficha ?";
             var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == DialogResult.Yes) { }
+            if (msg == DialogResult.Yes) 
+            {
+                var fichaOOB = new OOB.LibSistema.SucursalGrupo.Agregar.Ficha()
+                {
+                    idPrecio = int.Parse(_gPrecio.Item.id),
+                    nombre = _nombre,
+                };
+                var r01 = Sistema.MyData.SucursalGrupo_Agregar(fichaOOB);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _procesarIsOk = true;
+                _idItemRegistrado = r01.Auto;
+                Helpers.Msg.AgregarOk();
+            }
         }
         
         public void Abandonar()
@@ -101,6 +134,10 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes)
                 _abandonarIsOk = true; ;
+        }
+
+        public void setIdItemEditar(object p)
+        {
         }
 
     }

@@ -13,7 +13,6 @@ namespace ModSistema
     {
 
 
-        private SucursalGrupo.Gestion _gestionSucGrupo;
         private Sucursal.Gestion _gestionSuc;
         private Deposito.Gestion _gestionDep;
         private Precio.Gestion _gestionPrecio;
@@ -27,12 +26,15 @@ namespace ModSistema
         private DatosNegocio.Editar.Gestion _gestionDatosNegocio;
         private IGestion _gConfModulo;
         //
-        //
+        private Helpers.Lista.ILista _gLista;
         //
         private MaestrosMod.ILista _gMaestroLista;
         private MaestrosMod.IMaestro _gMaestro;
+        //
         private MaestrosMod.ITipoMaestro _gGrupoSuc;
-        private MaestrosMod.Sucursales.Grupo.IAgregarEditar _gAgregarGrupo;
+        private MaestrosMod.Sucursales.Grupo.IGrupoAgregarEditar _gAgregarGrupoSuc;
+        private MaestrosMod.Sucursales.Grupo.IGrupoAgregarEditar _gEditarGrupoSuc;
+        //
         private MaestrosMod.ITipoMaestro _gTablaPrecioSuc;
         private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gAgregarTablaPrecioSuc;
         private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gEditarTablaPrecioSuc;
@@ -69,7 +71,6 @@ namespace ModSistema
 
         public Gestion()
         {
-            _gestionSucGrupo = new SucursalGrupo.Gestion();
             _gestionSuc = new Sucursal.Gestion();
             _gestionDep = new Deposito.Gestion();
             _gestionPrecio = new Precio.Gestion();
@@ -84,15 +85,22 @@ namespace ModSistema
             //
             _gConfModulo = new Configuracion.Modulo.Gestion();
             //
+            _gLista = new Helpers.Lista.Lista();
+            //
             _gMaestroLista = new MaestrosMod.Lista();
             _gMaestro = new MaestrosMod.Maestro(_gMaestroLista);
-            _gAgregarGrupo = new MaestrosMod.Sucursales.Grupo.Agregar() ;
-            _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Grupo(_gAgregarGrupo, _gAgregarGrupo);
+            //
+            _gAgregarGrupoSuc = new MaestrosMod.Sucursales.Grupo.Agregar();
+            _gEditarGrupoSuc = new MaestrosMod.Sucursales.Grupo.Editar();
+            _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Maestro
+                (_gAgregarGrupoSuc, 
+                _gEditarGrupoSuc, 
+                _gLista);
             //
             _gAgregarTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Agregar();
             _gEditarTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Editar();
-            _gTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Maestro(
-                _gAgregarTablaPrecioSuc, 
+            _gTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Maestro
+                (_gAgregarTablaPrecioSuc, 
                 _gEditarTablaPrecioSuc);
         }
 

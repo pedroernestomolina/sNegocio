@@ -86,6 +86,31 @@ namespace ModSistema.MaestrosMod
             }
         }
 
+
+        public bool EliminarItemIsOk { get { return _gTipo.EliminarItemIsOk; } }
+        public void EliminarItem()
+        {
+            if (ItemActual == null)
+            {
+                return;
+            }
+            _gTipo.EliminarItem(ItemActual);
+            if (_gTipo.EliminarItemIsOk)
+            {
+                _gLista.EliminarItemActual();
+            }
+        }
+
+
+        public void Funcion_Sucursales()
+        {
+            if (ItemActual == null)
+            {
+                return;
+            }
+            _gTipo.Funcion_Sucursales(ItemActual);
+        }
+
     }
 
 }

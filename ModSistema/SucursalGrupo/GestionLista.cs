@@ -13,10 +13,10 @@ namespace ModSistema.SucursalGrupo
     public class GestionLista
     {
 
-        private GestionAgregarEditar _gestionAgregarEditar;
-        private List<OOB.LibSistema.SucursalGrupo.Ficha> lGrupo;
-        private BindingList<OOB.LibSistema.SucursalGrupo.Ficha> blGrupo;
-        private BindingSource bsGrupo;
+        //private GestionAgregarEditar _gestionAgregarEditar;
+        //private List<OOB.LibSistema.SucursalGrupo.Ficha> lGrupo;
+        //private BindingList<OOB.LibSistema.SucursalGrupo.Ficha> blGrupo;
+        //private BindingSource bsGrupo;
 
 
         public BindingSource Source { get { return bsGrupo; } }
@@ -25,53 +25,53 @@ namespace ModSistema.SucursalGrupo
 
         public GestionLista()
         {
-            _gestionAgregarEditar = new GestionAgregarEditar();
-            lGrupo = new List<OOB.LibSistema.SucursalGrupo.Ficha>();
-            blGrupo = new BindingList<OOB.LibSistema.SucursalGrupo.Ficha>(lGrupo);
-            bsGrupo = new BindingSource();
-            bsGrupo.DataSource = blGrupo;
+            //_gestionAgregarEditar = new GestionAgregarEditar();
+            //lGrupo = new List<OOB.LibSistema.SucursalGrupo.Ficha>();
+            //blGrupo = new BindingList<OOB.LibSistema.SucursalGrupo.Ficha>(lGrupo);
+            //bsGrupo = new BindingSource();
+            //bsGrupo.DataSource = blGrupo;
         }
 
 
-        public void setLista(List<OOB.LibSistema.SucursalGrupo.Ficha> lista) 
-        {
-            blGrupo.Clear();
-            foreach (var it in lista.OrderBy(o=>o.nombre).ToList())
-            {
-                blGrupo.Add(it);
-            }
-        }
+        //public void setLista(List<OOB.LibSistema.SucursalGrupo.Ficha> lista) 
+        //{
+        //    //blGrupo.Clear();
+        //    //foreach (var it in lista.OrderBy(o=>o.nombre).ToList())
+        //    //{
+        //    //    blGrupo.Add(it);
+        //    //}
+        //}
 
         public void AgregarItem()
         {
-            _gestionAgregarEditar.Agregar();
-            if (_gestionAgregarEditar.IsAgregarEditarOk) 
-            {
-                CargarData();
-            }
+            //_gestionAgregarEditar.Agregar();
+            //if (_gestionAgregarEditar.IsAgregarEditarOk) 
+            //{
+            //    CargarData();
+            //}
         }
 
         private void CargarData()
         {
-            var r01 = Sistema.MyData.SucursalGrupo_GetLista();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-            }
-            setLista(r01.Lista);
+            //var r01 = Sistema.MyData.SucursalGrupo_GetLista();
+            //if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            //{
+            //    Helpers.Msg.Error(r01.Mensaje);
+            //}
+            //setLista(r01.Lista);
         }
 
         public void EditarItem()
         {
-            var it = (OOB.LibSistema.SucursalGrupo.Ficha) bsGrupo.Current;
-            if (it != null) 
-            {
-                _gestionAgregarEditar.Editar(it);
-                if (_gestionAgregarEditar.IsAgregarEditarOk)
-                {
-                    CargarData();
-                }
-            }
+            //var it = (OOB.LibSistema.SucursalGrupo.Ficha) bsGrupo.Current;
+            //if (it != null) 
+            //{
+            //    _gestionAgregarEditar.Editar(it);
+            //    if (_gestionAgregarEditar.IsAgregarEditarOk)
+            //    {
+            //        CargarData();
+            //    }
+            //}
         }
 
     }

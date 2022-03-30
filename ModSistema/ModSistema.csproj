@@ -122,6 +122,15 @@
     <Compile Include="Gestion.cs" />
     <Compile Include="Helpers\ficha.cs" />
     <Compile Include="Helpers\fichaSeleccion.cs" />
+    <Compile Include="Helpers\Lista\data.cs" />
+    <Compile Include="Helpers\Lista\Lista.cs" />
+    <Compile Include="Helpers\Lista\ILista.cs" />
+    <Compile Include="Helpers\Lista\ListaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Lista\ListaFrm.designer.cs">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Opcion\IOpcion.cs" />
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
@@ -147,6 +156,7 @@
     <Compile Include="MaestrosMod\IMaestro.cs" />
     <Compile Include="MaestrosMod\ITipoMaestro.cs" />
     <Compile Include="MaestrosMod\Maestro.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\Editar.cs" />
     <Compile Include="MaestrosMod\Sucursales\Grupo\Agregar.cs" />
     <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
@@ -154,8 +164,8 @@
     <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\Grupo\Grupo.cs" />
-    <Compile Include="MaestrosMod\Sucursales\Grupo\IAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\Maestro.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\IGrupoAgregarEditar.cs" />
     <Compile Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,22 +293,7 @@
     <Compile Include="SucursalDeposito\SucDepFrm.Designer.cs">
       <DependentUpon>SucDepFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SucursalGrupo\AgregarEditarFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SucursalGrupo\AgregarEditarFrm.Designer.cs">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SucursalGrupo\Gestion.cs" />
-    <Compile Include="SucursalGrupo\GestionAgregarEditar.cs" />
-    <Compile Include="SucursalGrupo\GestionLista.cs" />
     <Compile Include="MaestrosMod\Lista.cs" />
-    <Compile Include="SucursalGrupo\MaestroFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SucursalGrupo\MaestroFrm.Designer.cs">
-      <DependentUpon>MaestroFrm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sucursal\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +369,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Lista\ListaFrm.resx">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,12 +429,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SucursalDeposito\SucDepFrm.resx">
       <DependentUpon>SucDepFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SucursalGrupo\AgregarEditarFrm.resx">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SucursalGrupo\MaestroFrm.resx">
-      <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sucursal\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>

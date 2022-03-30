@@ -24,9 +24,8 @@ namespace ModSistema.MaestrosMod
 
 
         object IdItemRegistrado { get; }
+        void setIdItemEditar(object p);
 
-
-        void setIdItemEditar(int p);
     }
 
 }

@@ -16,7 +16,7 @@ namespace ModSistema.Sucursal
 
 
         private OOB.LibSistema.Sucursal.Ficha _ficha;
-        private List<OOB.LibSistema.SucursalGrupo.Ficha> lGrupo;
+        private List<OOB.LibSistema.SucursalGrupo.Entidad.Ficha> lGrupo;
         private BindingSource bsGrupo;
         private bool _habilitarFactMayor { get; set; }
 
@@ -38,7 +38,7 @@ namespace ModSistema.Sucursal
 
         public GestionAgregarEditar()
         {
-            lGrupo = new List<OOB.LibSistema.SucursalGrupo.Ficha>();
+            lGrupo = new List<OOB.LibSistema.SucursalGrupo.Entidad.Ficha>();
             bsGrupo = new BindingSource();
             bsGrupo.DataSource = lGrupo;
 

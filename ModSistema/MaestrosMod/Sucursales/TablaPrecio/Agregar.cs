@@ -110,7 +110,7 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
             }
         }
 
-        public void setIdItemEditar(int p)
+        public void setIdItemEditar(object p)
         {
         }
 
