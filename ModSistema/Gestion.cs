@@ -47,7 +47,7 @@ namespace ModSistema
         {
             get 
             {
-                return "Ver. " + Application.ProductVersion; 
+                return "Ver. 2 - " + Application.ProductVersion; 
             }
         }
 
