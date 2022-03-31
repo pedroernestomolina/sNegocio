@@ -87,10 +87,10 @@
     <Compile Include="LibSistema\SucursalGrupo\Agregar\Ficha.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Editar\Ficha.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Entidad\Ficha.cs" />
-    <Compile Include="LibSistema\Sucursal\Agregar.cs" />
-    <Compile Include="LibSistema\Sucursal\AsignarDepositoPrincipal.cs" />
-    <Compile Include="LibSistema\Sucursal\Editar.cs" />
-    <Compile Include="LibSistema\Sucursal\Ficha.cs" />
+    <Compile Include="LibSistema\Sucursal\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\Sucursal\AsignarDepositoPrincipal\Ficha.cs" />
+    <Compile Include="LibSistema\Sucursal\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Sucursal\Lista\Filtro.cs" />
     <Compile Include="LibSistema\TablaPrecio\Agregar\Ficha.cs" />
     <Compile Include="LibSistema\TablaPrecio\Editar\Ficha.cs" />

@@ -5,14 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace OOB.LibSistema.Sucursal
+namespace OOB.LibSistema.Sucursal.AsignarDepositoPrincipal
 {
-    
-    public class AsignarDepositoPrincipal
+
+
+    public class Ficha
     {
 
         public string auto { get; set; }
         public string autoDepositoPrincipal { get; set; }
+
+
+        public Ficha() 
+        {
+            auto = "";
+            autoDepositoPrincipal = "";
+        }
 
     }
 

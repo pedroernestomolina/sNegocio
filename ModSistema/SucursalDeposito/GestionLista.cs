@@ -14,8 +14,8 @@ namespace ModSistema.SucursalDeposito
     {
 
         private GestionAjustar _gestionAjustar;
-        private List<OOB.LibSistema.Sucursal.Ficha> lLista;
-        private BindingList<OOB.LibSistema.Sucursal.Ficha> blLista;
+        private List<OOB.LibSistema.Sucursal.Entidad.Ficha> lLista;
+        private BindingList<OOB.LibSistema.Sucursal.Entidad.Ficha> blLista;
         private BindingSource bsLista;
 
 
@@ -26,14 +26,14 @@ namespace ModSistema.SucursalDeposito
         public GestionLista()
         {
             _gestionAjustar = new GestionAjustar();
-            lLista = new List<OOB.LibSistema.Sucursal.Ficha>();
-            blLista = new BindingList<OOB.LibSistema.Sucursal.Ficha>(lLista);
+            lLista = new List<OOB.LibSistema.Sucursal.Entidad.Ficha>();
+            blLista = new BindingList<OOB.LibSistema.Sucursal.Entidad.Ficha>(lLista);
             bsLista = new BindingSource();
             bsLista.DataSource = blLista;
         }
 
 
-        public void setLista(List<OOB.LibSistema.Sucursal.Ficha> list)
+        public void setLista(List<OOB.LibSistema.Sucursal.Entidad.Ficha> list)
         {
             blLista.Clear();
             foreach (var it in list.OrderBy(o => o.nombre).ToList())
@@ -44,7 +44,7 @@ namespace ModSistema.SucursalDeposito
 
         public void EditarItem()
         {
-            var it = (OOB.LibSistema.Sucursal.Ficha)bsLista.Current;
+            var it = (OOB.LibSistema.Sucursal.Entidad.Ficha)bsLista.Current;
             if (it != null) 
             {
                 _gestionAjustar.setFicha(it);
@@ -69,7 +69,7 @@ namespace ModSistema.SucursalDeposito
 
         public void EliminarAsignacion()
         {
-            var it = (OOB.LibSistema.Sucursal.Ficha)bsLista.Current;
+            var it = (OOB.LibSistema.Sucursal.Entidad.Ficha)bsLista.Current;
             if (it != null)
             {
                 var msg = MessageBox.Show("Estas Seguro De Quitar Esta Asignacion ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);

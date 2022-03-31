@@ -17,6 +17,8 @@ namespace ModSistema.MaestrosMod
         public string descripcion { get; set; }
         public bool esActivo { get; set; }
         public string mGrupoPrecioRef { get; set; }
+        public string mSucGrupo{ get; set; }
+        public bool mSucFactMayor { get; set; }
 
 
         public data() 
@@ -27,6 +29,8 @@ namespace ModSistema.MaestrosMod
             descripcion = "";
             esActivo = false;
             mGrupoPrecioRef = "";
+            mSucGrupo = "";
+            mSucFactMayor = false;
         }
     
     }

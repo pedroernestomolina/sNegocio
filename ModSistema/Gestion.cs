@@ -13,7 +13,6 @@ namespace ModSistema
     {
 
 
-        private Sucursal.Gestion _gestionSuc;
         private Deposito.Gestion _gestionDep;
         private Precio.Gestion _gestionPrecio;
         private UsuarioGrupo.Gestion _gestionUsuarioGrupo;
@@ -38,6 +37,10 @@ namespace ModSistema
         private MaestrosMod.ITipoMaestro _gTablaPrecioSuc;
         private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gAgregarTablaPrecioSuc;
         private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gEditarTablaPrecioSuc;
+        //
+        private MaestrosMod.ITipoMaestro _gSucursal;
+        private MaestrosMod.Sucursales.Sucursal.ISucursalAgregarEditar _gAgregarSuc;
+        private MaestrosMod.Sucursales.Sucursal.ISucursalAgregarEditar _gEditarSuc;
 
 
         public string Host 
@@ -71,7 +74,6 @@ namespace ModSistema
 
         public Gestion()
         {
-            _gestionSuc = new Sucursal.Gestion();
             _gestionDep = new Deposito.Gestion();
             _gestionPrecio = new Precio.Gestion();
             _gestionUsuarioGrupo = new UsuarioGrupo.Gestion();
@@ -102,6 +104,10 @@ namespace ModSistema
             _gTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Maestro
                 (_gAgregarTablaPrecioSuc, 
                 _gEditarTablaPrecioSuc);
+            //
+            _gAgregarSuc = new MaestrosMod.Sucursales.Sucursal.Agregar();
+            _gEditarSuc = new MaestrosMod.Sucursales.Sucursal.Editar();
+            _gSucursal = new MaestrosMod.Sucursales.Sucursal.Maestro(_gAgregarSuc, _gEditarSuc);
         }
 
 
@@ -111,22 +117,7 @@ namespace ModSistema
             frm.setControlador(this);
             frm.ShowDialog();
         }
-
-        public void MaestroSucursales()
-        {
-            var r00 = Sistema.MyData.Permiso_ControlSucursal(Sistema.UsuarioP.autoGrupo);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            {
-                _gestionSuc.Inicia();
-            }
-        }
-
+       
 
         public  void MaestroDepositos()
         {
@@ -409,6 +400,25 @@ namespace ModSistema
 
                 _gMaestro.Inicializa();
                 _gMaestro.setTipoMaestro(_gTablaPrecioSuc);
+                _gMaestro.Inicia();
+            }
+        }
+
+        public void MaestroSucursales()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlSucursal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gSucursal.Inicializa();
+
+                _gMaestro.Inicializa();
+                _gMaestro.setTipoMaestro(_gSucursal);
                 _gMaestro.Inicia();
             }
         }

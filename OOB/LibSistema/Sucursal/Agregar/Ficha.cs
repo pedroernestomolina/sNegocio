@@ -5,24 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace OOB.LibSistema.Sucursal
+namespace OOB.LibSistema.Sucursal.Agregar
 {
 
-    public class Editar
+    
+    public class Ficha
     {
 
-        public string auto { get; set; }
+
         public string autoGrupo { get; set; }
-        public string codigo { get; set; }
         public string nombre { get; set; }
         public string estatusFactMayor { get; set; }
 
 
-        public Editar() 
+        public Ficha()
         {
-            auto = "";
             autoGrupo = "";
-            codigo = "";
             nombre = "";
             estatusFactMayor = "";
         }

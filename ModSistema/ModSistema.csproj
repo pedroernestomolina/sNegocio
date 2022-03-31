@@ -172,6 +172,22 @@
     <Compile Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\Agregar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\Editar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\ISucursalAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\Maestro.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\Editar.cs" />
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\Agregar.cs" />
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\AgregarEditarFrm.cs">
@@ -294,21 +310,6 @@
       <DependentUpon>SucDepFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="MaestrosMod\Lista.cs" />
-    <Compile Include="Sucursal\AgregarEditarFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sucursal\AgregarEditarFrm.Designer.cs">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sucursal\Gestion.cs" />
-    <Compile Include="Sucursal\GestionAgregarEditar.cs" />
-    <Compile Include="Sucursal\GestionLista.cs" />
-    <Compile Include="Sucursal\MaestroFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sucursal\MaestroFrm.Designer.cs">
-      <DependentUpon>MaestroFrm.cs</DependentUpon>
-    </Compile>
     <Compile Include="TasaDivisa\Gestion.cs" />
     <Compile Include="TasaDivisa\IGestion.cs" />
     <Compile Include="TasaDivisa\Pos\Gestion.cs" />
@@ -381,6 +382,12 @@
     <EmbeddedResource Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosMod\Sucursales\Sucursal\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosMod\Sucursales\Sucursal\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaestrosMod\Sucursales\TablaPrecio\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,12 +436,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SucursalDeposito\SucDepFrm.resx">
       <DependentUpon>SucDepFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sucursal\AgregarEditarFrm.resx">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sucursal\MaestroFrm.resx">
-      <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TasaDivisa\TasaDivisaFrm.resx">
       <DependentUpon>TasaDivisaFrm.cs</DependentUpon>
@@ -564,9 +565,7 @@
       <Name>OOB</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MaestrosMod\Sucursales\Sucursal\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

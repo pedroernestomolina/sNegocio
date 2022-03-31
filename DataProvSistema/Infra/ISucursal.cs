@@ -11,14 +11,18 @@ namespace DataProvSistema.Infra
     public interface ISucursal
     {
 
-        OOB.ResultadoLista<OOB.LibSistema.Sucursal.Ficha> 
+        OOB.ResultadoLista<OOB.LibSistema.Sucursal.Entidad.Ficha> 
             Sucursal_GetLista(OOB.LibSistema.Sucursal.Lista.Filtro filtro);
-        OOB.ResultadoEntidad<OOB.LibSistema.Sucursal.Ficha> Sucursal_GetFicha(string auto);
-        OOB.ResultadoAuto Sucursal_Agregar(OOB.LibSistema.Sucursal.Agregar ficha);
-        OOB.Resultado Sucursal_Editar(OOB.LibSistema.Sucursal.Editar ficha);
-        OOB.Resultado Sucursal_AsignarDepositoPrincipal(OOB.LibSistema.Sucursal.AsignarDepositoPrincipal ficha);
-        OOB.Resultado Sucursal_QuitarDepositoPrincipal(string autoSuc);
-        OOB.ResultadoEntidad<int> Sucursal_GeneraCodigoAutomatico();
+        OOB.ResultadoEntidad<OOB.LibSistema.Sucursal.Entidad.Ficha> 
+            Sucursal_GetFicha(string auto);
+        OOB.ResultadoAuto 
+            Sucursal_Agregar(OOB.LibSistema.Sucursal.Agregar.Ficha ficha);
+        OOB.Resultado 
+            Sucursal_Editar(OOB.LibSistema.Sucursal.Editar.Ficha ficha);
+        OOB.Resultado 
+            Sucursal_AsignarDepositoPrincipal(OOB.LibSistema.Sucursal.AsignarDepositoPrincipal.Ficha ficha);
+        OOB.Resultado 
+            Sucursal_QuitarDepositoPrincipal(string autoSuc);
 
     }
 

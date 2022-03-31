@@ -16,7 +16,7 @@ namespace ModSistema.Deposito
 
 
         private OOB.LibSistema.Deposito.Ficha _ficha;
-        private List<OOB.LibSistema.Sucursal.Ficha> lSucursal;
+        private List<OOB.LibSistema.Sucursal.Entidad.Ficha> lSucursal;
         private BindingSource bsSucursal;
 
 
@@ -30,7 +30,7 @@ namespace ModSistema.Deposito
 
         public GestionAgregarEditar()
         {
-            lSucursal = new List<OOB.LibSistema.Sucursal.Ficha>();
+            lSucursal = new List<OOB.LibSistema.Sucursal.Entidad.Ficha>();
             bsSucursal = new BindingSource();
             bsSucursal.DataSource = lSucursal;
 

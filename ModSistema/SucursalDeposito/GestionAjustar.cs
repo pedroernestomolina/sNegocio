@@ -14,7 +14,7 @@ namespace ModSistema.SucursalDeposito
 
         private List<OOB.LibSistema.Deposito.Ficha> lDeposito;
         private BindingSource bsDeposito;
-        private OOB.LibSistema.Sucursal.Ficha ficha;
+        private OOB.LibSistema.Sucursal.Entidad.Ficha ficha;
 
 
         public bool IsAjusteOk { get; set; }
@@ -84,7 +84,7 @@ namespace ModSistema.SucursalDeposito
             return rt;
         }
 
-        public void setFicha(OOB.LibSistema.Sucursal.Ficha it)
+        public void setFicha(OOB.LibSistema.Sucursal.Entidad.Ficha it)
         {
             ficha = it;
         }
@@ -101,7 +101,7 @@ namespace ModSistema.SucursalDeposito
             var msg = MessageBox.Show("Guardar Ajuste ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes) 
             {
-                var fichaOOB = new OOB.LibSistema.Sucursal.AsignarDepositoPrincipal()
+                var fichaOOB = new OOB.LibSistema.Sucursal.AsignarDepositoPrincipal.Ficha()
                 {
                     auto = ficha.auto,
                     autoDepositoPrincipal = AutoDeposito,
