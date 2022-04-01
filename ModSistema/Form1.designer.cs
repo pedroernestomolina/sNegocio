@@ -67,6 +67,7 @@
             this.TSM_MAESTRO_SucursalGrupo = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTRO_Sucursal = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_MAESTRO_Sucursal_AsignarDeposito = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_MAESTRO_Deposito = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +78,6 @@
             this.TSM_AJUSTE_Datos_Negocio = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_AJUSTE_EtiquetarPrecios = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSM_AJUSTES_AsignarDepositoSucursal = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_Ajuste_TasaDivisa = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Ajuste_TasaRecepciónDivisa_POS = new System.Windows.Forms.ToolStripMenuItem();
@@ -471,8 +471,8 @@
             this.TSM_MAESTRO_SERIES_FISCAL,
             this.toolStripMenuItem6,
             this.sucursalesToolStripMenuItem,
-            this.toolStripMenuItem2,
             this.TSM_MAESTRO_Deposito,
+            this.toolStripMenuItem2,
             this.usuariosToolStripMenuItem,
             this.toolStripMenuItem5});
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
@@ -515,7 +515,8 @@
             this.toolStripMenuItem1,
             this.TSM_MAESTRO_SucursalGrupo,
             this.TSM_MAESTRO_Sucursal,
-            this.toolStripMenuItem3});
+            this.toolStripMenuItem3,
+            this.TSM_MAESTRO_Sucursal_AsignarDeposito});
             this.sucursalesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sucursalesToolStripMenuItem.Image")));
             this.sucursalesToolStripMenuItem.Name = "sucursalesToolStripMenuItem";
             this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
@@ -525,20 +526,20 @@
             // 
             this.TSM_MAESTRO_TablaPrecio.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTRO_TablaPrecio.Name = "TSM_MAESTRO_TablaPrecio";
-            this.TSM_MAESTRO_TablaPrecio.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_TablaPrecio.Size = new System.Drawing.Size(213, 22);
             this.TSM_MAESTRO_TablaPrecio.Text = "Tabla Precios";
             this.TSM_MAESTRO_TablaPrecio.Click += new System.EventHandler(this.TSM_MAESTRO_TablaPrecio_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 6);
             // 
             // TSM_MAESTRO_SucursalGrupo
             // 
             this.TSM_MAESTRO_SucursalGrupo.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTRO_SucursalGrupo.Name = "TSM_MAESTRO_SucursalGrupo";
-            this.TSM_MAESTRO_SucursalGrupo.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_SucursalGrupo.Size = new System.Drawing.Size(213, 22);
             this.TSM_MAESTRO_SucursalGrupo.Text = "Grupos";
             this.TSM_MAESTRO_SucursalGrupo.Click += new System.EventHandler(this.TSM_MAESTRO_SucursalGrupo_Click);
             // 
@@ -546,14 +547,21 @@
             // 
             this.TSM_MAESTRO_Sucursal.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTRO_Sucursal.Name = "TSM_MAESTRO_Sucursal";
-            this.TSM_MAESTRO_Sucursal.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_Sucursal.Size = new System.Drawing.Size(213, 22);
             this.TSM_MAESTRO_Sucursal.Text = "Sucursales";
             this.TSM_MAESTRO_Sucursal.Click += new System.EventHandler(this.TSM_MAESTRO_Sucursal_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(210, 6);
+            // 
+            // TSM_MAESTRO_Sucursal_AsignarDeposito
+            // 
+            this.TSM_MAESTRO_Sucursal_AsignarDeposito.Name = "TSM_MAESTRO_Sucursal_AsignarDeposito";
+            this.TSM_MAESTRO_Sucursal_AsignarDeposito.Size = new System.Drawing.Size(213, 22);
+            this.TSM_MAESTRO_Sucursal_AsignarDeposito.Text = "Asignar Depósito Principal";
+            this.TSM_MAESTRO_Sucursal_AsignarDeposito.Click += new System.EventHandler(this.TSM_MAESTRO_Sucursal_AsignarDeposito_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -565,7 +573,7 @@
             this.TSM_MAESTRO_Deposito.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_Deposito.Image")));
             this.TSM_MAESTRO_Deposito.Name = "TSM_MAESTRO_Deposito";
             this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(152, 22);
-            this.TSM_MAESTRO_Deposito.Text = "Depositos";
+            this.TSM_MAESTRO_Deposito.Text = "Depósitos";
             this.TSM_MAESTRO_Deposito.Click += new System.EventHandler(this.TSM_MAESTRO_Deposito_Click);
             // 
             // usuariosToolStripMenuItem
@@ -605,7 +613,6 @@
             this.TSM_AJUSTE_Datos_Negocio,
             this.toolStripMenuItem8,
             this.TSM_AJUSTE_EtiquetarPrecios,
-            this.TSM_AJUSTES_AsignarDepositoSucursal,
             this.toolStripMenuItem4,
             this.Menu_Ajuste_TasaDivisa,
             this.Menu_Ajuste_TasaRecepciónDivisa_POS,
@@ -619,41 +626,33 @@
             // 
             this.TSM_AJUSTE_Datos_Negocio.Image = global::ModSistema.Properties.Resources.icon_setup;
             this.TSM_AJUSTE_Datos_Negocio.Name = "TSM_AJUSTE_Datos_Negocio";
-            this.TSM_AJUSTE_Datos_Negocio.Size = new System.Drawing.Size(271, 22);
+            this.TSM_AJUSTE_Datos_Negocio.Size = new System.Drawing.Size(229, 22);
             this.TSM_AJUSTE_Datos_Negocio.Text = "Datos De La Empresa";
             this.TSM_AJUSTE_Datos_Negocio.Click += new System.EventHandler(this.TSM_AJUSTE_Datos_Negocio_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(268, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(226, 6);
             // 
             // TSM_AJUSTE_EtiquetarPrecios
             // 
             this.TSM_AJUSTE_EtiquetarPrecios.Image = ((System.Drawing.Image)(resources.GetObject("TSM_AJUSTE_EtiquetarPrecios.Image")));
             this.TSM_AJUSTE_EtiquetarPrecios.Name = "TSM_AJUSTE_EtiquetarPrecios";
-            this.TSM_AJUSTE_EtiquetarPrecios.Size = new System.Drawing.Size(271, 22);
+            this.TSM_AJUSTE_EtiquetarPrecios.Size = new System.Drawing.Size(229, 22);
             this.TSM_AJUSTE_EtiquetarPrecios.Text = "Etiquetas Para Precios";
             this.TSM_AJUSTE_EtiquetarPrecios.Click += new System.EventHandler(this.TSM_AJUSTE_EtiquetarPrecios_Click);
-            // 
-            // TSM_AJUSTES_AsignarDepositoSucursal
-            // 
-            this.TSM_AJUSTES_AsignarDepositoSucursal.Image = ((System.Drawing.Image)(resources.GetObject("TSM_AJUSTES_AsignarDepositoSucursal.Image")));
-            this.TSM_AJUSTES_AsignarDepositoSucursal.Name = "TSM_AJUSTES_AsignarDepositoSucursal";
-            this.TSM_AJUSTES_AsignarDepositoSucursal.Size = new System.Drawing.Size(271, 22);
-            this.TSM_AJUSTES_AsignarDepositoSucursal.Text = "Asignar Deposito Principal A Sucursal";
-            this.TSM_AJUSTES_AsignarDepositoSucursal.Click += new System.EventHandler(this.TSM_AJUSTES_AsignarDepositoSucursal_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(268, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(226, 6);
             // 
             // Menu_Ajuste_TasaDivisa
             // 
             this.Menu_Ajuste_TasaDivisa.Image = ((System.Drawing.Image)(resources.GetObject("Menu_Ajuste_TasaDivisa.Image")));
             this.Menu_Ajuste_TasaDivisa.Name = "Menu_Ajuste_TasaDivisa";
-            this.Menu_Ajuste_TasaDivisa.Size = new System.Drawing.Size(271, 22);
+            this.Menu_Ajuste_TasaDivisa.Size = new System.Drawing.Size(229, 22);
             this.Menu_Ajuste_TasaDivisa.Text = "Tasa Divisa Actual";
             this.Menu_Ajuste_TasaDivisa.Click += new System.EventHandler(this.Menu_Ajuste_TasaDivisa_Click);
             // 
@@ -661,19 +660,19 @@
             // 
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Image = ((System.Drawing.Image)(resources.GetObject("Menu_Ajuste_TasaRecepciónDivisa_POS.Image")));
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Name = "Menu_Ajuste_TasaRecepciónDivisa_POS";
-            this.Menu_Ajuste_TasaRecepciónDivisa_POS.Size = new System.Drawing.Size(271, 22);
+            this.Menu_Ajuste_TasaRecepciónDivisa_POS.Size = new System.Drawing.Size(229, 22);
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Text = "Tasa Recepción Divisa ( POS )";
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Click += new System.EventHandler(this.Menu_Ajuste_TasaRecepciónDivisa_POS_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(268, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(226, 6);
             // 
             // Menu_Ajuste_ReconversionMonetaria
             // 
             this.Menu_Ajuste_ReconversionMonetaria.Name = "Menu_Ajuste_ReconversionMonetaria";
-            this.Menu_Ajuste_ReconversionMonetaria.Size = new System.Drawing.Size(271, 22);
+            this.Menu_Ajuste_ReconversionMonetaria.Size = new System.Drawing.Size(229, 22);
             this.Menu_Ajuste_ReconversionMonetaria.Text = "Reconversión Monetaria";
             this.Menu_Ajuste_ReconversionMonetaria.Click += new System.EventHandler(this.Menu_Ajuste_ReconversionMonetaria_Click);
             // 
@@ -974,7 +973,6 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_Sucursal;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTES_AsignarDepositoSucursal;
         private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTE_EtiquetarPrecios;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_UsuarioGrupo;
@@ -1035,6 +1033,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_CONF_MODULO;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_TablaPrecio;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_Sucursal_AsignarDeposito;
     }
 }
 

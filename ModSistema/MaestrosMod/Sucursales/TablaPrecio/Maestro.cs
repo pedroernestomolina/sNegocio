@@ -142,6 +142,12 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
         {
         }
 
+
+        public bool ActivarInactivarIsOk { get { return false; } }
+        public void ActivarInactivar(data ItemActual)
+        {
+        }
+
     }
 
 }

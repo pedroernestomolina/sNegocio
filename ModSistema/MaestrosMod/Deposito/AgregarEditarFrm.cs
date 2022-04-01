@@ -9,59 +9,60 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModSistema.MaestrosMod.Sucursales.Sucursal
+namespace ModSistema.MaestrosMod.Deposito
 {
 
     public partial class AgregarEditarFrm : Form
     {
 
-
-        private ISucursalAgregarEditar _controlador;
+        private IDepositoAgregarEditar _controlador;
 
 
         public AgregarEditarFrm()
         {
             InitializeComponent();
-            InicializaCombo();
+            InicializaCombos();
         }
 
 
-        private void InicializaCombo()
+        private void InicializaCombos()
         {
-            CB_GRUPO.DisplayMember = "desc";
-            CB_GRUPO.ValueMember = "id";
+            CB_SUCURSAL.DisplayMember = "desc";
+            CB_SUCURSAL.ValueMember = "id";
         }
 
-        private bool _modoInicializa;
+
+        bool _modoInicializa;
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
             _modoInicializa = true;
-            CB_GRUPO.DataSource = _controlador.GrupoSource;
             L_TITULO.Text = _controlador.Titulo;
+            CB_SUCURSAL.DataSource = _controlador.SucursalSource;
+            CB_SUCURSAL.SelectedValue = _controlador.GetSucursalId;
             TB_NOMBRE.Text = _controlador.GetNombre;
-            CHK_MAYOR.Checked = _controlador.GetFactMayor;
-            CB_GRUPO.SelectedValue = _controlador.GetGrupoId;
             _modoInicializa = false;
             TB_NOMBRE.Focus();
         }
 
-        private void TB_NOMBRE_Leave(object sender, EventArgs e)
+
+        public void setControlador(IDepositoAgregarEditar ctr)
         {
-            _controlador.setNombre(TB_NOMBRE.Text);
+            _controlador = ctr;
         }
-        private void CHK_MAYOR_Leave(object sender, EventArgs e)
+
+        private void TB_NOMBRE_TextChanged(object sender, EventArgs e)
         {
-            _controlador.setFactMayor(CHK_MAYOR.Checked);
+            _controlador.setNombre(TB_NOMBRE.Text.Trim());
         }
-        private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
+        private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_modoInicializa)
                 return;
 
-            _controlador.SetGrupo("");
-            if (CB_GRUPO.SelectedIndex != -1)
+            _controlador.setSucursal("");
+            if (CB_SUCURSAL.SelectedIndex !=-1)
             {
-                _controlador.SetGrupo(CB_GRUPO.SelectedValue.ToString());
+                _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
             }
         }
         private void TB_KeyDown(object sender, KeyEventArgs e)
@@ -72,10 +73,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             }
         }
 
-        public void setControlador(ISucursalAgregarEditar ctr)
-        {
-            _controlador = ctr;
-        }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
@@ -117,7 +114,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                 e.Cancel = false;
             }
         }
- 
+
     }
 
 }

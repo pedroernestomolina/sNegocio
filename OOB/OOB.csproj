@@ -57,9 +57,10 @@
     <Compile Include="LibSistema\ControlAcceso\Actualizar\Ficha.cs" />
     <Compile Include="LibSistema\ControlAcceso\Actualizar\ItemAcceso.cs" />
     <Compile Include="LibSistema\ControlAcceso\Data\Ficha.cs" />
-    <Compile Include="LibSistema\Deposito\Agregar.cs" />
-    <Compile Include="LibSistema\Deposito\Editar.cs" />
-    <Compile Include="LibSistema\Deposito\Ficha.cs" />
+    <Compile Include="LibSistema\Deposito\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\Deposito\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\Deposito\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\Deposito\Lista\Filtro.cs" />
     <Compile Include="LibSistema\Empresa\Data\Ficha.cs" />
     <Compile Include="LibSistema\Funcion\Ficha.cs" />
     <Compile Include="LibSistema\Negocio\Editar\Ficha.cs" />

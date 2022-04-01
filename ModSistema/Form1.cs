@@ -94,16 +94,6 @@ namespace ModSistema
             _controlador.EtiquetarPrecios();
         }
 
-        private void TSM_AJUSTES_AsignarDepositoSucursal_Click(object sender, EventArgs e)
-        {
-            AsignarDepositoPrincipalASucursal();
-        }
-
-        private void AsignarDepositoPrincipalASucursal()
-        {
-            _controlador.AsignarDepositoPrincipalASucursal();
-        }
-
         private void TSM_MAESTROS_UsuarioGrupo_Click(object sender, EventArgs e)
         {
             UsuarioGrupos();
@@ -240,6 +230,15 @@ namespace ModSistema
         private void SucursalGrupo()
         {
             _controlador.MaestroSucursalGrupo();
+        }
+
+        private void TSM_MAESTRO_Sucursal_AsignarDeposito_Click(object sender, EventArgs e)
+        {
+            AsignarDeposito();
+        }
+        private void AsignarDeposito()
+        {
+            _controlador.AsignarDeposito();
         }
 
     }

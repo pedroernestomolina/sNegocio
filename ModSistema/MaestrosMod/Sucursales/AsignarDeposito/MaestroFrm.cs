@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModSistema.MaestrosMod.Sucursales.Sucursal
+namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
 {
 
     public partial class MaestroFrm : Form
@@ -86,21 +86,14 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             c2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "mSucGrupo";
-            c3.HeaderText = "Grupo";
+            c3.DataPropertyName = "mSucDeposito";
+            c3.HeaderText = "Depósito Asignado";
             c3.Visible = true;
-            c3.Width = 140;
+            c3.MinimumWidth = 180;
+            c3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
-            c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            var c4 = new DataGridViewCheckBoxColumn();
-            c4.DataPropertyName = "mSucFactMayor";
-            c4.HeaderText = "Fact/Mayor";
-            c4.Visible = true;
-            c4.Width = 80;
-            c4.HeaderCell.Style.Font = f;
-            c4.DefaultCellStyle.Font = f1;
+            c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             var c5 = new DataGridViewCheckBoxColumn();
             c5.DataPropertyName = "esActivo";
@@ -113,21 +106,21 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
-            DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
         }
 
-        private void BT_AGREGAR_Click(object sender, EventArgs e)
+        private void BT_ELIMINAR_Click(object sender, EventArgs e)
         {
-            AgregarItem();
+            Eliminar();
         }
-        private void AgregarItem()
+        private void Eliminar()
         {
-            _controlador.AgregarItem();
-            if (_controlador.AgregarIsOk)
+            _controlador.EliminarItem();
+            if (_controlador.EliminarItemIsOk)
             {
                 ActualizarItems();
             }
+            DGV.Refresh();
         }
 
         private void BT_EDITAR_Click(object sender, EventArgs e)
@@ -141,20 +134,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             {
                 ActualizarItems();
             }
-        }
-
-        private void BT_ACTIVAR_INACTIVAR_Click(object sender, EventArgs e)
-        {
-            ActivarInactivar();
-        }
-        private void ActivarInactivar()
-        {
-            _controlador.ActivarInactivar();
-            if (_controlador.ActivarInactivarIsOk)
-            {
-                ActualizarItems();
-            }
-            DGV.Refresh();
         }
 
         private void ActualizarItems()

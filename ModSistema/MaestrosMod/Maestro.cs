@@ -111,6 +111,20 @@ namespace ModSistema.MaestrosMod
             _gTipo.Funcion_Sucursales(ItemActual);
         }
 
+
+        public bool ActivarInactivarIsOk { get { return _gTipo.ActivarInactivarIsOk; } }
+        public void ActivarInactivar()
+        {
+            if (ItemActual == null)
+            {
+                return;
+            }
+            _gTipo.ActivarInactivar(ItemActual);
+            if (_gTipo.ActivarInactivarIsOk)
+            {
+            }
+        }
+
     }
 
 }

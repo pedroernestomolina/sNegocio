@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModSistema.MaestrosMod.Sucursales.Sucursal
+namespace ModSistema.MaestrosMod.Deposito
 {
     
     public class Maestro: ITipoMaestro
@@ -19,7 +19,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         private bool _activarInactivarIsOk;
 
 
-        public string GetTitulo { get { return "Maestro: SUCURSALES"; } }
+        public string GetTitulo { get { return "Maestro: DEPOSITOS"; } }
         public IEnumerable<data> Lista { get { return _lst; } }
 
 
@@ -45,8 +45,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         public bool CargarData()
         {
             _lst.Clear();
-            var filtroOOB = new OOB.LibSistema.Sucursal.Lista.Filtro();
-            var r01 = Sistema.MyData.Sucursal_GetLista(filtroOOB);
+            var filtroOOB = new OOB.LibSistema.Deposito.Lista.Filtro();
+            var r01 = Sistema.MyData.Deposito_GetLista (filtroOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -60,8 +60,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                     codigo = rg.codigo,
                     descripcion = rg.nombre,
                     esActivo = rg.esActivo,
-                    mSucGrupo = rg.nombreGrupo,
-                    mSucFactMayor = rg.activarFactMayor,
                 };
                 _lst.Add(nr);
             }
@@ -80,15 +78,16 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             frm.ShowDialog();
         }
 
+        public data ItemAgregarEditar { get { return _dataAgregarEditar; } }
+
 
         public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
-        public data ItemAgregarEditar { get { return _dataAgregarEditar; } }
         public void AgregarItem()
         {
             _dataAgregarEditar = null;
             _gAgregar.Inicializa();
 
-            var r00 = Sistema.MyData.Permiso_ControlSucursal_Agregar(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_ControlDeposito_Agregar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -101,7 +100,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                 if (_gAgregar.IsOk)
                 {
                     var id = (string)_gAgregar.IdItemRegistrado;
-                    var r01 = Sistema.MyData.Sucursal_GetFicha(id);
+                    var r01 = Sistema.MyData.Deposito_GetFicha(id);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);
@@ -114,8 +113,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                         codigo = rg.codigo,
                         descripcion = rg.nombre,
                         esActivo = rg.esActivo,
-                        mSucGrupo = rg.nombreGrupo,
-                        mSucFactMayor = rg.activarFactMayor,
                     };
                 }
             }
@@ -127,7 +124,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             _dataAgregarEditar = null;
             _gEditar.Inicializa();
 
-            var r00 = Sistema.MyData.Permiso_ControlSucursal_Editar(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_ControlDeposito_Editar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -138,7 +135,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             {
                 if (!ItemActual.esActivo) 
                 {
-                    Helpers.Msg.Error("SUCURSAL EN ESTADO INACTIVO");
+                    Helpers.Msg.Error("DEPOSITO EN ESTADO INACTIVO");
                     return;
                 }
 
@@ -147,7 +144,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                 _gEditar.Inicia();
                 if (_gEditar.IsOk)
                 {
-                    var r01 = Sistema.MyData.Sucursal_GetFicha(_idEditar);
+                    var r01 = Sistema.MyData.Deposito_GetFicha(_idEditar);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);
@@ -160,8 +157,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                         codigo = rg.codigo,
                         descripcion = rg.nombre,
                         esActivo = rg.esActivo,
-                        mSucGrupo = rg.nombreGrupo,
-                        mSucFactMayor = rg.activarFactMayor,
                     };
                 }
             }
@@ -183,7 +178,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         {
             _activarInactivarIsOk = false;
 
-            var r00 = Sistema.MyData.Permiso_ControlSucursal_ActivarInactivar(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_ControlDeposito_ActivarInactivar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -198,7 +193,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                     var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                     if (msg == DialogResult.Yes)
                     {
-                        var r01 = Sistema.MyData.Sucursal_Inactivar(ItemActual.auto);
+                        var r01 = Sistema.MyData.Deposito_Inactivar(ItemActual.auto);
                         if (r01.Result == OOB.Enumerados.EnumResult.isError)
                         {
                             Helpers.Msg.Error(r01.Mensaje);
@@ -206,7 +201,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                         }
                         _activarInactivarIsOk = true;
                         ItemActual.setInactivar();
-                        Helpers.Msg.OK("SUCURSAL HA CAMBIADO DE ESTATUS A : INACTIVA");
+                        Helpers.Msg.OK("DEPOSITO HA CAMBIADO DE ESTATUS A : INACTIVA");
                     }
                 }
                 else 
@@ -215,7 +210,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                     var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                     if (msg == DialogResult.Yes)
                     {
-                        var r01 = Sistema.MyData.Sucursal_Activar(ItemActual.auto);
+                        var r01 = Sistema.MyData.Deposito_Activar(ItemActual.auto);
                         if (r01.Result == OOB.Enumerados.EnumResult.isError)
                         {
                             Helpers.Msg.Error(r01.Mensaje);
@@ -223,7 +218,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                         }
                         _activarInactivarIsOk = true;
                         ItemActual.setActivar();
-                        Helpers.Msg.OK("SUCURSAL HA CAMBIADO DE ESTATUS A : ACTIVA");
+                        Helpers.Msg.OK("DEPOSITO HA CAMBIADO DE ESTATUS A : ACTIVA");
                     }
                 }
             }

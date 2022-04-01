@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModSistema.MaestrosMod.Sucursales.Sucursal
+namespace ModSistema.MaestrosMod.Deposito
 {
 
     public partial class MaestroFrm : Form
@@ -84,24 +84,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
             c2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "mSucGrupo";
-            c3.HeaderText = "Grupo";
-            c3.Visible = true;
-            c3.Width = 140;
-            c3.HeaderCell.Style.Font = f;
-            c3.DefaultCellStyle.Font = f1;
-            c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            var c4 = new DataGridViewCheckBoxColumn();
-            c4.DataPropertyName = "mSucFactMayor";
-            c4.HeaderText = "Fact/Mayor";
-            c4.Visible = true;
-            c4.Width = 80;
-            c4.HeaderCell.Style.Font = f;
-            c4.DefaultCellStyle.Font = f1;
-
+          
             var c5 = new DataGridViewCheckBoxColumn();
             c5.DataPropertyName = "esActivo";
             c5.HeaderText = "Estatus";
@@ -112,8 +95,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
 
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
-            DGV.Columns.Add(c3);
-            DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
         }
 

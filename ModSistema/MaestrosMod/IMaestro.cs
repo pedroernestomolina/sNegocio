@@ -35,6 +35,10 @@ namespace ModSistema.MaestrosMod
 
         void Funcion_Sucursales();
 
+
+        void ActivarInactivar();
+        bool ActivarInactivarIsOk { get; }
+
     }
 
 }

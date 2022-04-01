@@ -66,6 +66,11 @@ namespace DataProvSistema.Data
             }
 
             var s = r01.Entidad;
+            var nombreDepositoAsignado = "";
+            if (s.nombreDepositoAsignado != null) 
+            {
+                nombreDepositoAsignado = s.nombreDepositoAsignado;
+            }
             var nr = new OOB.LibSistema.Sucursal.Entidad.Ficha()
             {
                 auto = s.auto,
@@ -76,6 +81,7 @@ namespace DataProvSistema.Data
                 estatusFactMayor = s.estatusFactMayor,
                 nombre = s.nombre,
                 nombreGrupo = s.nombreGrupo,
+                nombreDepositoPrincipal=nombreDepositoAsignado,
             };
             rt.Entidad = nr;
 
@@ -152,6 +158,36 @@ namespace DataProvSistema.Data
             var rt = new OOB.Resultado();
 
             var r01 = MyData.Sucursal_QuitarDepositoPrincipal(autoSuc);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+        public OOB.Resultado 
+            Sucursal_Activar(string autoSuc)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Sucursal_Activar (autoSuc);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+        public OOB.Resultado 
+            Sucursal_Inactivar(string autoSuc)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Sucursal_Inactivar(autoSuc);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

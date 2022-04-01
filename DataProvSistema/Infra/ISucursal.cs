@@ -23,6 +23,10 @@ namespace DataProvSistema.Infra
             Sucursal_AsignarDepositoPrincipal(OOB.LibSistema.Sucursal.AsignarDepositoPrincipal.Ficha ficha);
         OOB.Resultado 
             Sucursal_QuitarDepositoPrincipal(string autoSuc);
+        OOB.Resultado
+            Sucursal_Activar(string autoSuc);
+        OOB.Resultado
+            Sucursal_Inactivar(string autoSuc);
 
     }
 

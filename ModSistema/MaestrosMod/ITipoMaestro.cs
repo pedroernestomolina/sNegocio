@@ -28,6 +28,8 @@ namespace ModSistema.MaestrosMod
         bool EditarIsOk { get; }
         bool EliminarItemIsOk { get; }
         void EliminarItem(data ItemActual);
+        bool ActivarInactivarIsOk { get; }
+        void ActivarInactivar(data ItemActual);
 
 
         void Funcion_Sucursales(data ItemActual);

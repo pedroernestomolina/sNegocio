@@ -18,6 +18,7 @@ namespace ModSistema.MaestrosMod
         public bool esActivo { get; set; }
         public string mGrupoPrecioRef { get; set; }
         public string mSucGrupo{ get; set; }
+        public string mSucDeposito { get; set; }
         public bool mSucFactMayor { get; set; }
 
 
@@ -30,9 +31,20 @@ namespace ModSistema.MaestrosMod
             esActivo = false;
             mGrupoPrecioRef = "";
             mSucGrupo = "";
+            mSucDeposito = "";
             mSucFactMayor = false;
         }
-    
+
+
+        public void setInactivar()
+        {
+            esActivo = false;
+        }
+        public void setActivar()
+        {
+            esActivo = true;
+        }
+
     }
 
 }
