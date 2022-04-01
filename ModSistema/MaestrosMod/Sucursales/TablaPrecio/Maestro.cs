@@ -75,60 +75,83 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
         }
 
 
-        public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
         public data ItemAgregarEditar { get { return _dataAgregarEditar; } }
+
+
+        public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
         public void AgregarItem()
         {
             _dataAgregarEditar = null;
             _gAgregar.Inicializa();
-            _gAgregar.Inicia();
-            if (_gAgregar.IsOk)
+
+            var r00 = Sistema.MyData.Permiso_ControlSucursal_TablaPrecio_Agregar(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
             {
-                var id = (int)_gAgregar.IdItemRegistrado;
-                var r01 = Sistema.MyData.TablaPrecio_GetById(id);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gAgregar.Inicia();
+                if (_gAgregar.IsOk)
                 {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                    var id = (int)_gAgregar.IdItemRegistrado;
+                    var r01 = Sistema.MyData.TablaPrecio_GetById(id);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    var rg = r01.Entidad;
+                    _dataAgregarEditar = new data()
+                    {
+                        id = rg.id,
+                        auto = rg.id.ToString(),
+                        codigo = rg.codigo,
+                        descripcion = rg.descripcion,
+                        esActivo = rg.esActivo,
+                    };
                 }
-                var rg = r01.Entidad;
-                _dataAgregarEditar = new data()
-                {
-                    id = rg.id,
-                    auto = rg.id.ToString(),
-                    codigo = rg.codigo,
-                    descripcion = rg.descripcion,
-                    esActivo = rg.esActivo,
-                };
             }
         }
 
         public bool EditarIsOk { get { return _gEditar.IsOk; } }
         public void EditarItem(data ItemActual)
         {
-            var _idEditar = ItemActual.id;
             _dataAgregarEditar = null;
-
             _gEditar.Inicializa();
-            _gEditar.setIdItemEditar(_idEditar);
-            _gEditar.Inicia();
-            if (_gEditar.IsOk)
+
+            var r00 = Sistema.MyData.Permiso_ControlSucursal_TablaPrecio_Editar(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
             {
-                var r01 = Sistema.MyData.TablaPrecio_GetById(_idEditar);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var _idEditar = ItemActual.id;
+                _gEditar.setIdItemEditar(_idEditar);
+                _gEditar.Inicia();
+                if (_gEditar.IsOk)
                 {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                    var r01 = Sistema.MyData.TablaPrecio_GetById(_idEditar);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    var rg = r01.Entidad;
+                    _dataAgregarEditar = new data()
+                    {
+                        id = rg.id,
+                        auto = rg.id.ToString(),
+                        codigo = rg.codigo,
+                        descripcion = rg.descripcion,
+                        esActivo = rg.esActivo,
+                    };
                 }
-                var rg = r01.Entidad;
-                _dataAgregarEditar = new data()
-                {
-                    id = rg.id,
-                    auto = rg.id.ToString(),
-                    codigo = rg.codigo,
-                    descripcion = rg.descripcion,
-                    esActivo = rg.esActivo,
-                };
             }
         }
 

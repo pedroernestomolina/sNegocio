@@ -22,12 +22,14 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_AjustarTasaDivisaRecepcionPos(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_EtiquetaParaPrecios(string autoGrupoUsuario);
 
+
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
             Permiso_AsignarDepositoSucursal(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
             Permiso_AsignarDepositoSucursal_EliminarAsignacion(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             Permiso_AsignarDepositoSucursal_EditarAsignacion(string autoGrupoUsuario);
+
 
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>  
             Permiso_ControlSucursalGrupo(string autoGrupoUsuario);
@@ -38,6 +40,7 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             Permiso_ControlSucursalGrupo_Eliminar(string autoGrupoUsuario);
 
+
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             Permiso_ControlSucursal(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
@@ -47,6 +50,7 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             Permiso_ControlSucursal_ActivarInactivar(string autoGrupoUsuario);
 
+
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             Permiso_ControlDeposito(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
@@ -55,6 +59,14 @@ namespace DataProvSistema.Infra
             Permiso_ControlDeposito_Editar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             Permiso_ControlDeposito_ActivarInactivar(string autoGrupoUsuario);
+
+
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
+            Permiso_ControlSucursal_TablaPrecio(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
+            Permiso_ControlSucursal_TablaPrecio_Agregar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
+            Permiso_ControlSucursal_TablaPrecio_Editar(string autoGrupoUsuario);
 
 
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuarioGrupo(string autoGrupoUsuario);

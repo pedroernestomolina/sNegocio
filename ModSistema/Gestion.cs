@@ -373,7 +373,7 @@ namespace ModSistema
 
         public void TablaPreciosSuc()
         {
-            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_ControlSucursal_TablaPrecio(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
