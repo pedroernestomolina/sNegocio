@@ -64,7 +64,9 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-        public OOB.Resultado Configuracion_Actualizar_TasaRecepcionPos(OOB.LibSistema.Configuracion.ActualizarTasaRecepcionPos.Ficha ficha)
+
+        public OOB.Resultado 
+            Configuracion_Actualizar_TasaRecepcionPos(OOB.LibSistema.Configuracion.ActualizarTasaRecepcionPos.Ficha ficha)
         {
             var rt = new OOB.Resultado();
 
@@ -82,7 +84,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha> Configuracion_Actualizar_TasaDivisa_CapturarData()
+        public OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha> 
+            Configuracion_Actualizar_TasaDivisa_CapturarData()
         {
             var rt = new OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha>();
 
@@ -115,6 +118,8 @@ namespace DataProvSistema.Data
                             precioFullDivisa_5 = s.precioFullDivisa_5,
                             precioFullDivisaMay_1 = s.precioFullDivisaMay_1,
                             precioFullDivisaMay_2 = s.precioFullDivisaMay_2,
+                            precioFullDivisaMay_3 = s.precioFullDivisaMay_3,
+                            precioFullDivisaMay_4 = s.precioFullDivisaMay_4,
                             precioNetoMoneda_1 = s.precioNetoMoneda_1,
                             precioNetoMoneda_2 = s.precioNetoMoneda_2,
                             precioNetoMoneda_3 = s.precioNetoMoneda_3,
@@ -122,6 +127,8 @@ namespace DataProvSistema.Data
                             precioNetoMoneda_5 = s.precioNetoMoneda_5,
                             precioNetoMonedaMay_1 = s.precioNetoMonedaMay_1,
                             precioNetoMonedaMay_2 = s.precioNetoMonedaMay_2,
+                            precioNetoMonedaMay_3 = s.precioNetoMonedaMay_3,
+                            precioNetoMonedaMay_4 = s.precioNetoMonedaMay_4,
                             tasaIva = s.tasaIva,
                         };
                         return nr;
@@ -132,7 +139,52 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.Resultado Configuracion_Actualizar_TasaDivisa_ActualizarData(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha ficha)
+        public OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.dataHndPrecio>
+            Configuracion_Actualizar_TasaDivisa_CapturarData_HndPrecio()
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.dataHndPrecio>();
+
+            var r01 = MyData.Configuracion_Actualizar_TasaDivisa_CapturarData_HndPrecio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var lst = new List<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.dataHndPrecio>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.dataHndPrecio()
+                        {
+                            autoProducto = s.autoProducto,
+                            cont_1 = s.cont_1,
+                            cont_2 = s.cont_2,
+                            cont_3 = s.cont_3,
+                            estatusDivisa = s.estatusDivisa,
+                            fullDivisa_1 = s.fullDivisa_1,
+                            fullDivisa_2 = s.fullDivisa_2,
+                            fullDivisa_3 = s.fullDivisa_3,
+                            idPrecio = s.idPrecio,
+                            neto_1 = s.neto_1,
+                            neto_2 = s.neto_2,
+                            neto_3 = s.neto_3,
+                            tasaIva = s.tasaIva,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.Lista = lst;
+
+            return rt;
+        }
+        public OOB.Resultado 
+            Configuracion_Actualizar_TasaDivisa_ActualizarData(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha ficha)
         {
             var rt = new OOB.Resultado();
 
@@ -159,6 +211,8 @@ namespace DataProvSistema.Data
                     precioMonedaEnDivisaFull_5 = rg.precioMonedaEnDivisaFull_5,
                     precioMonedaEnDivisaFull_May_1 = rg.precioMonedaEnDivisaFull_May_1,
                     precioMonedaEnDivisaFull_May_2 = rg.precioMonedaEnDivisaFull_May_2,
+                    precioMonedaEnDivisaFull_May_3 = rg.precioMonedaEnDivisaFull_May_3,
+                    precioMonedaEnDivisaFull_May_4 = rg.precioMonedaEnDivisaFull_May_4,
                 };
                 lstProdCostoSinDivisa.Add(nr);
             }
@@ -188,6 +242,8 @@ namespace DataProvSistema.Data
                     precio_5 = rg.precio_5,
                     precioMay_1 = rg.precioMay_1,
                     precioMay_2 = rg.precioMay_2,
+                    precioMay_3 = rg.precioMay_3,
+                    precioMay_4 = rg.precioMay_4,
                     serie = rg.serie,
                 };
                 lstProdDivisaCostoPrecio.Add(nr);
@@ -208,6 +264,26 @@ namespace DataProvSistema.Data
             }
             fichaDTO.productosPrecioHistorico = lstProdPrecioHistorico;
 
+
+            var lstHndPrecio = new List<DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaHndPrecio>(); 
+            foreach (var rg in ficha.productosHndPrecio)
+            {
+                var nr = new DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaHndPrecio()
+                {
+                    autoProducto = rg.autoProducto,
+                    esAdmDivisa = rg.esAdmDivisa,
+                    fullDivisa_1 = rg.fullDivisa_1,
+                    fullDivisa_2 = rg.fullDivisa_2,
+                    fullDivisa_3 = rg.fullDivisa_3,
+                    idPrecio = rg.idPrecio,
+                    neto_1 = rg.neto_1,
+                    neto_2 = rg.neto_2,
+                    neto_3 = rg.neto_3,
+                };
+                lstHndPrecio.Add(nr);
+            }
+            fichaDTO.productosHndPrecio = lstHndPrecio;
+
             var r01 = MyData.Configuracion_Actualizar_TasaDivisa_ActualizarData(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
@@ -218,6 +294,7 @@ namespace DataProvSistema.Data
 
             return rt;
         }
+
 
         public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta()
         {

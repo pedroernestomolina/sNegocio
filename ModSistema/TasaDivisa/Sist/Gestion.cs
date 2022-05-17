@@ -63,7 +63,14 @@ namespace ModSistema.TasaDivisa.Sist
                         return false;
                     }
 
-                    var r02 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta ();
+                    //var r01x = Sistema.MyData.Configuracion_Actualizar_TasaDivisa_CapturarData_HndPrecio();
+                    //if (r01x.Result == OOB.Enumerados.EnumResult.isError)
+                    //{
+                    //    Helpers.Msg.Error(r01x.Mensaje);
+                    //    return false;
+                    //}
+
+                    var r02 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta();
                     if (r02.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r02.Mensaje);
@@ -76,6 +83,31 @@ namespace ModSistema.TasaDivisa.Sist
                         Helpers.Msg.Error(r03.Mensaje);
                         return false;
                     }
+
+                    var lst = new List<dataHndPrecio>();
+                    //foreach (var rg in r01x.Lista)
+                    //{
+                    //    var nr = new dataHndPrecio()
+                    //    {
+                    //        autoProducto = rg.autoProducto,
+                    //        esAdmDivisa = rg.esAdmDivisa,
+                    //        idPrecio = rg.idPrecio,
+                    //    };
+                    //    if (rg.esAdmDivisa)
+                    //    {
+                    //        nr.neto_1 = nr.CalculaNeto(rg.fullDivisa_1, _valorNuevo, rg.tasaIva);
+                    //        nr.neto_2 = nr.CalculaNeto(rg.fullDivisa_2, _valorNuevo, rg.tasaIva);
+                    //        nr.neto_3 = nr.CalculaNeto(rg.fullDivisa_3, _valorNuevo, rg.tasaIva);
+                    //    }
+                    //    else
+                    //    {
+                    //        nr.fullDivisa_1 = nr.CalculaFull((rg.neto_1 / _valorNuevo), rg.tasaIva);
+                    //        nr.fullDivisa_2 = nr.CalculaFull((rg.neto_2 / _valorNuevo), rg.tasaIva);
+                    //        nr.fullDivisa_3 = nr.CalculaFull((rg.neto_3 / _valorNuevo), rg.tasaIva);
+                    //    }
+                    //    lst.Add(nr);
+                    //}
+
 
                     if (r01.Lista != null) 
                     {
@@ -90,7 +122,7 @@ namespace ModSistema.TasaDivisa.Sist
                                 _dataDivisa.Add(new data(it, _valorNuevo, r02.Entidad, r03.Entidad));
                             }
 
-                            rt= ProcesarCambios();
+                            rt= ProcesarCambios(lst);
                         }
                     }
                 }
@@ -99,7 +131,7 @@ namespace ModSistema.TasaDivisa.Sist
             return rt;
         }
 
-        private bool ProcesarCambios()
+        private bool ProcesarCambios(List<dataHndPrecio> lHndPrecio)
         {
             var rt = true;
 
@@ -128,6 +160,8 @@ namespace ModSistema.TasaDivisa.Sist
                     precioMonedaEnDivisaFull_5 = rg.precioFullMoneda_EnDivisa(5),
                     precioMonedaEnDivisaFull_May_1 = rg.precioFullMoneda_EnDivisa(6),
                     precioMonedaEnDivisaFull_May_2 = rg.precioFullMoneda_EnDivisa(7),
+                    precioMonedaEnDivisaFull_May_3 = rg.precioFullMoneda_EnDivisa(8),
+                    precioMonedaEnDivisaFull_May_4 = rg.precioFullMoneda_EnDivisa(9),
                 };
                 lst3.Add(nr);
             }
@@ -156,6 +190,8 @@ namespace ModSistema.TasaDivisa.Sist
                     precio_5 = rg.Precio_5,
                     precioMay_1= rg.PrecioMay_1,
                     precioMay_2 = rg.PrecioMay_2,
+                    precioMay_3 = rg.PrecioMay_3,
+                    precioMay_4 = rg.PrecioMay_4,
                     serie = "MAN",
                 };
                 lst.Add(nr);
@@ -244,9 +280,88 @@ namespace ModSistema.TasaDivisa.Sist
                     lst2.Add(phM2);
                 }
 
+                if (rg.PrecioMay_3 > 0)
+                {
+                    var phM3 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = rg.AutoPrd,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "MY3",
+                        precio = rg.PrecioMay_3,
+                    };
+                    lst2.Add(phM3);
+                }
+
+                if (rg.PrecioMay_4 > 0)
+                {
+                    var phM4 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = rg.AutoPrd,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "MY4",
+                        precio = rg.PrecioMay_4,
+                    };
+                    lst2.Add(phM4);
+                }
+
             }
             ficha.productosCostoPrecioDivisa = lst;
             ficha.productosPrecioHistorico = lst2;
+
+
+            ficha.productosHndPrecio = lHndPrecio.Select(s =>
+            {
+                if (s.neto_1 > 0)
+                {
+                    var ph_1 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = s.autoProducto,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "TP" + s.idPrecio.ToString() + "1",
+                        precio = s.neto_1,
+                    };
+                    lst2.Add(ph_1);
+                }
+
+                if (s.neto_2 > 0)
+                {
+                    var ph_2 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = s.autoProducto,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "TP" + s.idPrecio.ToString() + "2",
+                        precio = s.neto_2,
+                    };
+                    lst2.Add(ph_2);
+                }
+
+                if (s.neto_3 > 0)
+                {
+                    var ph_3 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = s.autoProducto,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "TP" + s.idPrecio.ToString() + "3",
+                        precio = s.neto_3,
+                    };
+                    lst2.Add(ph_3);
+                }
+
+                var nr = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaHndPrecio()
+                {
+                    autoProducto = s.autoProducto,
+                    esAdmDivisa = s.esAdmDivisa,
+                    fullDivisa_1 = s.fullDivisa_1,
+                    fullDivisa_2 = s.fullDivisa_2,
+                    fullDivisa_3 = s.fullDivisa_3,
+                    idPrecio = s.idPrecio,
+                    neto_1 = s.neto_1,
+                    neto_2 = s.neto_2,
+                    neto_3 = s.neto_3,
+                };
+                return nr;
+            }).ToList();
+
 
             var r01 = Sistema.MyData.Configuracion_Actualizar_TasaDivisa_ActualizarData(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 

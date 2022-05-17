@@ -17,7 +17,10 @@ namespace DataProvSistema.Data
         {
             var rt = new OOB.ResultadoLista<OOB.LibSistema.Deposito.Entidad.Ficha>();
 
-            var filtroDTO = new DtoLibSistema.Deposito.Lista.Filtro();
+            var filtroDTO = new DtoLibSistema.Deposito.Lista.Filtro()
+            {
+                sucCodigo = filtro.sucCodigo,
+            };
             var r01 = MyData.Deposito_GetLista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {

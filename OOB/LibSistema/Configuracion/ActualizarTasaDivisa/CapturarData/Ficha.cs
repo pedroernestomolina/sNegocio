@@ -23,6 +23,8 @@ namespace OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData
         public decimal precioFullDivisa_5 { get; set; }
         public decimal precioFullDivisaMay_1 { get; set; }
         public decimal precioFullDivisaMay_2 { get; set; }
+        public decimal precioFullDivisaMay_3 { get; set; }
+        public decimal precioFullDivisaMay_4 { get; set; }
         public decimal tasaIva { get; set; }
         public decimal precioNetoMoneda_1 { get; set; }
         public decimal precioNetoMoneda_2 { get; set; }
@@ -31,6 +33,8 @@ namespace OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData
         public decimal precioNetoMoneda_5 { get; set; }
         public decimal precioNetoMonedaMay_1 { get; set; }
         public decimal precioNetoMonedaMay_2 { get; set; }
+        public decimal precioNetoMonedaMay_3 { get; set; }
+        public decimal precioNetoMonedaMay_4 { get; set; }
 
     }
 

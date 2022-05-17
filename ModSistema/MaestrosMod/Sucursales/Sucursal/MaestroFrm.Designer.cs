@@ -42,6 +42,8 @@
             this.BT_AGREGAR = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.BT_EDITAR = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.BT_ACTIVAR_INACTIVAR = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -56,8 +58,10 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_ARCHIVO_Salir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.BT_ACTIVAR_INACTIVAR = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.BT_DEPOSITOS = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,6 +71,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -75,7 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.panel10.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -174,11 +180,11 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(502, 1);
+            this.panel5.Location = new System.Drawing.Point(500, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(117, 56);
+            this.panel5.Size = new System.Drawing.Size(119, 56);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -197,7 +203,7 @@
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(115, 54);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(117, 54);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel6
@@ -208,7 +214,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(1);
-            this.panel6.Size = new System.Drawing.Size(35, 50);
+            this.panel6.Size = new System.Drawing.Size(36, 50);
             this.panel6.TabIndex = 0;
             // 
             // BT_AGREGAR
@@ -221,7 +227,7 @@
             this.BT_AGREGAR.Location = new System.Drawing.Point(1, 1);
             this.BT_AGREGAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_AGREGAR.Name = "BT_AGREGAR";
-            this.BT_AGREGAR.Size = new System.Drawing.Size(33, 48);
+            this.BT_AGREGAR.Size = new System.Drawing.Size(34, 48);
             this.BT_AGREGAR.TabIndex = 0;
             this.toolTip1.SetToolTip(this.BT_AGREGAR, "Agregar Item");
             this.BT_AGREGAR.UseVisualStyleBackColor = true;
@@ -231,11 +237,11 @@
             // 
             this.panel7.Controls.Add(this.BT_EDITAR);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(39, 2);
+            this.panel7.Location = new System.Drawing.Point(40, 2);
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(35, 50);
+            this.panel7.Size = new System.Drawing.Size(36, 50);
             this.panel7.TabIndex = 1;
             // 
             // BT_EDITAR
@@ -248,11 +254,37 @@
             this.BT_EDITAR.Location = new System.Drawing.Point(1, 1);
             this.BT_EDITAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_EDITAR.Name = "BT_EDITAR";
-            this.BT_EDITAR.Size = new System.Drawing.Size(33, 48);
+            this.BT_EDITAR.Size = new System.Drawing.Size(34, 48);
             this.BT_EDITAR.TabIndex = 1;
             this.toolTip1.SetToolTip(this.BT_EDITAR, "Editar Item");
             this.BT_EDITAR.UseVisualStyleBackColor = true;
             this.BT_EDITAR.Click += new System.EventHandler(this.BT_EDITAR_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.BT_ACTIVAR_INACTIVAR);
+            this.panel13.Location = new System.Drawing.Point(78, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(1);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(1);
+            this.panel13.Size = new System.Drawing.Size(37, 50);
+            this.panel13.TabIndex = 2;
+            // 
+            // BT_ACTIVAR_INACTIVAR
+            // 
+            this.BT_ACTIVAR_INACTIVAR.BackgroundImage = global::ModSistema.Properties.Resources.bt_OnOff;
+            this.BT_ACTIVAR_INACTIVAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ACTIVAR_INACTIVAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ACTIVAR_INACTIVAR.FlatAppearance.BorderSize = 0;
+            this.BT_ACTIVAR_INACTIVAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ACTIVAR_INACTIVAR.Location = new System.Drawing.Point(1, 1);
+            this.BT_ACTIVAR_INACTIVAR.Margin = new System.Windows.Forms.Padding(1);
+            this.BT_ACTIVAR_INACTIVAR.Name = "BT_ACTIVAR_INACTIVAR";
+            this.BT_ACTIVAR_INACTIVAR.Size = new System.Drawing.Size(35, 48);
+            this.BT_ACTIVAR_INACTIVAR.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_ACTIVAR_INACTIVAR, "Activar / Inactivar Item");
+            this.BT_ACTIVAR_INACTIVAR.UseVisualStyleBackColor = true;
+            this.BT_ACTIVAR_INACTIVAR.Click += new System.EventHandler(this.BT_ACTIVAR_INACTIVAR_Click);
             // 
             // panel8
             // 
@@ -263,7 +295,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(207, 56);
+            this.panel8.Size = new System.Drawing.Size(206, 56);
             this.panel8.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -280,7 +312,7 @@
             this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(203, 52);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(202, 52);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // panel11
@@ -291,7 +323,7 @@
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(2);
-            this.panel11.Size = new System.Drawing.Size(142, 48);
+            this.panel11.Size = new System.Drawing.Size(141, 48);
             this.panel11.TabIndex = 1;
             // 
             // label2
@@ -300,7 +332,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(2, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 44);
+            this.label2.Size = new System.Drawing.Size(137, 44);
             this.label2.TabIndex = 1;
             this.label2.Text = "Items Encontrados:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -309,7 +341,7 @@
             // 
             this.panel12.Controls.Add(this.L_ITEMS);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(146, 2);
+            this.panel12.Location = new System.Drawing.Point(145, 2);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
@@ -349,6 +381,7 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.tableLayoutPanel5);
             this.panel10.Controls.Add(this.BT_SALIR);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(626, 64);
@@ -400,31 +433,59 @@
             this.TSM_ARCHIVO_Salir.Text = "Salir";
             this.TSM_ARCHIVO_Salir.Click += new System.EventHandler(this.TSM_ARCHIVO_Salir_Click);
             // 
-            // panel13
+            // tableLayoutPanel5
             // 
-            this.panel13.Controls.Add(this.BT_ACTIVAR_INACTIVAR);
-            this.panel13.Location = new System.Drawing.Point(76, 2);
-            this.panel13.Margin = new System.Windows.Forms.Padding(1);
-            this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(1);
-            this.panel13.Size = new System.Drawing.Size(37, 50);
-            this.panel13.TabIndex = 2;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.panel14, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel15, 1, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(96, 144);
+            this.tableLayoutPanel5.TabIndex = 3;
             // 
-            // BT_ACTIVAR_INACTIVAR
+            // panel14
             // 
-            this.BT_ACTIVAR_INACTIVAR.BackgroundImage = global::ModSistema.Properties.Resources.bt_OnOff;
-            this.BT_ACTIVAR_INACTIVAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_ACTIVAR_INACTIVAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ACTIVAR_INACTIVAR.FlatAppearance.BorderSize = 0;
-            this.BT_ACTIVAR_INACTIVAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_ACTIVAR_INACTIVAR.Location = new System.Drawing.Point(1, 1);
-            this.BT_ACTIVAR_INACTIVAR.Margin = new System.Windows.Forms.Padding(1);
-            this.BT_ACTIVAR_INACTIVAR.Name = "BT_ACTIVAR_INACTIVAR";
-            this.BT_ACTIVAR_INACTIVAR.Size = new System.Drawing.Size(35, 48);
-            this.BT_ACTIVAR_INACTIVAR.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.BT_ACTIVAR_INACTIVAR, "Activar / Inactivar Item");
-            this.BT_ACTIVAR_INACTIVAR.UseVisualStyleBackColor = true;
-            this.BT_ACTIVAR_INACTIVAR.Click += new System.EventHandler(this.BT_ACTIVAR_INACTIVAR_Click);
+            this.panel14.Controls.Add(this.BT_DEPOSITOS);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(49, 1);
+            this.panel14.Margin = new System.Windows.Forms.Padding(1);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(2);
+            this.panel14.Size = new System.Drawing.Size(46, 70);
+            this.panel14.TabIndex = 0;
+            // 
+            // BT_DEPOSITOS
+            // 
+            this.BT_DEPOSITOS.BackgroundImage = global::ModSistema.Properties.Resources.sucursal;
+            this.BT_DEPOSITOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_DEPOSITOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_DEPOSITOS.FlatAppearance.BorderSize = 0;
+            this.BT_DEPOSITOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_DEPOSITOS.Location = new System.Drawing.Point(2, 2);
+            this.BT_DEPOSITOS.Margin = new System.Windows.Forms.Padding(1);
+            this.BT_DEPOSITOS.Name = "BT_DEPOSITOS";
+            this.BT_DEPOSITOS.Size = new System.Drawing.Size(42, 66);
+            this.BT_DEPOSITOS.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_DEPOSITOS, "DEPOSITOS ASIGNADOS A LA SUCURSAL");
+            this.BT_DEPOSITOS.UseVisualStyleBackColor = true;
+            this.BT_DEPOSITOS.Click += new System.EventHandler(this.BT_DEPOSITOS_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(49, 73);
+            this.panel15.Margin = new System.Windows.Forms.Padding(1);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(2);
+            this.panel15.Size = new System.Drawing.Size(46, 70);
+            this.panel15.TabIndex = 1;
             // 
             // MaestroFrm
             // 
@@ -449,6 +510,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -458,7 +520,8 @@
             this.panel10.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel13.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,5 +558,9 @@
         private System.Windows.Forms.Button BT_EDITAR;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button BT_ACTIVAR_INACTIVAR;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button BT_DEPOSITOS;
+        private System.Windows.Forms.Panel panel15;
     }
 }

@@ -164,6 +164,9 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
         public void Funcion_Sucursales(data ItemActual)
         {
         }
+        public void Funcion_Depositos(data ItemActual)
+        {
+        }
 
 
         public bool ActivarInactivarIsOk { get { return false; } }

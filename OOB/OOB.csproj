@@ -45,9 +45,11 @@
     <Compile Include="LibSistema\Cobrador\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Cobrador\Lista\Filtro.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaHndPrecio.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoCostoPrecioDivisa.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoCostoSinDivisa.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoPrecioHistorico.cs" />
+    <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\CapturarData\dataHndPrecio.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\CapturarData\Ficha.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaRecepcionPos\Ficha.cs" />
     <Compile Include="LibSistema\Configuracion\Enumerados.cs" />
@@ -67,9 +69,8 @@
     <Compile Include="LibSistema\Negocio\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Permiso\Enumerados.cs" />
     <Compile Include="LibSistema\Permiso\Ficha.cs" />
-    <Compile Include="LibSistema\Precio\Etiquetar\Actualizar.cs" />
-    <Compile Include="LibSistema\Precio\Etiquetar\Ficha.cs" />
-    <Compile Include="LibSistema\Precio\Ficha.cs" />
+    <Compile Include="LibSistema\PrecioEtiqueta\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\PrecioEtiqueta\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\Ficha.cs" />
     <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemHistCosto.cs" />
     <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemHistPrecio.cs" />

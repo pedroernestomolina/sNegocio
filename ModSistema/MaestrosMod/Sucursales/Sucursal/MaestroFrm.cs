@@ -162,6 +162,15 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             L_ITEMS.Text = _controlador.CntItems.ToString("n0");
         }
 
+        private void BT_DEPOSITOS_Click(object sender, EventArgs e)
+        {
+            Depositos();
+        }
+        private void Depositos()
+        {
+            _controlador.Funcion_Depositos();
+        }
+
     }
 
 }

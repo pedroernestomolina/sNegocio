@@ -68,8 +68,8 @@
             this.TSM_MAESTRO_Sucursal = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_MAESTRO_Sucursal_AsignarDeposito = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_MAESTRO_Deposito = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTROS_UsuarioGrupo = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTROS_Usuario = new System.Windows.Forms.ToolStripMenuItem();
@@ -528,12 +528,14 @@
             this.TSM_MAESTRO_TablaPrecio.Name = "TSM_MAESTRO_TablaPrecio";
             this.TSM_MAESTRO_TablaPrecio.Size = new System.Drawing.Size(213, 22);
             this.TSM_MAESTRO_TablaPrecio.Text = "Tabla Precios";
+            this.TSM_MAESTRO_TablaPrecio.Visible = false;
             this.TSM_MAESTRO_TablaPrecio.Click += new System.EventHandler(this.TSM_MAESTRO_TablaPrecio_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 6);
+            this.toolStripMenuItem1.Visible = false;
             // 
             // TSM_MAESTRO_SucursalGrupo
             // 
@@ -563,11 +565,6 @@
             this.TSM_MAESTRO_Sucursal_AsignarDeposito.Text = "Asignar Depósito Principal";
             this.TSM_MAESTRO_Sucursal_AsignarDeposito.Click += new System.EventHandler(this.TSM_MAESTRO_Sucursal_AsignarDeposito_Click);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
-            // 
             // TSM_MAESTRO_Deposito
             // 
             this.TSM_MAESTRO_Deposito.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_Deposito.Image")));
@@ -575,6 +572,11 @@
             this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_Deposito.Text = "Depósitos";
             this.TSM_MAESTRO_Deposito.Click += new System.EventHandler(this.TSM_MAESTRO_Deposito_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // usuariosToolStripMenuItem
             // 

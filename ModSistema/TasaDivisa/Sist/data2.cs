@@ -54,6 +54,10 @@ namespace ModSistema.TasaDivisa.Sist
                     pn = it.precioNetoMonedaMay_1 ; break;
                 case 7: //MAYOR 2
                     pn = it.precioNetoMonedaMay_2; break;
+                case 8: //MAYOR 3
+                    pn = it.precioNetoMonedaMay_3; break;
+                case 9: //MAYOR 4
+                    pn = it.precioNetoMonedaMay_4; break;
             }
             rt = CalculaFull(pn) / valorDivisa;
             rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);

@@ -52,6 +52,8 @@ namespace ModSistema.TasaDivisa.Sist
         public decimal Precio_5 { get { return CalculoPrecio(it.precioFullDivisa_5); } }
         public decimal PrecioMay_1 { get { return CalculoPrecio(it.precioFullDivisaMay_1); } }
         public decimal PrecioMay_2 { get { return CalculoPrecio(it.precioFullDivisaMay_2); } }
+        public decimal PrecioMay_3 { get { return CalculoPrecio(it.precioFullDivisaMay_3); } }
+        public decimal PrecioMay_4 { get { return CalculoPrecio(it.precioFullDivisaMay_4); } }
 
 
         public data(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha it, decimal montoDivisa, 
@@ -102,7 +104,6 @@ namespace ModSistema.TasaDivisa.Sist
                         }
                         break;
                 }
-
                 if (prefPrecio == OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Full) 
                 {
                     pr = pr / ((it.tasaIva / 100) + 1);

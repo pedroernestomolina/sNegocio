@@ -84,16 +84,6 @@ namespace ModSistema
             _controlador.MaestroDepositos();
         }
 
-        private void TSM_AJUSTE_EtiquetarPrecios_Click(object sender, EventArgs e)
-        {
-            EtiquetarPrecios();
-        }
-
-        private void EtiquetarPrecios()
-        {
-            _controlador.EtiquetarPrecios();
-        }
-
         private void TSM_MAESTROS_UsuarioGrupo_Click(object sender, EventArgs e)
         {
             UsuarioGrupos();
@@ -240,6 +230,16 @@ namespace ModSistema
         {
             _controlador.AsignarDeposito();
         }
+
+        private void TSM_AJUSTE_EtiquetarPrecios_Click(object sender, EventArgs e)
+        {
+            EtiquetarPrecios();
+        }
+        private void EtiquetarPrecios()
+        {
+            _controlador.EtiquetarPrecios();
+        }
+
 
     }
 

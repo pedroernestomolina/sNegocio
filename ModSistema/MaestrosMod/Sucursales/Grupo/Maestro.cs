@@ -24,7 +24,10 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
         public IEnumerable<data> Lista { get { return _lst; } }
 
 
-        public Maestro(IAgregarEditar agregar, IAgregarEditar editar, Helpers.Lista.ILista lista) 
+        public Maestro(
+            IAgregarEditar agregar, 
+            IAgregarEditar editar, 
+            Helpers.Lista.ILista lista) 
         {
             _gAgregar = agregar;
             _gEditar = editar;
@@ -39,6 +42,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
         {
             _gAgregar.Inicializa();
             _gEditar.Inicializa();
+            _gListaSuc.Inicializa();
             _lst.Clear();
             _dataAgregarEditar = null;
             _eliminarIsOk = false;
@@ -211,6 +215,10 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             _gListaSuc.setData(lst);
             _gListaSuc.Inicia();
         }
+        public void Funcion_Depositos(data ItemActual)
+        {
+        }
+
 
         public bool ActivarInactivarIsOk { get { return false; } }
         public void ActivarInactivar(data ItemActual)

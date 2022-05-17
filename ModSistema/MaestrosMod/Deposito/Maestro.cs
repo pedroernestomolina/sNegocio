@@ -171,6 +171,9 @@ namespace ModSistema.MaestrosMod.Deposito
         public void Funcion_Sucursales(data ItemActual)
         {
         }
+        public void Funcion_Depositos(data ItemActual)
+        {
+        }
 
 
         public bool ActivarInactivarIsOk { get { return _activarInactivarIsOk; } }

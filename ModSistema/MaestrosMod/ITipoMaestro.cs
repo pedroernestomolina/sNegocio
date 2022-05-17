@@ -33,6 +33,7 @@ namespace ModSistema.MaestrosMod
 
 
         void Funcion_Sucursales(data ItemActual);
+        void Funcion_Depositos(data ItemActual);
 
     }
 

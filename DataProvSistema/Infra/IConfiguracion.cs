@@ -17,9 +17,16 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<decimal> Configuracion_TasaCambioActual();
         OOB.ResultadoEntidad<decimal> Configuracion_TasaRecepcionPos();
 
-        OOB.Resultado Configuracion_Actualizar_TasaRecepcionPos(OOB.LibSistema.Configuracion.ActualizarTasaRecepcionPos.Ficha ficha);
-        OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha> Configuracion_Actualizar_TasaDivisa_CapturarData();
-        OOB.Resultado Configuracion_Actualizar_TasaDivisa_ActualizarData(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha ficha);
+
+        OOB.Resultado 
+            Configuracion_Actualizar_TasaRecepcionPos(OOB.LibSistema.Configuracion.ActualizarTasaRecepcionPos.Ficha ficha);
+        OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha> 
+            Configuracion_Actualizar_TasaDivisa_CapturarData();
+        OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.dataHndPrecio>
+            Configuracion_Actualizar_TasaDivisa_CapturarData_HndPrecio();
+        OOB.Resultado
+            Configuracion_Actualizar_TasaDivisa_ActualizarData(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha ficha);
+
 
         OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha> Configuracion_Modulo_Capturar();
         OOB.Resultado Configuracion_Modulo_Actualizar(OOB.LibSistema.Configuracion.Modulo.Actualizar.Ficha ficha);

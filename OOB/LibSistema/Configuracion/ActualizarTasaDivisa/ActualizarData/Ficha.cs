@@ -20,13 +20,15 @@ namespace OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData
         public List<FichaProductoCostoSinDivisa> productosCostoSinDivisa { get; set; }
         public List<FichaProductoCostoPrecioDivisa> productosCostoPrecioDivisa { get; set; }
         public List<FichaProductoPrecioHistorico> productosPrecioHistorico { get; set; }
-
+        public List<FichaHndPrecio> productosHndPrecio { get; set; }
+        
 
         public Ficha()
         {
             productosCostoSinDivisa = new List<FichaProductoCostoSinDivisa>();
             productosCostoPrecioDivisa = new List<FichaProductoCostoPrecioDivisa>();
             productosPrecioHistorico = new List<FichaProductoPrecioHistorico>();
+            productosHndPrecio = new List<FichaHndPrecio>();
         }
 
     }

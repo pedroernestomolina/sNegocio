@@ -15,6 +15,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         private List<data> _lst;
         private IAgregarEditar _gAgregar;
         private IAgregarEditar _gEditar;
+        private Helpers.Lista.ILista _gListaDep;
         private data _dataAgregarEditar;
         private bool _activarInactivarIsOk;
 
@@ -23,10 +24,14 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         public IEnumerable<data> Lista { get { return _lst; } }
 
 
-        public Maestro(IAgregarEditar agregar, IAgregarEditar editar)
+        public Maestro(
+            IAgregarEditar agregar, 
+            IAgregarEditar editar,
+            Helpers.Lista.ILista listDep)
         {
             _gAgregar = agregar;
             _gEditar = editar;
+            _gListaDep = listDep;
             _lst = new List<data>();
             _dataAgregarEditar = null;
             _activarInactivarIsOk = false;
@@ -37,6 +42,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         {
             _gAgregar.Inicializa();
             _gEditar.Inicializa();
+            _gListaDep.Inicializa();
             _lst.Clear();
             _dataAgregarEditar = null;
             _activarInactivarIsOk = false;
@@ -173,11 +179,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         }
 
 
-        public void Funcion_Sucursales(data ItemActual)
-        {
-        }
-
-
         public bool ActivarInactivarIsOk { get { return _activarInactivarIsOk; } }
         public void ActivarInactivar(data ItemActual)
         {
@@ -227,6 +228,30 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                     }
                 }
             }
+        }
+
+
+        public void Funcion_Sucursales(data ItemActual)
+        {
+        }
+        public void Funcion_Depositos(data ItemActual)
+        {
+            var filtroOOB = new OOB.LibSistema.Deposito.Lista.Filtro() { sucCodigo = ItemActual.codigo };
+            var r01 = Sistema.MyData.Deposito_GetLista(filtroOOB);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            var lst = new List<Helpers.Lista.data>();
+            foreach (var rg in r01.Lista.OrderBy(o => o.nombre).ToList())
+            {
+                lst.Add(new Helpers.Lista.data() { codigo = rg.codigo, descripcion = rg.nombre, esActivo = true, id = rg.auto });
+            }
+            _gListaDep.Inicializa();
+            _gListaDep.setTitulo("Lista de Depósitos");
+            _gListaDep.setData(lst);
+            _gListaDep.Inicia();
         }
 
     }

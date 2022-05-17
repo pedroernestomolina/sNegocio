@@ -13,7 +13,6 @@ namespace ModSistema
     {
 
 
-        private Precio.Gestion _gestionPrecio;
         private UsuarioGrupo.Gestion _gestionUsuarioGrupo;
         private Usuario.Gestion _gestionUsuario;
         private Servicio.Gestion _gestionServicio;
@@ -46,6 +45,8 @@ namespace ModSistema
         private MaestrosMod.ITipoMaestro _gDeposito;
         private MaestrosMod.Deposito.IDepositoAgregarEditar _gAgregarDep;
         private MaestrosMod.Deposito.IDepositoAgregarEditar _gEditarDep;
+        //
+        private EtiquetaPrecio.IEtiquetaPrecio _gEtiquetaPrecio;
 
 
         public string Host 
@@ -79,7 +80,6 @@ namespace ModSistema
 
         public Gestion()
         {
-            _gestionPrecio = new Precio.Gestion();
             _gestionUsuarioGrupo = new UsuarioGrupo.Gestion();
             _gestionUsuario = new Usuario.Gestion();
             _gestionServicio = new Servicio.Gestion();
@@ -112,7 +112,8 @@ namespace ModSistema
             _gEditarSuc = new MaestrosMod.Sucursales.Sucursal.Editar();
             _gSucursal = new MaestrosMod.Sucursales.Sucursal.Maestro
                 (_gAgregarSuc, 
-                _gEditarSuc);
+                _gEditarSuc,
+                _gLista);
             //
             _gEditarAsignarDep = new MaestrosMod.Sucursales.AsignarDeposito.Editar();
             _gAsignarDepSuc= new MaestrosMod.Sucursales.AsignarDeposito.Maestro
@@ -123,6 +124,8 @@ namespace ModSistema
             _gDeposito= new MaestrosMod.Deposito.Maestro 
                 (_gAgregarDep, 
                 _gEditarDep);
+            //
+            _gEtiquetaPrecio = new EtiquetaPrecio.Gestion();
         }
 
 
@@ -132,23 +135,6 @@ namespace ModSistema
             frm.setControlador(this);
             frm.ShowDialog();
         }
-       
-
-        public void EtiquetarPrecios()
-        {
-            var r00 = Sistema.MyData.Permiso_EtiquetaParaPrecios(Sistema.UsuarioP.autoGrupo);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            {
-                _gestionPrecio.Inicia();
-            }
-        }
-
 
         public void MaestroUsuariosGrupo()
         {
@@ -447,6 +433,21 @@ namespace ModSistema
             }
         }
 
+        public void EtiquetarPrecios()
+        {
+            var r00 = Sistema.MyData.Permiso_EtiquetaParaPrecios(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gEtiquetaPrecio.Inicializa();
+                _gEtiquetaPrecio.Inicia();
+            }
+        }
 
     }
 

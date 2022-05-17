@@ -34,6 +34,7 @@ namespace ModSistema.MaestrosMod
 
 
         void Funcion_Sucursales();
+        void Funcion_Depositos();
 
 
         void ActivarInactivar();
