@@ -13,7 +13,8 @@ namespace DataProvSistema.Data
     public partial class DataProv: IData
     {
 
-        public OOB.ResultadoEntidad<decimal> Configuracion_TasaCambioActual()
+        public OOB.ResultadoEntidad<decimal> 
+            Configuracion_TasaCambioActual()
         {
             var rt = new OOB.ResultadoEntidad<decimal>();
 
@@ -38,7 +39,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<decimal> Configuracion_TasaRecepcionPos()
+        public OOB.ResultadoEntidad<decimal> 
+            Configuracion_TasaRecepcionPos()
         {
             var rt = new OOB.ResultadoEntidad<decimal>();
 
@@ -63,8 +65,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
-
         public OOB.Resultado 
             Configuracion_Actualizar_TasaRecepcionPos(OOB.LibSistema.Configuracion.ActualizarTasaRecepcionPos.Ficha ficha)
         {
@@ -129,6 +129,16 @@ namespace DataProvSistema.Data
                             precioNetoMonedaMay_2 = s.precioNetoMonedaMay_2,
                             precioNetoMonedaMay_3 = s.precioNetoMonedaMay_3,
                             precioNetoMonedaMay_4 = s.precioNetoMonedaMay_4,
+                            //
+                            precioNetoMonedaDsp_1 = s.precioNetoMonedaDsp_1,
+                            precioNetoMonedaDsp_2 = s.precioNetoMonedaDsp_2,
+                            precioNetoMonedaDsp_3 = s.precioNetoMonedaDsp_3,
+                            precioNetoMonedaDsp_4 = s.precioNetoMonedaDsp_4,
+                            precioFullDivisaDsp_1 = s.precioFullDivisaDsp_1,
+                            precioFullDivisaDsp_2 = s.precioFullDivisaDsp_2,
+                            precioFullDivisaDsp_3 = s.precioFullDivisaDsp_3,
+                            precioFullDivisaDsp_4 = s.precioFullDivisaDsp_4,
+                            //
                             tasaIva = s.tasaIva,
                         };
                         return nr;
@@ -213,6 +223,10 @@ namespace DataProvSistema.Data
                     precioMonedaEnDivisaFull_May_2 = rg.precioMonedaEnDivisaFull_May_2,
                     precioMonedaEnDivisaFull_May_3 = rg.precioMonedaEnDivisaFull_May_3,
                     precioMonedaEnDivisaFull_May_4 = rg.precioMonedaEnDivisaFull_May_4,
+                    precioMonedaEnDivisaFull_Dsp_1 = rg.precioMonedaEnDivisaFull_Dsp_1,
+                    precioMonedaEnDivisaFull_Dsp_2 = rg.precioMonedaEnDivisaFull_Dsp_2,
+                    precioMonedaEnDivisaFull_Dsp_3 = rg.precioMonedaEnDivisaFull_Dsp_3,
+                    precioMonedaEnDivisaFull_Dsp_4 = rg.precioMonedaEnDivisaFull_Dsp_4,
                 };
                 lstProdCostoSinDivisa.Add(nr);
             }
@@ -244,6 +258,10 @@ namespace DataProvSistema.Data
                     precioMay_2 = rg.precioMay_2,
                     precioMay_3 = rg.precioMay_3,
                     precioMay_4 = rg.precioMay_4,
+                    precioDsp_1 = rg.precioDsp_1,
+                    precioDsp_2 = rg.precioDsp_2,
+                    precioDsp_3 = rg.precioDsp_3,
+                    precioDsp_4 = rg.precioDsp_4,
                     serie = rg.serie,
                 };
                 lstProdDivisaCostoPrecio.Add(nr);

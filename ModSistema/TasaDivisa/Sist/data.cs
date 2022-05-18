@@ -54,6 +54,11 @@ namespace ModSistema.TasaDivisa.Sist
         public decimal PrecioMay_2 { get { return CalculoPrecio(it.precioFullDivisaMay_2); } }
         public decimal PrecioMay_3 { get { return CalculoPrecio(it.precioFullDivisaMay_3); } }
         public decimal PrecioMay_4 { get { return CalculoPrecio(it.precioFullDivisaMay_4); } }
+        //
+        public decimal PrecioDsp_1 { get { return CalculoPrecio(it.precioFullDivisaDsp_1); } }
+        public decimal PrecioDsp_2 { get { return CalculoPrecio(it.precioFullDivisaDsp_2); } }
+        public decimal PrecioDsp_3 { get { return CalculoPrecio(it.precioFullDivisaDsp_3); } }
+        public decimal PrecioDsp_4 { get { return CalculoPrecio(it.precioFullDivisaDsp_4); } }
 
 
         public data(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha it, decimal montoDivisa, 

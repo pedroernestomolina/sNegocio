@@ -138,7 +138,6 @@ namespace ModSistema
         {
             TasaDivisa();
         }
-
         private void TasaDivisa()
         {
             _controlador.TasaDivisa();

@@ -35,6 +35,15 @@ namespace OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData
         public decimal precioNetoMonedaMay_2 { get; set; }
         public decimal precioNetoMonedaMay_3 { get; set; }
         public decimal precioNetoMonedaMay_4 { get; set; }
+        //
+        public decimal precioNetoMonedaDsp_1 { get; set; }
+        public decimal precioNetoMonedaDsp_2 { get; set; }
+        public decimal precioNetoMonedaDsp_3 { get; set; }
+        public decimal precioNetoMonedaDsp_4 { get; set; }
+        public decimal precioFullDivisaDsp_1 { get; set; }
+        public decimal precioFullDivisaDsp_2 { get; set; }
+        public decimal precioFullDivisaDsp_3 { get; set; }
+        public decimal precioFullDivisaDsp_4 { get; set; }
 
     }
 

@@ -58,6 +58,14 @@ namespace ModSistema.TasaDivisa.Sist
                     pn = it.precioNetoMonedaMay_3; break;
                 case 9: //MAYOR 4
                     pn = it.precioNetoMonedaMay_4; break;
+                case 10: 
+                    pn = it.precioNetoMonedaDsp_1; break;
+                case 11: 
+                    pn = it.precioNetoMonedaDsp_2; break;
+                case 12: 
+                    pn = it.precioNetoMonedaDsp_3; break;
+                case 13: 
+                    pn = it.precioNetoMonedaDsp_4; break;
             }
             rt = CalculaFull(pn) / valorDivisa;
             rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
