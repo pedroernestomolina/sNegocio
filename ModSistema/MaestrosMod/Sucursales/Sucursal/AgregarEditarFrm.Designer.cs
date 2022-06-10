@@ -50,6 +50,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.CHK_MAYOR = new System.Windows.Forms.CheckBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CHK_VENTA_CREDITO = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -63,6 +67,8 @@
             this.panel7.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -187,24 +193,26 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.48499F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.51501F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel12, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.4375F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.5625F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(491, 153);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -212,7 +220,7 @@
             // 
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(2, 34);
+            this.panel4.Location = new System.Drawing.Point(2, 18);
             this.panel4.Margin = new System.Windows.Forms.Padding(1);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(2);
@@ -234,7 +242,7 @@
             // 
             this.panel5.Controls.Add(this.TB_NOMBRE);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(134, 34);
+            this.panel5.Location = new System.Drawing.Point(134, 18);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(2);
@@ -258,7 +266,7 @@
             // 
             this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(2, 61);
+            this.panel6.Location = new System.Drawing.Point(2, 45);
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
@@ -280,7 +288,7 @@
             // 
             this.panel7.Controls.Add(this.CB_GRUPO);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(134, 61);
+            this.panel7.Location = new System.Drawing.Point(134, 45);
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
@@ -304,7 +312,7 @@
             // 
             this.panel12.Controls.Add(this.label4);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(2, 91);
+            this.panel12.Location = new System.Drawing.Point(2, 75);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
@@ -326,7 +334,7 @@
             // 
             this.panel13.Controls.Add(this.CHK_MAYOR);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(134, 91);
+            this.panel13.Location = new System.Drawing.Point(134, 75);
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(2);
@@ -346,6 +354,53 @@
             this.CHK_MAYOR.UseVisualStyleBackColor = true;
             this.CHK_MAYOR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             this.CHK_MAYOR.Leave += new System.EventHandler(this.CHK_MAYOR_Leave);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label3);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(2, 105);
+            this.panel10.Margin = new System.Windows.Forms.Padding(1);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(2);
+            this.panel10.Size = new System.Drawing.Size(130, 28);
+            this.panel10.TabIndex = 6;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.CHK_VENTA_CREDITO);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(134, 105);
+            this.panel11.Margin = new System.Windows.Forms.Padding(1);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(2);
+            this.panel11.Size = new System.Drawing.Size(299, 28);
+            this.panel11.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(2, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 24);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Facturar Crédito:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // CHK_VENTA_CREDITO
+            // 
+            this.CHK_VENTA_CREDITO.AutoSize = true;
+            this.CHK_VENTA_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CHK_VENTA_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.CHK_VENTA_CREDITO.Margin = new System.Windows.Forms.Padding(1);
+            this.CHK_VENTA_CREDITO.Name = "CHK_VENTA_CREDITO";
+            this.CHK_VENTA_CREDITO.Padding = new System.Windows.Forms.Padding(2);
+            this.CHK_VENTA_CREDITO.Size = new System.Drawing.Size(19, 24);
+            this.CHK_VENTA_CREDITO.TabIndex = 1;
+            this.CHK_VENTA_CREDITO.UseVisualStyleBackColor = true;
+            this.CHK_VENTA_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.CHK_VENTA_CREDITO.Leave += new System.EventHandler(this.CHK_VENTA_CREDITO_Leave);
             // 
             // AgregarEditarFrm
             // 
@@ -377,6 +432,9 @@
             this.panel12.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +463,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.CheckBox CHK_MAYOR;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox CHK_VENTA_CREDITO;
     }
 }

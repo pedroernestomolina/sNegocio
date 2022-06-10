@@ -20,6 +20,7 @@ namespace ModSistema.MaestrosMod
         public string mSucGrupo{ get; set; }
         public string mSucDeposito { get; set; }
         public bool mSucFactMayor { get; set; }
+        public bool mSucFactCredito { get; set; }
 
 
         public data() 
@@ -33,6 +34,7 @@ namespace ModSistema.MaestrosMod
             mSucGrupo = "";
             mSucDeposito = "";
             mSucFactMayor = false;
+            mSucFactCredito = false;
         }
 
 

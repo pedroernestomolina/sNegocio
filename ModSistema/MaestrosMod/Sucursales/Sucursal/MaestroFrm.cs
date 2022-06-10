@@ -102,6 +102,14 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
 
+            var c4b = new DataGridViewCheckBoxColumn();
+            c4b.DataPropertyName = "mSucFactCredito";
+            c4b.HeaderText = "Fact/Credito";
+            c4b.Visible = true;
+            c4b.Width = 80;
+            c4b.HeaderCell.Style.Font = f;
+            c4b.DefaultCellStyle.Font = f1;
+
             var c5 = new DataGridViewCheckBoxColumn();
             c5.DataPropertyName = "esActivo";
             c5.HeaderText = "Estatus";
@@ -114,6 +122,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
+            DGV.Columns.Add(c4b);
             DGV.Columns.Add(c5);
         }
 

@@ -19,6 +19,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         private bool _abandonarIsOk;
         private string _idItemRegistrado;
         private Helpers.Opcion.IOpcion _gGrupo;
+        private bool _ventaCredito;
 
 
         public string Titulo { get { return "Agregar: SUCURSAL"; } }
@@ -37,6 +38,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             _gGrupo= new Helpers.Opcion.Gestion();
             _nombre = "";
             _factMayor=false;
+            _ventaCredito = false;
             _procesarIsOk = false;
             _abandonarIsOk = false;
             _idItemRegistrado = "";
@@ -48,6 +50,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             _gGrupo.Inicializa();
             _nombre = "";
             _factMayor = false;
+            _ventaCredito = false;
             _procesarIsOk = false;
             _abandonarIsOk = false;
             _idItemRegistrado = "";
@@ -121,6 +124,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                 {
                     autoGrupo = _gGrupo.Item.id,
                     estatusFactMayor = _factMayor ? "1" : "0",
+                    estatusVentaCredito = _ventaCredito ? "1" : "0",
                     nombre = _nombre,
                 };
                 var r01 = Sistema.MyData.Sucursal_Agregar(fichaOOB);
@@ -148,6 +152,13 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
 
         public void setIdItemEditar(object p)
         {
+        }
+
+
+        public bool GetFactCredito { get { return _ventaCredito; } }
+        public void setVentaCredito(bool p)
+        {
+            _ventaCredito = p;
         }
 
     }

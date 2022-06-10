@@ -40,6 +40,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             L_TITULO.Text = _controlador.Titulo;
             TB_NOMBRE.Text = _controlador.GetNombre;
             CHK_MAYOR.Checked = _controlador.GetFactMayor;
+            CHK_VENTA_CREDITO.Checked = _controlador.GetFactCredito;
             CB_GRUPO.SelectedValue = _controlador.GetGrupoId;
             _modoInicializa = false;
             TB_NOMBRE.Focus();
@@ -52,6 +53,10 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         private void CHK_MAYOR_Leave(object sender, EventArgs e)
         {
             _controlador.setFactMayor(CHK_MAYOR.Checked);
+        }
+        private void CHK_VENTA_CREDITO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setVentaCredito(CHK_VENTA_CREDITO.Checked);
         }
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {

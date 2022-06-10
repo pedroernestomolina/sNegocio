@@ -15,6 +15,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
 
         private string _nombre;
         private bool _factMayor;
+        private bool _ventaCredito;
         private bool _procesarIsOk;
         private bool _abandonarIsOk;
         private string _idItemEditar;
@@ -37,6 +38,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             _gGrupo = new Helpers.Opcion.Gestion();
             _nombre = "";
             _factMayor = false;
+            _ventaCredito = false;
             _procesarIsOk = false;
             _abandonarIsOk = false;
             _idItemEditar = "";
@@ -48,6 +50,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             _gGrupo.Inicializa();
             _nombre = "";
             _factMayor = false;
+            _ventaCredito = false;
             _procesarIsOk = false;
             _abandonarIsOk = false;
             _idItemEditar = "";
@@ -92,6 +95,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             _nombre = r02.Entidad.nombre;
             _gGrupo.setFicha(r02.Entidad.autoGrupo);
             _factMayor = r02.Entidad.activarFactMayor;
+            _ventaCredito = r02.Entidad.activarVentaCredito;
 
             return true;
         }
@@ -134,6 +138,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                     autoGrupo = _gGrupo.Item.id,
                     nombre = _nombre,
                     estatusFactMayor = _factMayor ? "1" : "0",
+                    estatusVentaCredito = _ventaCredito ? "1" : "0",
                 };
                 var r01 = Sistema.MyData.Sucursal_Editar(fichaOOB);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -160,6 +165,13 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         public void setIdItemEditar(object p)
         {
             _idItemEditar = (string)p;
+        }
+
+
+        public bool GetFactCredito { get { return _ventaCredito; } }
+        public void setVentaCredito(bool p)
+        {
+            _ventaCredito = p;
         }
 
     }

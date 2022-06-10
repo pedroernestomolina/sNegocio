@@ -22,6 +22,9 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         void setFactMayor(bool p);
         bool GetFactMayor { get; }
 
+        bool GetFactCredito { get; }
+        void setVentaCredito(bool p);
+
     }
 
 }
