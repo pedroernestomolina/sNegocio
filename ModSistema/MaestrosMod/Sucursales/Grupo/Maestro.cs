@@ -9,31 +9,31 @@ using System.Windows.Forms;
 namespace ModSistema.MaestrosMod.Sucursales.Grupo
 {
     
-    public class Maestro: ITipoMaestro
+    public class Maestro: IGrupo
     {
 
-        private List<data> _lst;
-        private IAgregarEditar _gAgregar;
-        private IAgregarEditar _gEditar;
+        private IGrupoLista _gLista;
+        private Grupo.AgregarEditar.IAgregar _gAgregar;
+        private Grupo.AgregarEditar.IEditar _gEditar;
         private Helpers.Lista.ILista _gListaSuc;
         private bool _eliminarIsOk;
-        private data _dataAgregarEditar;
 
 
-        public string GetTitulo { get { return "Maestro: SUCURSAL - GRUPOS"; } }
-        public IEnumerable<data> Lista { get { return _lst; } }
+        public string Titulo { get { return "Maestro: SUCURSAL - GRUPOS"; } }
+        public BindingSource Source { get { return _gLista.Source; } }
+        public int CntItems { get { return _gLista.CntItems; } }
 
 
-        public Maestro(
-            IAgregarEditar agregar, 
-            IAgregarEditar editar, 
-            Helpers.Lista.ILista lista) 
+        public Maestro( 
+            IGrupoLista lista,
+            Grupo.AgregarEditar.IAgregar agregar, 
+            Grupo.AgregarEditar.IEditar editar,
+            Helpers.Lista.ILista listaSuc) 
         {
+            _gLista=lista;
             _gAgregar = agregar;
             _gEditar = editar;
-            _gListaSuc = lista;
-            _lst = new List<data>();
-            _dataAgregarEditar = null;
+            _gListaSuc = listaSuc;
             _eliminarIsOk = false;
         }
 
@@ -42,21 +42,20 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
         {
             _gAgregar.Inicializa();
             _gEditar.Inicializa();
+            _gLista.Inicializa();
             _gListaSuc.Inicializa();
-            _lst.Clear();
-            _dataAgregarEditar = null;
             _eliminarIsOk = false;
         }
 
         public bool CargarData()
         {
-            _lst.Clear();
             var r01 = Sistema.MyData.SucursalGrupo_GetLista();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            var _lst = new List<data>();
             foreach (var rg in r01.Lista) 
             {
                 var nr = new data()
@@ -68,38 +67,35 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
                 };
                 _lst.Add(nr);
             }
+            _gLista.setLista(_lst);
 
             return true;
         }
 
         MaestroFrm frm;
-        public void Inicia(IMaestro ctr)
+        public void Inicia()
         {
-            if (frm == null) 
+            if (CargarData())
             {
-                frm = new MaestroFrm();
-                frm.setControlador(ctr);
+                if (frm == null)
+                {
+                    frm = new MaestroFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
             }
-            frm.ShowDialog();
         }
-
-
-        public data ItemAgregarEditar { get { return _dataAgregarEditar; } }
-
 
         public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
         public void AgregarItem()
         {
-            _dataAgregarEditar = null;
             _gAgregar.Inicializa();
-
             var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo_Agregar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 _gAgregar.Inicia();
@@ -113,31 +109,36 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
                         return;
                     }
                     var rg = r01.Entidad;
-                    _dataAgregarEditar = new data()
+                    var _dataAgregarEditar = new data()
                     {
                         auto = rg.auto,
                         descripcion = rg.nombre,
                         esActivo = rg.esActivo,
                         mGrupoPrecioRef = rg.refPrecio,
                     };
+                    _gLista.Agregar(_dataAgregarEditar);
                 }
             }
         }
 
 
         public bool EditarIsOk { get { return _gEditar.IsOk; } }
+        public void EditarItem()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                EditarItem(_gLista.ItemActual);
+            }
+        }
         public void EditarItem(data ItemActual)
         {
-            _dataAgregarEditar = null;
             _gEditar.Inicializa();
-
             var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo_Editar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 var _idEditar = ItemActual.auto;
@@ -152,30 +153,36 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
                         return;
                     }
                     var rg = r01.Entidad;
-                    _dataAgregarEditar = new data()
+                    var _dataAgregarEditar = new data()
                     {
                         auto = rg.auto,
                         descripcion = rg.nombre,
                         esActivo = rg.esActivo,
                         mGrupoPrecioRef = rg.refPrecio,
                     };
+                    _gLista.Actualizar(_dataAgregarEditar);
                 }
             }
         }
 
 
         public bool EliminarItemIsOk { get { return _eliminarIsOk; } }
+        public void EliminarItem()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                EliminarItem(_gLista.ItemActual);
+            }
+        }
         public void EliminarItem(data ItemActual)
         {
             _eliminarIsOk = false;
-
             var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo_Eliminar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 var xmsg = "Eliminar Ficha ?";
@@ -189,12 +196,19 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
                         return;
                     }
                     _eliminarIsOk = true;
+                    _gLista.EliminarItemActual();
                     Helpers.Msg.EliminarOk();
                 }
             }
         }
 
-
+        public void Funcion_Sucursales()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                Funcion_Sucursales(_gLista.ItemActual);
+            }
+        }
         public void Funcion_Sucursales(data ItemActual)
         {
             var filtroOOB = new OOB.LibSistema.Sucursal.Lista.Filtro() { autoGrupo = ItemActual.auto };
@@ -202,27 +216,17 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
-                return ;
+                return;
             }
-            var lst = new List<Helpers.Lista.data>();
-            foreach (var rg in r01.Lista.OrderBy(o=>o.nombre).ToList()) 
+            var _lst = new List<Helpers.Lista.data>();
+            foreach (var rg in r01.Lista.OrderBy(o => o.nombre).ToList())
             {
-                lst.Add(new Helpers.Lista.data() { codigo = rg.codigo, descripcion = rg.nombre, esActivo = true, id = rg.auto });
+                _lst.Add(new Helpers.Lista.data() { codigo = rg.codigo, descripcion = rg.nombre, esActivo = true, id = rg.auto });
             }
-
             _gListaSuc.Inicializa();
             _gListaSuc.setTitulo("Lista de Sucursales");
-            _gListaSuc.setData(lst);
+            _gListaSuc.setData(_lst);
             _gListaSuc.Inicia();
-        }
-        public void Funcion_Depositos(data ItemActual)
-        {
-        }
-
-
-        public bool ActivarInactivarIsOk { get { return false; } }
-        public void ActivarInactivar(data ItemActual)
-        {
         }
 
     }

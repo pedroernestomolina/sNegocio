@@ -27,24 +27,33 @@ namespace ModSistema
         private MaestrosMod.ILista _gMaestroLista;
         private MaestrosMod.IMaestro _gMaestro;
         //
-        private MaestrosMod.ITipoMaestro _gGrupoSuc;
-        private MaestrosMod.Sucursales.Grupo.IGrupoAgregarEditar _gAgregarGrupoSuc;
-        private MaestrosMod.Sucursales.Grupo.IGrupoAgregarEditar _gEditarGrupoSuc;
+        private MaestrosMod.Sucursales.Grupo.IGrupo _gGrupoSuc;
+        private MaestrosMod.Sucursales.Grupo.IGrupoLista _gGrupoSucLista;
+        private MaestrosMod.Sucursales.Grupo.AgregarEditar.IAgregar _gAgregarGrupoSuc;
+        private MaestrosMod.Sucursales.Grupo.AgregarEditar.IEditar _gEditarGrupoSuc;
         //
         private MaestrosMod.ITipoMaestro _gTablaPrecioSuc;
         private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gAgregarTablaPrecioSuc;
         private MaestrosMod.Sucursales.TablaPrecio.ITablaPrecioAgregarEditar _gEditarTablaPrecioSuc;
         //
-        private MaestrosMod.ITipoMaestro _gSucursal;
-        private MaestrosMod.Sucursales.Sucursal.ISucursalAgregarEditar _gAgregarSuc;
-        private MaestrosMod.Sucursales.Sucursal.ISucursalAgregarEditar _gEditarSuc;
+        private MaestrosMod.Sucursales.Sucursal.ISucursal _gSucursal;
+        private MaestrosMod.Sucursales.Sucursal.ISucursalLista _gSucursalLista;
+        private MaestrosMod.Sucursales.Sucursal.AgregarEditar.IAgregar _gSucursalAgregar;
+        private MaestrosMod.Sucursales.Sucursal.AgregarEditar.IEditar _gSucursalEditar;
         //
-        private MaestrosMod.ITipoMaestro _gAsignarDepSuc;
-        private MaestrosMod.Sucursales.AsignarDeposito.IAsignarDepositoEditar _gEditarAsignarDep;
+        private MaestrosMod.Sucursales.AsignarDeposito.IAsignarDeposito _gAsignarDep;
+        private MaestrosMod.Sucursales.AsignarDeposito.IAsignarDepositoLista _gAsignarDepLista;
+        private MaestrosMod.Sucursales.AsignarDeposito.AgregarEditar.IEditar _gAsignarDepEditar;
         //
-        private MaestrosMod.ITipoMaestro _gDeposito;
-        private MaestrosMod.Deposito.IDepositoAgregarEditar _gAgregarDep;
-        private MaestrosMod.Deposito.IDepositoAgregarEditar _gEditarDep;
+        private MaestrosMod.Deposito.IDeposito _gDeposito;
+        private MaestrosMod.Deposito.IDepositoLista _gDepositoLista;
+        private MaestrosMod.Deposito.AgregarEditar.IAgregar _gAgregarDep;
+        private MaestrosMod.Deposito.AgregarEditar.IEditar _gEditarDep;
+        //
+        private MaestrosMod.MediosCobro.AgregarEditar.IAgregar _gMedioAgregar;
+        private MaestrosMod.MediosCobro.AgregarEditar.IEditar _gMedioEditar;
+        private MaestrosMod.MediosCobro.IMedioCobroLista _gMedioLista;
+        private MaestrosMod.MediosCobro.IMedioCobro _gMedio;
         //
         private EtiquetaPrecio.IEtiquetaPrecio _gEtiquetaPrecio;
 
@@ -95,12 +104,10 @@ namespace ModSistema
             _gMaestroLista = new MaestrosMod.Lista();
             _gMaestro = new MaestrosMod.Maestro(_gMaestroLista);
             //
-            _gAgregarGrupoSuc = new MaestrosMod.Sucursales.Grupo.Agregar();
-            _gEditarGrupoSuc = new MaestrosMod.Sucursales.Grupo.Editar();
-            _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Maestro
-                (_gAgregarGrupoSuc, 
-                _gEditarGrupoSuc, 
-                _gLista);
+            _gGrupoSucLista = new MaestrosMod.Sucursales.Grupo.Lista(); 
+            _gAgregarGrupoSuc = new MaestrosMod.Sucursales.Grupo.AgregarEditar.Agregar();
+            _gEditarGrupoSuc = new MaestrosMod.Sucursales.Grupo.AgregarEditar.Editar();
+            _gGrupoSuc = new MaestrosMod.Sucursales.Grupo.Maestro(_gGrupoSucLista, _gAgregarGrupoSuc, _gEditarGrupoSuc, new Helpers.Lista.Lista());
             //
             _gAgregarTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Agregar();
             _gEditarTablaPrecioSuc = new MaestrosMod.Sucursales.TablaPrecio.Editar();
@@ -108,22 +115,24 @@ namespace ModSistema
                 (_gAgregarTablaPrecioSuc, 
                 _gEditarTablaPrecioSuc);
             //
-            _gAgregarSuc = new MaestrosMod.Sucursales.Sucursal.Agregar();
-            _gEditarSuc = new MaestrosMod.Sucursales.Sucursal.Editar();
-            _gSucursal = new MaestrosMod.Sucursales.Sucursal.Maestro
-                (_gAgregarSuc, 
-                _gEditarSuc,
-                _gLista);
+            _gSucursalLista = new MaestrosMod.Sucursales.Sucursal.Lista();
+            _gSucursalAgregar = new MaestrosMod.Sucursales.Sucursal.AgregarEditar.Agregar();
+            _gSucursalEditar = new MaestrosMod.Sucursales.Sucursal.AgregarEditar.Editar();
+            _gSucursal = new MaestrosMod.Sucursales.Sucursal.Maestro(_gSucursalLista, _gSucursalAgregar, _gSucursalEditar, new Helpers.Lista.Lista());
             //
-            _gEditarAsignarDep = new MaestrosMod.Sucursales.AsignarDeposito.Editar();
-            _gAsignarDepSuc= new MaestrosMod.Sucursales.AsignarDeposito.Maestro
-                (_gEditarAsignarDep);
+            _gAsignarDepLista = new MaestrosMod.Sucursales.AsignarDeposito.Lista();
+            _gAsignarDepEditar = new MaestrosMod.Sucursales.AsignarDeposito.AgregarEditar.Editar();
+            _gAsignarDep = new MaestrosMod.Sucursales.AsignarDeposito.Maestro(_gAsignarDepLista, _gAsignarDepEditar);
             //
-            _gAgregarDep= new MaestrosMod.Deposito.Agregar ();
-            _gEditarDep = new MaestrosMod.Deposito.Editar ();
-            _gDeposito= new MaestrosMod.Deposito.Maestro 
-                (_gAgregarDep, 
-                _gEditarDep);
+            _gDepositoLista= new MaestrosMod.Deposito.Lista();
+            _gAgregarDep= new MaestrosMod.Deposito.AgregarEditar.Agregar ();
+            _gEditarDep = new MaestrosMod.Deposito.AgregarEditar.Editar ();
+            _gDeposito = new MaestrosMod.Deposito.Maestro(_gDepositoLista, _gAgregarDep, _gEditarDep);
+            //
+            _gMedioLista = new MaestrosMod.MediosCobro.Lista();
+            _gMedioAgregar = new MaestrosMod.MediosCobro.AgregarEditar.Agregar();
+            _gMedioEditar = new MaestrosMod.MediosCobro.AgregarEditar.Editar();
+            _gMedio = new MaestrosMod.MediosCobro.Maestro(_gMedioLista, _gMedioAgregar, _gMedioEditar);
             //
             _gEtiquetaPrecio = new EtiquetaPrecio.Gestion();
         }
@@ -339,24 +348,6 @@ namespace ModSistema
             }
         }
 
-
-        public void MaestroSucursalGrupo()
-        {
-            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            {
-                _gMaestro.Inicializa();
-                _gMaestro.setTipoMaestro(_gGrupoSuc);
-                _gMaestro.Inicia();
-            }
-        }
-
         public void TablaPreciosSuc()
         {
             var r00 = Sistema.MyData.Permiso_ControlSucursal_TablaPrecio(Sistema.UsuarioP.autoGrupo);
@@ -376,9 +367,10 @@ namespace ModSistema
             }
         }
 
-        public void MaestroSucursales()
+
+        public void EtiquetarPrecios()
         {
-            var r00 = Sistema.MyData.Permiso_ControlSucursal(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_EtiquetaParaPrecios(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -387,30 +379,23 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gSucursal.Inicializa();
-
-                _gMaestro.Inicializa();
-                _gMaestro.setTipoMaestro(_gSucursal);
-                _gMaestro.Inicia();
+                _gEtiquetaPrecio.Inicializa();
+                _gEtiquetaPrecio.Inicia();
             }
         }
 
-        public void AsignarDeposito()
+        public void MediosCobro()
         {
-            var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_ControlDeposito(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gAsignarDepSuc.Inicializa();
-
-                _gMaestro.Inicializa();
-                _gMaestro.setTipoMaestro(_gAsignarDepSuc);
-                _gMaestro.Inicia();
+                _gMedio.Inicializa();
+                _gMedio.Inicia();
             }
         }
 
@@ -426,16 +411,13 @@ namespace ModSistema
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 _gDeposito.Inicializa();
-
-                _gMaestro.Inicializa();
-                _gMaestro.setTipoMaestro(_gDeposito);
-                _gMaestro.Inicia();
+                _gDeposito.Inicia();
             }
         }
 
-        public void EtiquetarPrecios()
+        public void MaestroSucursalGrupo()
         {
-            var r00 = Sistema.MyData.Permiso_EtiquetaParaPrecios(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -444,8 +426,40 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gEtiquetaPrecio.Inicializa();
-                _gEtiquetaPrecio.Inicia();
+                _gGrupoSuc.Inicializa();
+                _gGrupoSuc.Inicia();
+            }
+        }
+
+        public void MaestroSucursales()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlSucursal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gSucursal.Inicializa();
+                _gSucursal.Inicia();
+            }
+        }
+
+        public void AsignarDeposito()
+        {
+            var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gAsignarDep.Inicializa();
+                _gAsignarDep.Inicia();
             }
         }
 

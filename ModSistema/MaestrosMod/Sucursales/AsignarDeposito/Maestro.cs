@@ -9,39 +9,37 @@ using System.Windows.Forms;
 namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
 {
     
-    public class Maestro: ITipoMaestro
+    public class Maestro: IAsignarDeposito
     {
 
-        private List<data> _lst;
-        private IAgregarEditar _gEditar;
-        private data _dataAgregarEditar;
+        private IAsignarDepositoLista _gLista;
+        private AgregarEditar.IEditar _gEditar;
         private bool _eliminarIsOk;
 
 
-        public string GetTitulo { get { return "SUCURSALES - Depósito Principal Asignado"; } }
-        public IEnumerable<data> Lista { get { return _lst; } }
+        public string Titulo { get { return "SUCURSALES - Depósito Principal Asignado"; } }
+        public BindingSource Source { get { return _gLista.Source; } }
+        public int CntItems { get { return _gLista.CntItems; } }
 
 
-        public Maestro(IAgregarEditar editar)
+        public Maestro(IAsignarDepositoLista lista, 
+            AgregarEditar.IEditar editar)
         {
+            _gLista = lista;
             _gEditar = editar;
-            _lst = new List<data>();
-            _dataAgregarEditar = null;
             _eliminarIsOk = false;
         }
 
 
         public void Inicializa()
         {
+            _gLista.Inicializa();
             _gEditar.Inicializa();
-            _lst.Clear();
-            _dataAgregarEditar = null;
             _eliminarIsOk=false;
         }
 
         public bool CargarData()
         {
-            _lst.Clear();
             var filtroOOB = new OOB.LibSistema.Sucursal.Lista.Filtro();
             var r01 = Sistema.MyData.Sucursal_GetLista(filtroOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -49,7 +47,8 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-            foreach (var rg in r01.Lista)
+            var _lst = new List<data>();
+            foreach (var rg in r01.Lista.OrderBy(o=>o.nombre).ToList())
             {
                 var nr = new data()
                 {
@@ -61,19 +60,22 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                 };
                 _lst.Add(nr);
             }
-
+            _gLista.setLista(_lst);
             return true;
         }
 
         MaestroFrm frm;
-        public void Inicia(IMaestro ctr)
+        public void Inicia()
         {
-            if (frm == null)
+            if (CargarData()) 
             {
-                frm = new MaestroFrm();
-                frm.setControlador(ctr);
+                if (frm == null)
+                {
+                    frm = new MaestroFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
             }
-            frm.ShowDialog();
         }
 
 
@@ -82,20 +84,23 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
         {
         }
 
-        public data ItemAgregarEditar { get { return _dataAgregarEditar; } }
         public bool EditarIsOk { get { return _gEditar.IsOk; } }
+        public void EditarItem()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                EditarItem(_gLista.ItemActual);
+            }
+        }
         public void EditarItem(data ItemActual)
         {
-            _dataAgregarEditar = null;
             _gEditar.Inicializa();
-
             var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal_EditarAsignacion(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 if (!ItemActual.esActivo)
@@ -116,7 +121,7 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                         return;
                     }
                     var rg = r01.Entidad;
-                    _dataAgregarEditar = new data()
+                    var _dataAgregarEditar = new data()
                     {
                         auto = rg.auto.ToString(),
                         codigo = rg.codigo,
@@ -124,11 +129,19 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                         esActivo = rg.esActivo,
                         mSucDeposito = rg.nombreDepositoPrincipal,
                     };
+                    _gLista.Actualizar(_dataAgregarEditar);
                 }
             }
         }
 
         public bool EliminarItemIsOk { get { return _eliminarIsOk; } }
+        public void EliminarItem()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                EliminarItem(_gLista.ItemActual);
+            }
+        }
         public void EliminarItem(data ItemActual)
         {
             var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal_EliminarAsignacion(Sistema.UsuarioP.autoGrupo);
@@ -137,7 +150,6 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 var r01 = Sistema.MyData.Sucursal_GetFicha(ItemActual.auto);
@@ -148,10 +160,9 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                 }
                 if (r01.Entidad.autoDepositoPrincipal == "")
                 {
-                    Helpers.Msg.Error("SUCURSAL ACTUAL, NO POSEE INGUN DEPOSITO ASIGNADO");
+                    Helpers.Msg.Error("SUCURSAL ACTUAL, NO POSEE NINGÚN DEPOSITO ASIGNADO");
                     return;
                 }
-
                 _eliminarIsOk = false;
                 var xmsg = "Eliminar Asignación ?";
                 var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -164,22 +175,9 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                         return;
                     }
                     ItemActual.mSucDeposito = "";
+                    Helpers.Msg.EditarOk();
                 }
             }
-        }
-
-
-        public void Funcion_Sucursales(data ItemActual)
-        {
-        }
-        public void Funcion_Depositos(data ItemActual)
-        {
-        }
-
-
-        public bool ActivarInactivarIsOk { get { return false; } }
-        public void ActivarInactivar(data ItemActual)
-        {
         }
 
     }

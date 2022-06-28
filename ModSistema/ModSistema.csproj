@@ -137,15 +137,21 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MaestrosMod\data.cs" />
-    <Compile Include="MaestrosMod\Deposito\Agregar.cs" />
-    <Compile Include="MaestrosMod\Deposito\AgregarEditarFrm.cs">
+    <Compile Include="MaestrosMod\Deposito\AgregarEditar\Agregar.cs" />
+    <Compile Include="MaestrosMod\Deposito\AgregarEditar\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaestrosMod\Deposito\AgregarEditarFrm.Designer.cs">
+    <Compile Include="MaestrosMod\Deposito\AgregarEditar\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\Deposito\Editar.cs" />
+    <Compile Include="MaestrosMod\Deposito\AgregarEditar\IAgregar.cs" />
+    <Compile Include="MaestrosMod\Deposito\AgregarEditar\IEditar.cs" />
+    <Compile Include="MaestrosMod\Deposito\data.cs" />
+    <Compile Include="MaestrosMod\Deposito\AgregarEditar\Editar.cs" />
+    <Compile Include="MaestrosMod\Deposito\IDeposito.cs" />
     <Compile Include="MaestrosMod\Deposito\IDepositoAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\Deposito\IDepositoLista.cs" />
+    <Compile Include="MaestrosMod\Deposito\Lista.cs" />
     <Compile Include="MaestrosMod\Deposito\Maestro.cs" />
     <Compile Include="MaestrosMod\Deposito\MaestroFrm.cs">
       <SubType>Form</SubType>
@@ -156,16 +162,46 @@
     <Compile Include="MaestrosMod\IAgregarEditar.cs" />
     <Compile Include="MaestrosMod\ILista.cs" />
     <Compile Include="MaestrosMod\IMaestro.cs" />
+    <Compile Include="MaestrosMod\IMaestroAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\IMaestroLista.cs" />
+    <Compile Include="MaestrosMod\IMaestroTipo.cs" />
     <Compile Include="MaestrosMod\ITipoMaestro.cs" />
     <Compile Include="MaestrosMod\Maestro.cs" />
-    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\AsignarFrm.cs">
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Agregar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\AsignarFrm.Designer.cs">
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Editar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\IAgregar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\IEditar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\IMedioCobroAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\data.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\IMedioCobro.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\IMedioCobroLista.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\Lista.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\Maestro.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosMod\MediosCobro\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\AgregarEditar\AsignarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\AgregarEditar\AsignarFrm.Designer.cs">
       <DependentUpon>AsignarFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\Editar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\AgregarEditar\Editar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\AgregarEditar\IEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\data.cs" />
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\IAsignarDeposito.cs" />
     <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\IAsignarDepositoEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\IAsignarDepositoLista.cs" />
+    <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\Lista.cs" />
     <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\Maestro.cs" />
     <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\MaestroFrm.cs">
       <SubType>Form</SubType>
@@ -173,14 +209,20 @@
     <Compile Include="MaestrosMod\Sucursales\AsignarDeposito\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\Grupo\Editar.cs" />
-    <Compile Include="MaestrosMod\Sucursales\Grupo\Agregar.cs" />
-    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditarFrm.cs">
+    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\IAgregar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\IEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\data.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\Editar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\Agregar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditarFrm.Designer.cs">
+    <Compile Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaestrosMod\Sucursales\Grupo\IGrupo.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\IGrupoLista.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Grupo\Lista.cs" />
     <Compile Include="MaestrosMod\Sucursales\Grupo\Maestro.cs" />
     <Compile Include="MaestrosMod\Sucursales\Grupo\IGrupoAgregarEditar.cs" />
     <Compile Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.cs">
@@ -189,15 +231,21 @@
     <Compile Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\Sucursal\Agregar.cs" />
-    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditarFrm.cs">
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\Agregar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditarFrm.Designer.cs">
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\Sucursales\Sucursal\Editar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\IAgregar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\IEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\data.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\Editar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\ISucursal.cs" />
     <Compile Include="MaestrosMod\Sucursales\Sucursal\ISucursalAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\ISucursalLista.cs" />
+    <Compile Include="MaestrosMod\Sucursales\Sucursal\Lista.cs" />
     <Compile Include="MaestrosMod\Sucursales\Sucursal\Maestro.cs" />
     <Compile Include="MaestrosMod\Sucursales\Sucursal\MaestroFrm.cs">
       <SubType>Form</SubType>
@@ -213,6 +261,7 @@
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaestrosMod\Sucursales\TablaPrecio\ITablaPrecio.cs" />
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\ITablaPrecioAgregarEditar.cs" />
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\Maestro.cs" />
     <Compile Include="MaestrosMod\Sucursales\TablaPrecio\MaestroFrm.cs">
@@ -373,25 +422,31 @@
     <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosMod\Deposito\AgregarEditarFrm.resx">
+    <EmbeddedResource Include="MaestrosMod\Deposito\AgregarEditar\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosMod\Deposito\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosMod\Sucursales\AsignarDeposito\AsignarFrm.resx">
+    <EmbeddedResource Include="MaestrosMod\MediosCobro\AgregarEditar\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosMod\MediosCobro\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosMod\Sucursales\AsignarDeposito\AgregarEditar\AsignarFrm.resx">
       <DependentUpon>AsignarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosMod\Sucursales\AsignarDeposito\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosMod\Sucursales\Grupo\AgregarEditarFrm.resx">
+    <EmbeddedResource Include="MaestrosMod\Sucursales\Grupo\AgregarEditar\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosMod\Sucursales\Grupo\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosMod\Sucursales\Sucursal\AgregarEditarFrm.resx">
+    <EmbeddedResource Include="MaestrosMod\Sucursales\Sucursal\AgregarEditar\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosMod\Sucursales\Sucursal\MaestroFrm.resx">

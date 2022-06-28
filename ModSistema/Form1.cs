@@ -239,6 +239,14 @@ namespace ModSistema
             _controlador.EtiquetarPrecios();
         }
 
+        private void TSM_MAESTRO_MEDIOS_COBRO_Click(object sender, EventArgs e)
+        {
+            MediosCobro();
+        }
+        private void MediosCobro()
+        {
+            _controlador.MediosCobro();
+        }
 
     }
 

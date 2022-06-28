@@ -9,42 +9,54 @@ using System.Windows.Forms;
 namespace ModSistema.MaestrosMod.Deposito
 {
     
-    public class Maestro: ITipoMaestro
+    public class Maestro: IDeposito
     {
 
-        private List<data> _lst;
-        private IAgregarEditar _gAgregar;
-        private IAgregarEditar _gEditar;
-        private data _dataAgregarEditar;
+        private IDepositoLista _gLista;
+        private Deposito.AgregarEditar.IAgregar _gAgregar;
+        private Deposito.AgregarEditar.IEditar _gEditar;
         private bool _activarInactivarIsOk;
 
 
-        public string GetTitulo { get { return "Maestro: DEPOSITOS"; } }
-        public IEnumerable<data> Lista { get { return _lst; } }
+        public string Titulo { get { return "Maestro: DEPOSITOS"; } }
+        public BindingSource Source { get { return _gLista.Source; } }
+        public int CntItems { get { return _gLista.CntItems; } }
 
 
-        public Maestro(IAgregarEditar agregar, IAgregarEditar editar)
+        public Maestro(IDepositoLista lista, 
+            Deposito.AgregarEditar.IAgregar agregar, 
+            Deposito.AgregarEditar.IEditar editar)
         {
+            _gLista = lista;
             _gAgregar = agregar;
             _gEditar = editar;
-            _lst = new List<data>();
-            _dataAgregarEditar = null;
             _activarInactivarIsOk = false;
         }
 
 
         public void Inicializa()
         {
+            _gLista.Inicializa();
             _gAgregar.Inicializa();
             _gEditar.Inicializa();
-            _lst.Clear();
-            _dataAgregarEditar = null;
             _activarInactivarIsOk = false;
+        }
+        MaestroFrm frm;
+        public void Inicia()
+        {
+            if (CargarData())
+            {
+                if (frm == null)
+                {
+                    frm = new MaestroFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
+            }
         }
 
         public bool CargarData()
         {
-            _lst.Clear();
             var filtroOOB = new OOB.LibSistema.Deposito.Lista.Filtro();
             var r01 = Sistema.MyData.Deposito_GetLista (filtroOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -52,7 +64,8 @@ namespace ModSistema.MaestrosMod.Deposito
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-            foreach (var rg in r01.Lista)
+            var _lst = new List<data>();
+            foreach (var rg in r01.Lista.OrderBy(o=>o.nombre).ToList())
             {
                 var nr = new data()
                 {
@@ -63,28 +76,15 @@ namespace ModSistema.MaestrosMod.Deposito
                 };
                 _lst.Add(nr);
             }
+            _gLista.setLista(_lst);
 
             return true;
         }
-
-        MaestroFrm frm;
-        public void Inicia(IMaestro ctr)
-        {
-            if (frm == null)
-            {
-                frm = new MaestroFrm();
-                frm.setControlador(ctr);
-            }
-            frm.ShowDialog();
-        }
-
-        public data ItemAgregarEditar { get { return _dataAgregarEditar; } }
 
 
         public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
         public void AgregarItem()
         {
-            _dataAgregarEditar = null;
             _gAgregar.Inicializa();
 
             var r00 = Sistema.MyData.Permiso_ControlDeposito_Agregar(Sistema.UsuarioP.autoGrupo);
@@ -107,21 +107,28 @@ namespace ModSistema.MaestrosMod.Deposito
                         return;
                     }
                     var rg = r01.Entidad;
-                    _dataAgregarEditar = new data()
+                    var _dataAgregarEditar = new data()
                     {
                         auto = rg.auto.ToString(),
                         codigo = rg.codigo,
                         descripcion = rg.nombre,
                         esActivo = rg.esActivo,
                     };
+                    _gLista.Agregar(_dataAgregarEditar);
                 }
             }
         }
 
         public bool EditarIsOk { get { return _gEditar.IsOk; } }
+        public void EditarItem()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                EditarItem(_gLista.ItemActual);
+            }
+        }
         public void EditarItem(data ItemActual)
         {
-            _dataAgregarEditar = null;
             _gEditar.Inicializa();
 
             var r00 = Sistema.MyData.Permiso_ControlDeposito_Editar(Sistema.UsuarioP.autoGrupo);
@@ -130,7 +137,6 @@ namespace ModSistema.MaestrosMod.Deposito
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 if (!ItemActual.esActivo) 
@@ -138,7 +144,6 @@ namespace ModSistema.MaestrosMod.Deposito
                     Helpers.Msg.Error("DEPOSITO EN ESTADO INACTIVO");
                     return;
                 }
-
                 var _idEditar = ItemActual.auto;
                 _gEditar.setIdItemEditar(_idEditar);
                 _gEditar.Inicia();
@@ -151,32 +156,26 @@ namespace ModSistema.MaestrosMod.Deposito
                         return;
                     }
                     var rg = r01.Entidad;
-                    _dataAgregarEditar = new data()
+                    var _dataAgregarEditar = new data()
                     {
                         auto = rg.auto.ToString(),
                         codigo = rg.codigo,
                         descripcion = rg.nombre,
                         esActivo = rg.esActivo,
                     };
+                    _gLista.Actualizar(_dataAgregarEditar);
                 }
             }
         }
 
-        public bool EliminarItemIsOk { get { return false; } }
-        public void EliminarItem(data ItemActual)
-        {
-        }
-
-
-        public void Funcion_Sucursales(data ItemActual)
-        {
-        }
-        public void Funcion_Depositos(data ItemActual)
-        {
-        }
-
-
         public bool ActivarInactivarIsOk { get { return _activarInactivarIsOk; } }
+        public void ActivarInactivar()
+        {
+            if (_gLista.ItemActual != null)
+            {
+                ActivarInactivar(_gLista.ItemActual);
+            }
+        }
         public void ActivarInactivar(data ItemActual)
         {
             _activarInactivarIsOk = false;
@@ -187,7 +186,6 @@ namespace ModSistema.MaestrosMod.Deposito
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 if (ItemActual.esActivo)
@@ -207,7 +205,7 @@ namespace ModSistema.MaestrosMod.Deposito
                         Helpers.Msg.OK("DEPOSITO HA CAMBIADO DE ESTATUS A : INACTIVA");
                     }
                 }
-                else 
+                else
                 {
                     var xmsg = "Activar Ficha ?";
                     var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);

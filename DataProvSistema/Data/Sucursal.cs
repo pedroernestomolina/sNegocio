@@ -108,7 +108,6 @@ namespace DataProvSistema.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
-
             rt.Auto = r01.Auto;
 
             return rt;

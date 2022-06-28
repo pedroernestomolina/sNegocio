@@ -10,7 +10,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
 {
 
 
-    public interface IGrupoAgregarEditar : IAgregarEditar
+    public interface IGrupoAgregarEditar : IMaestroAgregarEditar
     {
 
         BindingSource PrecioSource { get;  }

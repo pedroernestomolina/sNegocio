@@ -16,7 +16,7 @@ namespace ModSistema.MaestrosMod.Deposito
     {
 
 
-        private IMaestro _controlador;
+        private IDeposito _controlador;
 
 
         public MaestroFrm()
@@ -25,7 +25,7 @@ namespace ModSistema.MaestrosMod.Deposito
             InicializarGrid();
         }
 
-        public void setControlador(IMaestro ctr)
+        public void setControlador(IDeposito ctr)
         {
             _controlador = ctr;
         }

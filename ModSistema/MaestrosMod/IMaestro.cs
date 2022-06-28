@@ -34,11 +34,12 @@ namespace ModSistema.MaestrosMod
 
 
         void Funcion_Sucursales();
-        void Funcion_Depositos();
-
 
         void ActivarInactivar();
         bool ActivarInactivarIsOk { get; }
+
+
+        void setTipoMaestro(IMaestroTipo maestroTipo);
 
     }
 

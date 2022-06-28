@@ -16,7 +16,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
     {
 
 
-        private IMaestro _controlador;
+        private ISucursal _controlador;
 
 
         public MaestroFrm()
@@ -25,7 +25,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             InicializarGrid();
         }
 
-        public void setControlador(IMaestro ctr)
+        public void setControlador(ISucursal ctr)
         {
             _controlador = ctr;
         }

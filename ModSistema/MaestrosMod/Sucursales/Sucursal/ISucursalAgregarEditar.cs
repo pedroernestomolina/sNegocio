@@ -10,7 +10,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
 {
 
 
-    public interface ISucursalAgregarEditar : IAgregarEditar
+    public interface ISucursalAgregarEditar : IMaestroAgregarEditar
     {
 
         BindingSource GrupoSource { get;  }

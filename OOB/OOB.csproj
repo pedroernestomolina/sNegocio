@@ -65,6 +65,11 @@
     <Compile Include="LibSistema\Deposito\Lista\Filtro.cs" />
     <Compile Include="LibSistema\Empresa\Data\Ficha.cs" />
     <Compile Include="LibSistema\Funcion\Ficha.cs" />
+    <Compile Include="LibSistema\MediosCobroPago\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\MediosCobroPago\baseAgregarEditar.cs" />
+    <Compile Include="LibSistema\MediosCobroPago\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\MediosCobroPago\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\MediosCobroPago\Lista\Filtro.cs" />
     <Compile Include="LibSistema\Negocio\Editar\Ficha.cs" />
     <Compile Include="LibSistema\Negocio\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Permiso\Enumerados.cs" />

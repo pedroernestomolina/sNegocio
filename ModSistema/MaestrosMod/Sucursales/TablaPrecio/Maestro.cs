@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
 {
     
-    public class Maestro: ITipoMaestro
+    public class Maestro: ITablaPrecio
     {
 
         private List<data> _lst;
@@ -162,9 +162,6 @@ namespace ModSistema.MaestrosMod.Sucursales.TablaPrecio
 
 
         public void Funcion_Sucursales(data ItemActual)
-        {
-        }
-        public void Funcion_Depositos(data ItemActual)
         {
         }
 

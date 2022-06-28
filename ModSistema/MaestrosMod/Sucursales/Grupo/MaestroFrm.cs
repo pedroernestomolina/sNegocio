@@ -15,7 +15,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
     public partial class MaestroFrm : Form
     {
 
-        private IMaestro _controlador;
+        private IGrupo _controlador;
 
 
         public MaestroFrm()
@@ -24,7 +24,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Grupo
             InicializarGrid();
         }
 
-        public void setControlador(IMaestro ctr)
+        public void setControlador(IGrupo ctr)
         {
             _controlador = ctr;
         }

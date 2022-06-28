@@ -110,14 +110,14 @@ namespace ModSistema.MaestrosMod
             }
             _gTipo.Funcion_Sucursales(ItemActual);
         }
-        public void Funcion_Depositos()
-        {
-            if (ItemActual == null)
-            {
-                return;
-            }
-            _gTipo.Funcion_Depositos(ItemActual);
-        }
+        //public void Funcion_Depositos()
+        //{
+        //    if (ItemActual == null)
+        //    {
+        //        return;
+        //    }
+        //    _gTipo.Funcion_Depositos(ItemActual);
+        //}
 
 
         public bool ActivarInactivarIsOk { get { return _gTipo.ActivarInactivarIsOk; } }
@@ -131,6 +131,10 @@ namespace ModSistema.MaestrosMod
             if (_gTipo.ActivarInactivarIsOk)
             {
             }
+        }
+
+        public void setTipoMaestro(IMaestroTipo maestroTipo)
+        {
         }
 
     }

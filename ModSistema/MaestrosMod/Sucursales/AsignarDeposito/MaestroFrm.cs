@@ -16,7 +16,7 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
     {
 
 
-        private IMaestro _controlador;
+        private IAsignarDeposito _controlador;
 
 
         public MaestroFrm()
@@ -25,25 +25,11 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
             InicializarGrid();
         }
 
-        public void setControlador(IMaestro ctr)
+        public void setControlador(IAsignarDeposito ctr)
         {
             _controlador = ctr;
         }
 
-        private void BT_SALIR_Click(object sender, EventArgs e)
-        {
-            Salir();
-        }
-
-        private void Salir()
-        {
-            this.Close();
-        }
-
-        private void TSM_ARCHIVO_Salir_Click(object sender, EventArgs e)
-        {
-            Salir();
-        }
 
         private void MaestroFrm_Load(object sender, EventArgs e)
         {
@@ -135,10 +121,23 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
                 ActualizarItems();
             }
         }
-
         private void ActualizarItems()
         {
             L_ITEMS.Text = _controlador.CntItems.ToString("n0");
+        }
+
+
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+        private void TSM_ARCHIVO_Salir_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+        private void Salir()
+        {
+            this.Close();
         }
 
     }

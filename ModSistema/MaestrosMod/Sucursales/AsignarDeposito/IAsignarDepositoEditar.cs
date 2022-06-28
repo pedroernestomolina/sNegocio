@@ -10,7 +10,7 @@ namespace ModSistema.MaestrosMod.Sucursales.AsignarDeposito
 {
 
 
-    public interface IAsignarDepositoEditar : IAgregarEditar
+    public interface IAsignarDepositoEditar : IMaestroAgregarEditar
     {
 
         BindingSource DepositoSource { get;  }
