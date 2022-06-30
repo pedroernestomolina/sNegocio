@@ -43,7 +43,7 @@ namespace ModSistema.Helpers.Lista
 
             var c1 = new DataGridViewTextBoxColumn();
             c1.DataPropertyName = "codigo";
-            c1.HeaderText = "CiRif";
+            c1.HeaderText = "Codigo";
             c1.Visible = true;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;

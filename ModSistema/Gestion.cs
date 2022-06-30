@@ -386,7 +386,7 @@ namespace ModSistema
 
         public void MediosCobro()
         {
-            var r00 = Sistema.MyData.Permiso_ControlDeposito(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_MedioPagoCobro(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);

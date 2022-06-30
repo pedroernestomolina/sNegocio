@@ -11,9 +11,12 @@ namespace DataProvSistema.Infra
     public interface IPermisos
     {
 
-        OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMaximo();
-        OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMedio();
-        OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo();
+        OOB.ResultadoEntidad<string> 
+            Permiso_PedirClaveAcceso_NivelMaximo();
+        OOB.ResultadoEntidad<string> 
+            Permiso_PedirClaveAcceso_NivelMedio();
+        OOB.ResultadoEntidad<string> 
+            Permiso_PedirClaveAcceso_NivelMinimo();
 
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ToolSistema(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_InicializarBD(string autoGrupoUsuario);
@@ -89,12 +92,27 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador_Agregar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador_Editar(string autoGrupoUsuario);
 
-        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal(string autoGrupoUsuario);
-        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Agregar(string autoGrupoUsuario);
-        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario);
-        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_ActivarInactivar(string autoGrupoUsuario);
 
-        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ConfiguracionSistema(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal_Agregar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal_ActivarInactivar(string autoGrupoUsuario);
+
+
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
+            Permiso_MedioPagoCobro(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
+            Permiso_MedioPagoCobro_Agregar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>
+            Permiso_MedioPagoCobro_Editar(string autoGrupoUsuario);
+
+
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ConfiguracionSistema(string autoGrupoUsuario);
 
     }
 

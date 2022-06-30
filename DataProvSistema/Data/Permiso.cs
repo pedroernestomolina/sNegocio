@@ -12,7 +12,8 @@ namespace DataProvSistema.Data
     public partial class DataProv : IData
     {
 
-        public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMaximo()
+        public OOB.ResultadoEntidad<string> 
+            Permiso_PedirClaveAcceso_NivelMaximo()
         {
             var rt = new OOB.ResultadoEntidad<string>();
 
@@ -27,7 +28,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMedio()
+        public OOB.ResultadoEntidad<string> 
+            Permiso_PedirClaveAcceso_NivelMedio()
         {
             var rt = new OOB.ResultadoEntidad<string>();
 
@@ -42,7 +44,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo()
+        public OOB.ResultadoEntidad<string> 
+            Permiso_PedirClaveAcceso_NivelMinimo()
         {
             var rt = new OOB.ResultadoEntidad<string>();
 
@@ -57,6 +60,7 @@ namespace DataProvSistema.Data
 
             return rt;
         }
+
 
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ToolSistema(string autoGrupoUsuario)
         {
@@ -633,7 +637,9 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal(string autoGrupoUsuario)
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
 
@@ -655,7 +661,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Agregar(string autoGrupoUsuario)
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal_Agregar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
 
@@ -677,7 +684,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario)
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
 
@@ -699,7 +707,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_ActivarInactivar(string autoGrupoUsuario)
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ControlSerieFiscal_ActivarInactivar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
 
@@ -722,11 +731,84 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ConfiguracionSistema(string autoGrupoUsuario)
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_ConfiguracionSistema(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
 
             var r01 = MyData.Permiso_Configuracion_Sistema(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_MedioPagoCobro(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_MedioPagoCobro(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_MedioPagoCobro_Agregar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_MedioPagoCobro_Agregar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
+            Permiso_MedioPagoCobro_Editar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_MedioPagoCobro_Editar(autoGrupoUsuario);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

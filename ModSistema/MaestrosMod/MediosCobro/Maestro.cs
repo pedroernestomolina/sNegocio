@@ -85,7 +85,7 @@ namespace ModSistema.MaestrosMod.MediosCobro
         {
             _gAgregar.Inicializa();
 
-            var r00 = Sistema.MyData.Permiso_ControlDeposito_Agregar(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_MedioPagoCobro_Agregar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -129,7 +129,7 @@ namespace ModSistema.MaestrosMod.MediosCobro
         {
             _gEditar.Inicializa();
 
-            var r00 = Sistema.MyData.Permiso_ControlDeposito_Editar(Sistema.UsuarioP.autoGrupo);
+            var r00 = Sistema.MyData.Permiso_MedioPagoCobro_Editar(Sistema.UsuarioP.autoGrupo);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
