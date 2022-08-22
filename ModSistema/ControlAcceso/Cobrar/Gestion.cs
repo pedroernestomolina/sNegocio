@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModSistema.ControlAcceso.Compra
+namespace ModSistema.ControlAcceso.Cobrar
 {
     
     public class Gestion
@@ -21,7 +21,7 @@ namespace ModSistema.ControlAcceso.Compra
         public BindingSource Source { get { return _bs; } }
 
 
-        public Gestion() 
+        public Gestion()
         {
             _lista = new List<item>();
             _bl = new BindingList<item>(_lista);
@@ -32,14 +32,14 @@ namespace ModSistema.ControlAcceso.Compra
 
         public void setLista(List<OOB.LibSistema.ControlAcceso.Data.Ficha> list)
         {
-            foreach(var it in list.OrderBy(o=>o.fCodigo).ToList())
+            foreach (var it in list.OrderBy(o => o.fCodigo).ToList())
             {
                 var nr = new item()
                 {
                     codFuncion = it.fCodigo,
                     funcion = it.fNombre,
                     estatus = it.estatus == "1" ? true : false,
-                    seguridadValor=it.seguridad,
+                    seguridadValor = it.seguridad,
                 };
                 _bl.Add(nr);
             }

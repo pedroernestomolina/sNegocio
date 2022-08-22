@@ -74,6 +74,7 @@
     <Compile Include="Configuracion\Modulo\Gestion.cs" />
     <Compile Include="ControlAcceso\Cliente\Gestion.cs" />
     <Compile Include="ControlAcceso\Cliente\item.cs" />
+    <Compile Include="ControlAcceso\Cobrar\Gestion.cs" />
     <Compile Include="ControlAcceso\Compra\Gestion.cs" />
     <Compile Include="ControlAcceso\ControlAccesoFrm.cs">
       <SubType>Form</SubType>

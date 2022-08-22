@@ -31,6 +31,61 @@ namespace ModSistema.ControlAcceso
             IniGridCompra();
             IniGridVenta();
             IniGridSistema();
+            IniGridCobranza();
+        }
+
+        private void IniGridCobranza()
+        {
+            var f = new Font("Serif", 8, FontStyle.Bold);
+            var f1 = new Font("Serif", 10, FontStyle.Regular);
+
+            DG_COBRAR.AllowUserToAddRows = false;
+            DG_COBRAR.AllowUserToDeleteRows = false;
+            DG_COBRAR.AutoGenerateColumns = false;
+            DG_COBRAR.AllowUserToResizeRows = false;
+            DG_COBRAR.AllowUserToResizeColumns = false;
+            DG_COBRAR.AllowUserToOrderColumns = false;
+            DG_COBRAR.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DG_COBRAR.MultiSelect = false;
+            DG_COBRAR.ReadOnly = false;
+
+            var c1 = new DataGridViewTextBoxColumn();
+            c1.DataPropertyName = "Funcion";
+            c1.HeaderText = "Función";
+            c1.Visible = true;
+            c1.HeaderCell.Style.Font = f;
+            c1.DefaultCellStyle.Font = f1;
+            c1.MinimumWidth = 180;
+            c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c1.ReadOnly = true;
+
+            var c2 = new DataGridViewCheckBoxColumn();
+            c2.DataPropertyName = "Estatus";
+            c2.HeaderText = "Estatus";
+            c2.Visible = true;
+            c2.Width = 80;
+            c2.HeaderCell.Style.Font = f;
+            c2.DefaultCellStyle.Font = f1;
+            c2.ReadOnly = false;
+
+            var c3 = new DataGridViewComboBoxColumn();
+            c3.DataPropertyName = "Seguridad";
+            c3.HeaderText = "Seguridad";
+            c3.Visible = true;
+            c3.Width = 120;
+            c3.HeaderCell.Style.Font = f;
+            c3.DefaultCellStyle.Font = f1;
+            c3.ReadOnly = false;
+
+            var c4 = new DataGridViewTextBoxColumn();
+            c4.DataPropertyName = "SeguridadValor";
+            c4.Visible = false;
+            c4.Width = 10;
+
+            DG_COBRAR.Columns.Add(c1);
+            DG_COBRAR.Columns.Add(c2);
+            DG_COBRAR.Columns.Add(c3);
+            DG_COBRAR.Columns.Add(c4);
         }
 
         private void IniGridSistema()
@@ -458,6 +513,22 @@ namespace ModSistema.ControlAcceso
             }
         }
 
+        private void CobranzaCargarData()
+        {
+            DG_COBRAR.DataSource = _controlador.CobrarSource;
+            foreach (DataGridViewRow row in DG_COBRAR.Rows)
+            {
+                DataGridViewComboBoxCell cb = (row.Cells[2] as DataGridViewComboBoxCell);
+                cb.Items.Clear();
+                cb.Items.Add("Ninguna");
+                cb.Items.Add("Minima");
+                cb.Items.Add("Media");
+                cb.Items.Add("Maxima");
+                cb.Value = row.Cells[3].Value.ToString();
+            }
+        }
+
+
         private void ControlAccesoFrm_Shown(object sender, EventArgs e)
         {
             ClienteCargarData();
@@ -466,6 +537,7 @@ namespace ModSistema.ControlAcceso
             CompraCargarData();
             VentaCargarData();
             SistemaCargarData();
+            CobranzaCargarData();
         }
 
         private void BT_ACTUALIZAR_Click(object sender, EventArgs e)
@@ -509,18 +581,45 @@ namespace ModSistema.ControlAcceso
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 0)
-                ClienteCargarData();
-            else if (tabControl1.SelectedIndex == 1)
-                ProveedorCargarData();
-            else if (tabControl1.SelectedIndex == 2)
-                InventarioCargarData();
-            else if (tabControl1.SelectedIndex == 3)
-                CompraCargarData();
-            else if (tabControl1.SelectedIndex == 4)
-                VentaCargarData();
-            else if (tabControl1.SelectedIndex == 5)
-                SistemaCargarData();
+            switch (tabControl1.SelectedIndex)
+            {
+                case 0:
+                    ClienteCargarData();
+                    break;
+                case 1:
+                    ProveedorCargarData();
+                    break;
+                case 2:
+                    InventarioCargarData();
+                    break;
+                case 3:
+                    CompraCargarData();
+                    break;
+                case 4:
+                    VentaCargarData();
+                    break;
+                case 5:
+                    SistemaCargarData();
+                    break;
+                case 6:
+                    CobranzaCargarData();
+                    break;
+            }
+            //if (tabControl1.SelectedIndex == 0)
+            //    ClienteCargarData();
+            //else if (tabControl1.SelectedIndex == 1)
+            //    ProveedorCargarData();
+            //else if (tabControl1.SelectedIndex == 2)
+            //    InventarioCargarData();
+            //else if (tabControl1.SelectedIndex == 3)
+            //    CompraCargarData();
+            //else if (tabControl1.SelectedIndex == 4)
+            //    VentaCargarData();
+            //else if (tabControl1.SelectedIndex == 5)
+            //    SistemaCargarData();
+            //else if (tabControl1.SelectedIndex == 6)
+            //    CobranzaCargarData();
+
         }
 
     }

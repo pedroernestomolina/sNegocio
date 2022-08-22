@@ -82,6 +82,11 @@
             this.BT_ACTUALIZAR = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.BT_SALIDA = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.COBRANZA = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.DG_COBRAR = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -127,6 +132,11 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.COBRANZA.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DG_COBRAR)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -299,6 +309,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(1);
@@ -776,6 +787,62 @@
             this.BT_SALIDA.UseVisualStyleBackColor = true;
             this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.COBRANZA);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(842, 426);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "CUENTAS x COBRAR";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // COBRANZA
+            // 
+            this.COBRANZA.Controls.Add(this.tableLayoutPanel11);
+            this.COBRANZA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.COBRANZA.Location = new System.Drawing.Point(0, 0);
+            this.COBRANZA.Margin = new System.Windows.Forms.Padding(1);
+            this.COBRANZA.Name = "COBRANZA";
+            this.COBRANZA.Size = new System.Drawing.Size(842, 426);
+            this.COBRANZA.TabIndex = 0;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1875F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.8125F));
+            this.tableLayoutPanel11.Controls.Add(this.panel21, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(842, 426);
+            this.tableLayoutPanel11.TabIndex = 6;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.DG_COBRAR);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(2);
+            this.panel21.Size = new System.Drawing.Size(565, 426);
+            this.panel21.TabIndex = 0;
+            // 
+            // DG_COBRAR
+            // 
+            this.DG_COBRAR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DG_COBRAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DG_COBRAR.Location = new System.Drawing.Point(2, 2);
+            this.DG_COBRAR.Name = "DG_COBRAR";
+            this.DG_COBRAR.Size = new System.Drawing.Size(561, 422);
+            this.DG_COBRAR.TabIndex = 0;
+            // 
             // ControlAccesoFrm
             // 
             this.AcceptButton = this.BT_ACTUALIZAR;
@@ -836,6 +903,11 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.COBRANZA.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DG_COBRAR)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -896,5 +968,10 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label L_GRUPO;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Panel COBRANZA;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.DataGridView DG_COBRAR;
     }
 }

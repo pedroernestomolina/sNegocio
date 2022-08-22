@@ -13,16 +13,17 @@ namespace ModSistema.ControlAcceso
     {
 
 
+        private bool _isAbandonarOk;
+        private bool _isActualizarOk;
+        private string _codGrupo;
+        private string _desGrupo;
         private Cliente.Gestion _clienteGestion;
         private Proveedor.Gestion _proveedorGestion;
         private Inventario.Gestion _inventarioGestion;
         private Compra.Gestion _compraGestion;
         private Venta.Gestion _ventaGestion;
         private Sist.Gestion _sistGestion;
-        private bool _isAbandonarOk;
-        private bool _isActualizarOk;
-        private string _codGrupo;
-        private string _desGrupo;
+        private Cobrar.Gestion _cobrarGestion;
 
 
         public bool ActualizarIsOk { get { return _isActualizarOk; } }
@@ -33,6 +34,7 @@ namespace ModSistema.ControlAcceso
         public BindingSource CompraSource { get { return _compraGestion.Source; } }
         public BindingSource VentaSource { get { return _ventaGestion.Source; } }
         public BindingSource SistemaSource { get { return _sistGestion.Source; } }
+        public BindingSource CobrarSource { get { return _cobrarGestion.Source; } }
         public string Grupo { get { return _desGrupo; } }
 
 
@@ -48,6 +50,7 @@ namespace ModSistema.ControlAcceso
             _compraGestion = new Compra.Gestion();
             _ventaGestion = new Venta.Gestion();
             _sistGestion = new Sist.Gestion();
+            _cobrarGestion = new Cobrar.Gestion();
         }
 
 
@@ -82,6 +85,7 @@ namespace ModSistema.ControlAcceso
             _compraGestion.Inicializa();
             _ventaGestion.Inicializa();
             _sistGestion.Inicializa();
+            _cobrarGestion.Inicializa();
         }
 
         public void setLista(List<OOB.LibSistema.ControlAcceso.Data.Ficha> list)
@@ -92,6 +96,7 @@ namespace ModSistema.ControlAcceso
             _compraGestion.setLista(list.Where(s => s.fCodigo.Substring(0, 2) == "07").ToList());
             _ventaGestion.setLista(list.Where(s => s.fCodigo.Substring(0, 2) == "08").ToList());
             _sistGestion.setLista(list.Where(s => s.fCodigo.Substring(0, 2) == "12").ToList());
+            _cobrarGestion.setLista(list.Where(s => s.fCodigo.Substring(0, 2) == "04").ToList());
         }
 
         public void ActualizarData()
@@ -102,6 +107,7 @@ namespace ModSistema.ControlAcceso
             var lCompra = _compraGestion.ListaAcceso();
             var lVenta= _ventaGestion.ListaAcceso();
             var lSist= _sistGestion.ListaAcceso();
+            var lCobrar = _cobrarGestion.ListaAcceso();
 
             var msg = "Guardar Cambios ?";
             var m = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -174,6 +180,17 @@ namespace ModSistema.ControlAcceso
                     };
                     ficha.ItemsAcceso.Add(nr);
                 };
+                foreach (var it in lCobrar)
+                {
+                    var nr = new OOB.LibSistema.ControlAcceso.Actualizar.ItemAcceso()
+                    {
+                        codFuncion = it.codFuncion,
+                        codGrupo = _codGrupo,
+                        estatus = it.estatus ? "1" : "0",
+                        seguridad = it.seguridad
+                    };
+                    ficha.ItemsAcceso.Add(nr);
+                };
                 var r01 = Sistema.MyData.ControlAcceso_Actualizar(ficha);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 
                 {
@@ -199,6 +216,7 @@ namespace ModSistema.ControlAcceso
             _codGrupo = id;
             _desGrupo = desc;
         }
+
     }
 
 }
