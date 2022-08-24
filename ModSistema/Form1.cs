@@ -248,6 +248,24 @@ namespace ModSistema
             _controlador.MediosCobro();
         }
 
+        private void Menu_Ajuste_TasaDivisa_Porc_Click(object sender, EventArgs e)
+        {
+            AjustarTasaDivisaActualPorc();
+        }
+        private void AjustarTasaDivisaActualPorc()
+        {
+            _controlador.AjustarTasaDivisaActualPorc();
+        }
+
+        private void TSM_CONF_POS_Click(object sender, EventArgs e)
+        {
+            ConfiguracionPos();
+        }
+        private void ConfiguracionPos()
+        {
+            _controlador.ConfiguracionPos();
+        }
+
     }
 
 }

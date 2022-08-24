@@ -313,8 +313,8 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-
-        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta()
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> 
+            Configuracion_ForzarRedondeoPrecioVenta()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta>();
 
@@ -331,7 +331,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio()
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> 
+            Configuracion_PreferenciaRegistroPrecio()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio>();
 
@@ -349,7 +350,8 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha> Configuracion_Modulo_Capturar()
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha> 
+            Configuracion_Modulo_Capturar()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha>(); 
 
@@ -381,7 +383,8 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-        public OOB.Resultado Configuracion_Modulo_Actualizar(OOB.LibSistema.Configuracion.Modulo.Actualizar.Ficha ficha)
+        public OOB.Resultado 
+            Configuracion_Modulo_Actualizar(OOB.LibSistema.Configuracion.Modulo.Actualizar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
 
@@ -394,6 +397,56 @@ namespace DataProvSistema.Data
                 cantDocVisualizar = ficha.cantDocVisualizar,
             };
             var r01 = MyData.Configuracion_Modulo_Actualizar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Pos.Capturar.Ficha> 
+            Configuracion_Pos_Capturar()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Pos.Capturar.Ficha>();
+
+            var r01 = MyData.Configuracion_Pos_Capturar();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            var f = r01.Entidad;
+            var mont = 0m;
+            if (f.valorMaximoDescuentoPermitido.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                decimal.TryParse(f.valorMaximoDescuentoPermitido, style, culture, out mont);
+            }
+            rt.Entidad = new OOB.LibSistema.Configuracion.Pos.Capturar.Ficha()
+            {  
+                 valorMaximoDescuentoPermitido=mont,
+                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = f.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa.Trim().ToUpper() == "SI" ? true : false,
+            };
+
+            return rt;
+        }
+        public OOB.Resultado 
+            Configuracion_Pos_Actualizar(OOB.LibSistema.Configuracion.Pos.Actualizar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibSistema.Configuracion.Pos.Actualizar.Ficha()
+            {
+                valorMaximoDescuentoPermitido = ficha.valorMaximoDescuentoPermitido.ToString(),
+                permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = ficha.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa ? "Si" : "No",
+            };
+            var r01 = MyData.Configuracion_Pos_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

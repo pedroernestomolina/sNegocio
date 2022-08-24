@@ -56,6 +56,8 @@ namespace ModSistema
         private MaestrosMod.MediosCobro.IMedioCobro _gMedio;
         //
         private EtiquetaPrecio.IEtiquetaPrecio _gEtiquetaPrecio;
+        //
+        private Configuracion.Pos.ICnfPos _gCnfPos;
 
 
         public string Host 
@@ -135,6 +137,8 @@ namespace ModSistema
             _gMedio = new MaestrosMod.MediosCobro.Maestro(_gMedioLista, _gMedioAgregar, _gMedioEditar);
             //
             _gEtiquetaPrecio = new EtiquetaPrecio.Gestion();
+            //
+            _gCnfPos = new Configuracion.Pos.CnfPos();
         }
 
 
@@ -460,6 +464,38 @@ namespace ModSistema
             {
                 _gAsignarDep.Inicializa();
                 _gAsignarDep.Inicia();
+            }
+        }
+
+        public void AjustarTasaDivisaActualPorc()
+        {
+            var r00 = Sistema.MyData.Permiso_AjustarTasaDivisa(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var gestion = new TasaDivisa.Porcentaje.Gestion();
+                _gestionTasaDivisa.setGestion(gestion);
+                _gestionTasaDivisa.Inicia();
+            }
+        }
+
+        public void ConfiguracionPos()
+        {
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gCnfPos.Inicializa();
+                _gCnfPos.Inicia();
             }
         }
 

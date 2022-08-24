@@ -56,6 +56,8 @@
     <Compile Include="LibSistema\Configuracion\Inicializar\Ficha.cs" />
     <Compile Include="LibSistema\Configuracion\Modulo\Actualizar\Ficha.cs" />
     <Compile Include="LibSistema\Configuracion\Modulo\Capturar\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Pos\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Pos\Capturar\Ficha.cs" />
     <Compile Include="LibSistema\ControlAcceso\Actualizar\Ficha.cs" />
     <Compile Include="LibSistema\ControlAcceso\Actualizar\ItemAcceso.cs" />
     <Compile Include="LibSistema\ControlAcceso\Data\Ficha.cs" />
@@ -128,6 +130,7 @@
     <Compile Include="ResultadoId.cs" />
     <Compile Include="ResultadoLista.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

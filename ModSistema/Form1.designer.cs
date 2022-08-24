@@ -57,6 +57,8 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_ARCHIVO_SALIR = new System.Windows.Forms.ToolStripMenuItem();
             this.maestrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTRO_MEDIOS_COBRO = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_MAESTRO_VENDEDOR = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTRO_COBRADOR = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTRO_SERIES_FISCAL = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +105,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_MAESTRO_MEDIOS_COBRO = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_CONF_POS = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -483,6 +484,19 @@
             this.maestrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.maestrosToolStripMenuItem.Text = "Maestros";
             // 
+            // TSM_MAESTRO_MEDIOS_COBRO
+            // 
+            this.TSM_MAESTRO_MEDIOS_COBRO.Image = global::ModSistema.Properties.Resources.libro;
+            this.TSM_MAESTRO_MEDIOS_COBRO.Name = "TSM_MAESTRO_MEDIOS_COBRO";
+            this.TSM_MAESTRO_MEDIOS_COBRO.Size = new System.Drawing.Size(165, 22);
+            this.TSM_MAESTRO_MEDIOS_COBRO.Text = "Medios de Cobro";
+            this.TSM_MAESTRO_MEDIOS_COBRO.Click += new System.EventHandler(this.TSM_MAESTRO_MEDIOS_COBRO_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(162, 6);
+            // 
             // TSM_MAESTRO_VENDEDOR
             // 
             this.TSM_MAESTRO_VENDEDOR.Image = global::ModSistema.Properties.Resources.libro;
@@ -710,7 +724,8 @@
             // configuraciónToolStripMenuItem
             // 
             this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSM_CONF_MODULO});
+            this.TSM_CONF_MODULO,
+            this.TSM_CONF_POS});
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
             this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuraciónToolStripMenuItem.Text = "Configuración";
@@ -719,7 +734,7 @@
             // 
             this.TSM_CONF_MODULO.Image = global::ModSistema.Properties.Resources.setup;
             this.TSM_CONF_MODULO.Name = "TSM_CONF_MODULO";
-            this.TSM_CONF_MODULO.Size = new System.Drawing.Size(116, 22);
+            this.TSM_CONF_MODULO.Size = new System.Drawing.Size(152, 22);
             this.TSM_CONF_MODULO.Text = "Módulo";
             this.TSM_CONF_MODULO.Click += new System.EventHandler(this.TSM_CONF_MODULO_Click);
             // 
@@ -918,18 +933,13 @@
             this.panel10.Size = new System.Drawing.Size(147, 360);
             this.panel10.TabIndex = 0;
             // 
-            // TSM_MAESTRO_MEDIOS_COBRO
+            // TSM_CONF_POS
             // 
-            this.TSM_MAESTRO_MEDIOS_COBRO.Image = global::ModSistema.Properties.Resources.libro;
-            this.TSM_MAESTRO_MEDIOS_COBRO.Name = "TSM_MAESTRO_MEDIOS_COBRO";
-            this.TSM_MAESTRO_MEDIOS_COBRO.Size = new System.Drawing.Size(165, 22);
-            this.TSM_MAESTRO_MEDIOS_COBRO.Text = "Medios de Cobro";
-            this.TSM_MAESTRO_MEDIOS_COBRO.Click += new System.EventHandler(this.TSM_MAESTRO_MEDIOS_COBRO_Click);
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(162, 6);
+            this.TSM_CONF_POS.Image = global::ModSistema.Properties.Resources.setup;
+            this.TSM_CONF_POS.Name = "TSM_CONF_POS";
+            this.TSM_CONF_POS.Size = new System.Drawing.Size(152, 22);
+            this.TSM_CONF_POS.Text = "Módulo POS";
+            this.TSM_CONF_POS.Click += new System.EventHandler(this.TSM_CONF_POS_Click);
             // 
             // Form1
             // 
@@ -1055,6 +1065,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_Sucursal_AsignarDeposito;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_MEDIOS_COBRO;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem TSM_CONF_POS;
     }
 }
 
