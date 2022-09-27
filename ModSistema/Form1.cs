@@ -124,16 +124,6 @@ namespace ModSistema
             _controlador.InicializarBD_Sucursal();
         }
 
-        private void Menu_Ajuste_TasaRecepciónDivisa_POS_Click(object sender, EventArgs e)
-        {
-            TasaRecepcionDivisaPos();
-        }
-
-        private void TasaRecepcionDivisaPos()
-        {
-            _controlador.TasaRecepcionDivisaPos();
-        }
-
         private void Menu_Ajuste_TasaDivisa_Click(object sender, EventArgs e)
         {
             TasaDivisa();
@@ -257,6 +247,14 @@ namespace ModSistema
             _controlador.AjustarTasaDivisaActualPorc();
         }
 
+        private void Menu_Ajuste_TasaRecepciónDivisa_POS_Click(object sender, EventArgs e)
+        {
+            ConfiguracionPos();
+        }
+        private void TasaRecepcionDivisaPos()
+        {
+            _controlador.TasaRecepcionDivisaPos();
+        }
         private void TSM_CONF_POS_Click(object sender, EventArgs e)
         {
             ConfiguracionPos();

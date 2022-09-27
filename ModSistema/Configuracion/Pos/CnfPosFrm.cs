@@ -77,6 +77,9 @@ namespace ModSistema.Configuracion.Pos
         private void CnfModuloFrm_Load(object sender, EventArgs e)
         {
             _modoInicializar = true;
+            L_TASA_MANEJO_DIV_SIST.Text = _controlador.GetTasaManejoDivSist.ToString("n4");
+            L_DIFERENCIA_PORC.Text = _controlador.GetDiferenciaPorct.ToString("n2") + "%";
+            TB_TASA_POS.Text = _controlador.GetTasaManejoDivPos.ToString();
             TB_MAXIMO_DSCTO.Text = _controlador.GetDsctoMaximoPermitido.ToString();
             CHB_VALIDAR_DSCTO_PAGO_DIVISA.Checked = _controlador.GetPermisoDsctoPagoDivisa;
             _modoInicializar = false;
@@ -100,6 +103,14 @@ namespace ModSistema.Configuracion.Pos
         {
             if (_modoInicializar) { return; }
             _controlador.setHabilitarDsctoPagoDivisa(CHB_VALIDAR_DSCTO_PAGO_DIVISA.Checked);
+        }
+
+        private void TB_TASA_POS_Leave(object sender, EventArgs e)
+        {
+            if (_modoInicializar) { return; }
+            var tasaPos = decimal.Parse(TB_TASA_POS.Text);
+            _controlador.setTasaPos(tasaPos);
+            L_DIFERENCIA_PORC.Text = _controlador.GetDiferenciaPorct.ToString("n2") + "%";
         }
 
     }

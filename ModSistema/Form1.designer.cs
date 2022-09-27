@@ -90,6 +90,7 @@
             this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_CONF_MODULO = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONF_POS = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -105,7 +106,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_CONF_POS = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -738,6 +738,15 @@
             this.TSM_CONF_MODULO.Text = "Módulo";
             this.TSM_CONF_MODULO.Click += new System.EventHandler(this.TSM_CONF_MODULO_Click);
             // 
+            // TSM_CONF_POS
+            // 
+            this.TSM_CONF_POS.Image = global::ModSistema.Properties.Resources.setup;
+            this.TSM_CONF_POS.Name = "TSM_CONF_POS";
+            this.TSM_CONF_POS.Size = new System.Drawing.Size(152, 22);
+            this.TSM_CONF_POS.Text = "Módulo POS";
+            this.TSM_CONF_POS.Visible = false;
+            this.TSM_CONF_POS.Click += new System.EventHandler(this.TSM_CONF_POS_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Azure;
@@ -932,14 +941,6 @@
             this.tableLayoutPanel4.SetRowSpan(this.panel10, 2);
             this.panel10.Size = new System.Drawing.Size(147, 360);
             this.panel10.TabIndex = 0;
-            // 
-            // TSM_CONF_POS
-            // 
-            this.TSM_CONF_POS.Image = global::ModSistema.Properties.Resources.setup;
-            this.TSM_CONF_POS.Name = "TSM_CONF_POS";
-            this.TSM_CONF_POS.Size = new System.Drawing.Size(152, 22);
-            this.TSM_CONF_POS.Text = "Módulo POS";
-            this.TSM_CONF_POS.Click += new System.EventHandler(this.TSM_CONF_POS_Click);
             // 
             // Form1
             // 

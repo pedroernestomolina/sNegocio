@@ -15,6 +15,9 @@ namespace ModSistema.Configuracion.Pos
         private bool _procesarIsOk;
         private decimal _maximoPorcDsctoPermitido;
         private bool _permitirDsctoUnicamentoPagoDivisa;
+        private decimal _tasaManejoDivSist;
+        private decimal _tasaManejoDivPos;
+        private decimal _difPorct;
 
 
         public bool AbandonarIsOK { get { return _abandonarIsOk; } }
@@ -27,6 +30,9 @@ namespace ModSistema.Configuracion.Pos
             _procesarIsOk = false;
             _maximoPorcDsctoPermitido = 0m;
             _permitirDsctoUnicamentoPagoDivisa = false;
+            _tasaManejoDivPos = 0m;
+            _tasaManejoDivSist = 0m;
+            _difPorct = 0m;
         }
 
 
@@ -36,6 +42,9 @@ namespace ModSistema.Configuracion.Pos
             _procesarIsOk = false;
             _maximoPorcDsctoPermitido = 0m;
             _permitirDsctoUnicamentoPagoDivisa = false;
+            _tasaManejoDivPos = 0m;
+            _tasaManejoDivSist = 0m;
+            _difPorct = 0m;
         }
         private CnfPosFrm frm;
         public void Inicia()
@@ -61,8 +70,21 @@ namespace ModSistema.Configuracion.Pos
             _procesarIsOk = false;
             if (Helpers.Msg.Procesar())
             {
+                if (_tasaManejoDivPos <=0m)
+                {
+                    var msg = "TASA RECEPCION POS DEBE SER MAYOR A CERO(0)";
+                    Helpers.Msg.Alerta(msg);
+                    return;
+                }
+                if (_permitirDsctoUnicamentoPagoDivisa && _maximoPorcDsctoPermitido <= 0m)
+                {
+                    var msg = "TASA/BONO PARA PAGO CON DIVISA DEBE SER MAYOR A CERO(0)";
+                    Helpers.Msg.Alerta(msg);
+                    return;
+                }
                 var fichaOOB = new OOB.LibSistema.Configuracion.Pos.Actualizar.Ficha()
                 {
+                    tasaManejoDivisaPos= _tasaManejoDivPos,
                     permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = _permitirDsctoUnicamentoPagoDivisa,
                     valorMaximoDescuentoPermitido = _maximoPorcDsctoPermitido,
                 };
@@ -88,8 +110,11 @@ namespace ModSistema.Configuracion.Pos
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            _tasaManejoDivSist = r01.Entidad.tasaManejoDivisaSist;
+            _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
             _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
             _permitirDsctoUnicamentoPagoDivisa = r01.Entidad.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa;
+            setTasaPos(_tasaManejoDivPos);
 
             return rt;
         }
@@ -103,10 +128,21 @@ namespace ModSistema.Configuracion.Pos
         {
             _permitirDsctoUnicamentoPagoDivisa = permiso;
         }
+        public void setTasaPos(decimal tasaPos)
+        {
+            _difPorct = 0m;
+            _tasaManejoDivPos = tasaPos;
+            if (_tasaManejoDivSist > 0) {
+                _difPorct = (1 - (_tasaManejoDivPos / _tasaManejoDivSist)) * 100;
+            }
+        }
 
 
         public decimal GetDsctoMaximoPermitido { get { return _maximoPorcDsctoPermitido; } }
         public bool GetPermisoDsctoPagoDivisa { get { return _permitirDsctoUnicamentoPagoDivisa; } }
+        public decimal GetTasaManejoDivSist { get { return _tasaManejoDivSist; } }
+        public decimal GetTasaManejoDivPos { get { return _tasaManejoDivPos; } }
+        public decimal GetDiferenciaPorct { get { return _difPorct; } }
 
     }
 

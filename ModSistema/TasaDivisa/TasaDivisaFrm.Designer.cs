@@ -44,6 +44,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TB_TASA = new LibControles.NumeroDecimal();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.PG = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -55,6 +57,7 @@
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,6 +80,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Controls.Add(this.panel8, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel9, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
@@ -267,6 +271,28 @@
             this.TB_TASA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             this.TB_TASA.Leave += new System.EventHandler(this.TB_TASA_Leave);
             // 
+            // panel7
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.panel7, 2);
+            this.panel7.Controls.Add(this.PG);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1, 1);
+            this.panel7.Margin = new System.Windows.Forms.Padding(1);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(6);
+            this.panel7.Size = new System.Drawing.Size(240, 46);
+            this.panel7.TabIndex = 2;
+            // 
+            // PG
+            // 
+            this.PG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PG.Location = new System.Drawing.Point(6, 6);
+            this.PG.Name = "PG";
+            this.PG.Size = new System.Drawing.Size(228, 34);
+            this.PG.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.PG.TabIndex = 0;
+            this.PG.Visible = false;
+            // 
             // TasaDivisaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +318,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -314,5 +341,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel6;
         private LibControles.NumeroDecimal TB_TASA;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.ProgressBar PG;
     }
 }

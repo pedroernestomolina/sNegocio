@@ -428,10 +428,28 @@ namespace DataProvSistema.Data
                 //var culture = CultureInfo.CreateSpecificCulture("en-EN");
                 decimal.TryParse(f.valorMaximoDescuentoPermitido, style, culture, out mont);
             }
+            var tasaDivSist=0m;
+            if (f.tasaManejoDivisaSist.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                decimal.TryParse(f.tasaManejoDivisaSist, style, culture, out tasaDivSist);
+            }
+            var tasaDivPos = 0m;
+            if (f.tasaManejoDivisaPos.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                decimal.TryParse(f.tasaManejoDivisaPos, style, culture, out tasaDivPos);
+            }
             rt.Entidad = new OOB.LibSistema.Configuracion.Pos.Capturar.Ficha()
-            {  
-                 valorMaximoDescuentoPermitido=mont,
-                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = f.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa.Trim().ToUpper() == "SI" ? true : false,
+            {
+                tasaManejoDivisaSist = tasaDivSist,
+                tasaManejoDivisaPos = tasaDivPos,
+                valorMaximoDescuentoPermitido = mont,
+                permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = f.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa.Trim().ToUpper() == "SI" ? true : false,
             };
 
             return rt;
@@ -443,6 +461,7 @@ namespace DataProvSistema.Data
 
             var fichaDTO = new DtoLibSistema.Configuracion.Pos.Actualizar.Ficha()
             {
+                tasaRecepcionPos = ficha.tasaManejoDivisaPos.ToString(),
                 valorMaximoDescuentoPermitido = ficha.valorMaximoDescuentoPermitido.ToString(),
                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = ficha.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa ? "Si" : "No",
             };

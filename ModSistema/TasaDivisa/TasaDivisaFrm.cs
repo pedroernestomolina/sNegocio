@@ -38,14 +38,37 @@ namespace ModSistema.TasaDivisa
         {
             Procesar();
         }
-
-        private void Procesar()
+        private async void Procesar()
         {
+            //PG.Visible = false;
+            //var progress = new Progress<int>(pct => PG.Value = pct);
+            //var x = await LongOperationAsync(progress);
+            //if (x == 100) 
+            //{
+            //    Salir();
+            //}
+
             _controlador.Procesar();
             if (_controlador.ActualizacionIsOk)
                 Salir();
 
         }
+
+        //private async Task<int> LongOperationAsync(IProgress<int> progresser)
+        //{
+        //    return await Task.Run<int>(() => { return LongOperation(progresser); });
+        //}
+
+        //private int LongOperation(IProgress<int> progresser)
+        //{
+        //    _controlador.Procesar();
+        //    if (_controlador.ActualizacionIsOk)
+        //    {
+        //        if (progresser != null)
+        //            progresser.Report(100);
+        //    }
+        //    return 25;
+        //}
 
 
         public void setControlador(Gestion ctr)
