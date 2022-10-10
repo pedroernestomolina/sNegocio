@@ -205,6 +205,7 @@ namespace DataProvSistema.Data
                 EstacionEquipo = ficha.EstacionEquipo,
                 nombreUsuario = ficha.nombreUsuario,
                 ValorDivisa = ficha.ValorDivisa,
+                ValorDivisaPos=ficha.ValorDivisaPos,
             };
 
             var lstProdCostoSinDivisa = new List<DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoSinDivisa>();

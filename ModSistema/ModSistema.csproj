@@ -372,6 +372,15 @@
     </Compile>
     <Compile Include="Sistema.cs" />
     <Compile Include="MaestrosMod\Lista.cs" />
+    <Compile Include="src\FabModoBasico.cs" />
+    <Compile Include="src\FabModoSucursal.cs" />
+    <Compile Include="src\IFabrica.cs" />
+    <Compile Include="src\PanelPrincipal\ModoBasico\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PanelPrincipal\ModoBasico\Principal.designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="TasaDivisa\Gestion.cs" />
     <Compile Include="TasaDivisa\IGestion.cs" />
     <Compile Include="TasaDivisa\Porcentaje\data.cs" />
@@ -382,6 +391,7 @@
     <Compile Include="TasaDivisa\Sist\data.cs" />
     <Compile Include="TasaDivisa\Sist\data2.cs" />
     <Compile Include="TasaDivisa\Sist\dataHndPrecio.cs" />
+    <Compile Include="TasaDivisa\Sist\GestionBasico.cs" />
     <Compile Include="TasaDivisa\Sist\Gestion.cs" />
     <Compile Include="TasaDivisa\TasaDivisaFrm.cs">
       <SubType>Form</SubType>
@@ -513,6 +523,9 @@
     <EmbeddedResource Include="Servicio\IniciarBDFrm.resx">
       <DependentUpon>IniciarBDFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\PanelPrincipal\ModoBasico\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TasaDivisa\TasaDivisaFrm.resx">
       <DependentUpon>TasaDivisaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -606,7 +619,9 @@
     <Content Include="Imagenes\bt_warehouse.png" />
     <Content Include="Imagenes\carpeta.png" />
     <Content Include="Imagenes\configuracionTool_4.jpg" />
+    <Content Include="Imagenes\conf_basico.jpg" />
     <Content Include="Imagenes\dollar.png" />
+    <Content Include="Imagenes\engranajes_basico.jpg" />
     <Content Include="Imagenes\fecha_derecha.png" />
     <Content Include="Imagenes\flecha_izquierda.png" />
     <Content Include="Imagenes\gestionConfiguracio_4.jpg" />
@@ -627,6 +642,8 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\engranajes_basico.jpg" />
+    <None Include="Resources\conf_basico.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataProvSistema\DataProvSistema.csproj">

@@ -89,8 +89,11 @@ namespace ModSistema
         }
 
 
+        private src.IFabrica _fabrica; 
         public Gestion()
         {
+            _fabrica = new src.FabModoBasico();
+
             _gestionUsuarioGrupo = new UsuarioGrupo.Gestion();
             _gestionUsuario = new Usuario.Gestion();
             _gestionServicio = new Servicio.Gestion();
@@ -144,9 +147,7 @@ namespace ModSistema
 
         public void Inicia() 
         {
-            var frm = new Form1();
-            frm.setControlador(this);
-            frm.ShowDialog();
+            _fabrica.CrearIniciarFrm_PanelPrincipal(this);
         }
 
         public void MaestroUsuariosGrupo()
@@ -239,8 +240,8 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                var gestion = new TasaDivisa.Sist.Gestion();
-                _gestionTasaDivisa.setGestion(gestion);
+                //var gestion = new TasaDivisa.Sist.Gestion();
+                _gestionTasaDivisa.setGestion(_fabrica.CrearInstancia_TasaDivisa());
                 _gestionTasaDivisa.Inicia();
             }
         }

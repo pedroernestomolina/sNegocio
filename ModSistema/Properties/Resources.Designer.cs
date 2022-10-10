@@ -643,6 +643,16 @@ namespace ModSistema.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conf_basico {
+            get {
+                object obj = ResourceManager.GetObject("conf_basico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap configuracionTool_4 {
             get {
                 object obj = ResourceManager.GetObject("configuracionTool_4", resourceCulture);
@@ -656,6 +666,16 @@ namespace ModSistema.Properties {
         internal static System.Drawing.Bitmap dollar {
             get {
                 object obj = ResourceManager.GetObject("dollar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap engranajes_basico {
+            get {
+                object obj = ResourceManager.GetObject("engranajes_basico", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
