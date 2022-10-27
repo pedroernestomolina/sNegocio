@@ -10,12 +10,13 @@ namespace OOB.LibSistema.Configuracion.Modulo.Capturar
     
     public class Ficha
     {
-
+        public enum enumModoCalculoDifEntreTasa { SIN_DEFINIR = -1, BCV = 1, PARALELO };
         public string claveNivMaximo { get; set; }
         public string claveNivMedio { get; set; }
         public string claveNivMinimo { get; set; }
         public bool visualizarPrdInactivos { get; set; }
         public int cantDocVisualizar { get; set; }
+        public enumModoCalculoDifEntreTasa modoCalculoDifEntreTasa { get; set; }
 
 
         public Ficha() 
@@ -25,6 +26,7 @@ namespace OOB.LibSistema.Configuracion.Modulo.Capturar
             claveNivMinimo = "";
             visualizarPrdInactivos = false;
             cantDocVisualizar = 0;
+            modoCalculoDifEntreTasa = enumModoCalculoDifEntreTasa.SIN_DEFINIR;
         }
 
     }

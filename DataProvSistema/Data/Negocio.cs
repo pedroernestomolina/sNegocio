@@ -12,7 +12,8 @@ namespace DataProvSistema.Data
     public partial class DataProv: IData
     {
 
-        public OOB.ResultadoEntidad<OOB.LibSistema.Negocio.Entidad.Ficha> Negocio_GetEntidad_ByAuto(string autoEmpresa)
+        public OOB.ResultadoEntidad<OOB.LibSistema.Negocio.Entidad.Ficha>
+            Negocio_GetEntidad_ByAuto(string autoEmpresa)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Negocio.Entidad.Ficha>();
 
@@ -48,7 +49,8 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-        public OOB.Resultado Negocio_EditarFicha(OOB.LibSistema.Negocio.Editar.Ficha ficha)
+        public OOB.Resultado 
+            Negocio_EditarFicha(OOB.LibSistema.Negocio.Editar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
 

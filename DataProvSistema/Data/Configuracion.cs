@@ -13,6 +13,65 @@ namespace DataProvSistema.Data
     public partial class DataProv: IData
     {
 
+        public OOB.ResultadoEntidad<Enumerados.modoConfSistema> 
+            Configuracion_ModuloSistema_Modo()
+        {
+            var rt = new OOB.ResultadoEntidad<Enumerados.modoConfSistema>();
+            var r01 = MyData.Configuracion_ModuloSistema_Modo();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                throw new Exception(r01.Mensaje);
+            }
+
+            Enumerados.modoConfSistema _modo = Enumerados.modoConfSistema.SinDefinir;
+            var _dato = r01.Entidad;
+            switch (_dato.Trim().ToUpper())
+            {
+                case "BASICO":
+                    _modo = Enumerados.modoConfSistema.Basico;
+                    break;
+                case "SUCURSAL":
+                    _modo = Enumerados.modoConfSistema.Sucursal;
+                    break;
+            }
+            rt.Entidad = _modo;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<Enumerados.modoCalculoDiferenciaEntreTasas> 
+            Configuracion_CalculoDiferenciaEnreTasas()
+        {
+            var rt = new OOB.ResultadoEntidad<Enumerados.modoCalculoDiferenciaEntreTasas>();
+
+            var r01 = MyData.Configuracion_CalculoDiferenciaEntreTasas();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                throw new Exception(r01.Mensaje);
+            }
+            rt.Entidad = Enumerados.modoCalculoDiferenciaEntreTasas.PARALELO;
+            var cnf = r01.Entidad.Trim().ToUpper();
+            if (cnf=="BCV")
+            {
+                rt.Entidad = Enumerados.modoCalculoDiferenciaEntreTasas.BCV;
+            }
+
+            return rt;
+        }
+        public OOB.Resultado 
+            Configuracion_Actualizar_CalculoDiferenciaEnreTasas(string modo)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Configuracion_Actualizar_CalculoDiferenciaEntreTasas(modo);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                throw new Exception(r01.Mensaje);
+            }
+
+            return rt;
+        }
+
+
         public OOB.ResultadoEntidad<decimal> 
             Configuracion_TasaCambioActual()
         {
@@ -359,9 +418,7 @@ namespace DataProvSistema.Data
             var r01 = MyData.Configuracion_Modulo_Capturar();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
+                throw new Exception(r01.Mensaje);
             }
             var f= r01.Entidad;
             var cnt = 1000;
@@ -372,15 +429,20 @@ namespace DataProvSistema.Data
                 //var culture = CultureInfo.CreateSpecificCulture("en-EN");
                 int.TryParse(f.cantDocVisualizar, style, culture, out cnt);
             }
-
             rt.Entidad = new OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha()
             {
                 claveNivMaximo = f.claveNivMaximo,
                 claveNivMedio = f.claveNivMedio,
                 claveNivMinimo = f.claveNivMinimo,
                 visualizarPrdInactivos = f.visualizarPrdInactivos.Trim().ToUpper() == "SI" ? true : false,
-                cantDocVisualizar = cnt,
+                cantDocVisualizar = cnt,                           
             };
+            rt.Entidad.modoCalculoDifEntreTasa = OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha.enumModoCalculoDifEntreTasa.PARALELO;
+            var cnf = r01.Entidad.modoCalculoDifTasa.Trim().ToUpper();
+            if (cnf == "BCV")
+            {
+                rt.Entidad.modoCalculoDifEntreTasa = OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha.enumModoCalculoDifEntreTasa.BCV;
+            }
 
             return rt;
         }
@@ -396,13 +458,12 @@ namespace DataProvSistema.Data
                 claveNivMinimo = ficha.claveNivMinimo,
                 visualizarPrdInactivos = ficha.visualizarPrdInactivos,
                 cantDocVisualizar = ficha.cantDocVisualizar,
+                modoCalculoDifTasa= ficha.modoCalculoDifTasa,
             };
             var r01 = MyData.Configuracion_Modulo_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
+                throw new Exception(r01.Mensaje);
             }
 
             return rt;
@@ -416,9 +477,7 @@ namespace DataProvSistema.Data
             var r01 = MyData.Configuracion_Pos_Capturar();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
+                throw new Exception(r01.Mensaje);
             }
             var f = r01.Entidad;
             var mont = 0m;

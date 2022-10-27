@@ -11,6 +11,14 @@ namespace DataProvSistema.Infra
     public interface IConfiguracion
     {
 
+        OOB.ResultadoEntidad<Enumerados.modoConfSistema>
+            Configuracion_ModuloSistema_Modo();
+        OOB.ResultadoEntidad<Enumerados.modoCalculoDiferenciaEntreTasas>
+            Configuracion_CalculoDiferenciaEnreTasas();
+        OOB.Resultado
+            Configuracion_Actualizar_CalculoDiferenciaEnreTasas(string modo);
+
+
         OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> 
             Configuracion_ForzarRedondeoPrecioVenta();
         OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> 

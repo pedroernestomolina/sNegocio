@@ -45,6 +45,7 @@ namespace ModSistema.Configuracion.Pos
             _tasaManejoDivPos = 0m;
             _tasaManejoDivSist = 0m;
             _difPorct = 0m;
+            _modoCalculoDifTasa = "";
         }
         private CnfPosFrm frm;
         public void Inicia()
@@ -100,23 +101,31 @@ namespace ModSistema.Configuracion.Pos
         }
 
 
+        private string _modoCalculoDifTasa;
         private bool CargarData()
         {
-            var rt = true;
-
-            var r01 = Sistema.MyData.Configuracion_Pos_Capturar();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            try
             {
-                Helpers.Msg.Error(r01.Mensaje);
+                var r00 = Sistema.MyData.Configuracion_CalculoDiferenciaEnreTasas();
+                if (r00.Entidad == DataProvSistema.Enumerados.modoCalculoDiferenciaEntreTasas.BCV)
+                {
+                    _modoCalculoDifTasa = "BCV";
+                }
+
+                var r01 = Sistema.MyData.Configuracion_Pos_Capturar();
+                _tasaManejoDivSist = r01.Entidad.tasaManejoDivisaSist;
+                _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
+                _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
+                _permitirDsctoUnicamentoPagoDivisa = r01.Entidad.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa;
+                setTasaPos(_tasaManejoDivPos);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Helpers.Msg.Error(e.Message);
                 return false;
             }
-            _tasaManejoDivSist = r01.Entidad.tasaManejoDivisaSist;
-            _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
-            _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
-            _permitirDsctoUnicamentoPagoDivisa = r01.Entidad.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa;
-            setTasaPos(_tasaManejoDivPos);
-
-            return rt;
         }
 
 
@@ -133,7 +142,10 @@ namespace ModSistema.Configuracion.Pos
             _difPorct = 0m;
             _tasaManejoDivPos = tasaPos;
             if (_tasaManejoDivSist > 0) {
-                _difPorct = (1 - (_tasaManejoDivPos / _tasaManejoDivSist)) * 100;
+                if (_modoCalculoDifTasa == "BCV")
+                    _difPorct = ((_tasaManejoDivSist / _tasaManejoDivPos) - 1) * 100;
+                else
+                    _difPorct = (1 - (_tasaManejoDivPos / _tasaManejoDivSist)) * 100;
             }
         }
 

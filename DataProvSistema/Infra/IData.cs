@@ -15,8 +15,10 @@ namespace DataProvSistema.Infra
 
     {
 
-        OOB.ResultadoEntidad<DateTime> FechaServidor();
-        OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha> Empresa_Datos();
+        OOB.ResultadoEntidad<DateTime> 
+            FechaServidor();
+        OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha> 
+            Empresa_Datos();
 
     }
 

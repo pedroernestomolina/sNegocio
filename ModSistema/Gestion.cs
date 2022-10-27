@@ -89,10 +89,11 @@ namespace ModSistema
         }
 
 
-        private src.IFabrica _fabrica; 
-        public Gestion()
+        private src.IFabrica _fabrica;
+        public Gestion(src.IFabrica fabrica)
         {
-            _fabrica = new src.FabModoBasico();
+            _fabrica = fabrica;
+
 
             _gestionUsuarioGrupo = new UsuarioGrupo.Gestion();
             _gestionUsuario = new Usuario.Gestion();

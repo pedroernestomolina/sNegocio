@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModSistema
+namespace ModSistema.src.PanelPrincipal.ModoSucursal
 {
 
-    public partial class Form1 : Form
+    public partial class Principal : Form
     {
 
         private Gestion _controlador;
         private Timer timer;
 
 
-        public Form1()
+        public Principal()
         {
             InitializeComponent();
             timer = new Timer();

@@ -13,7 +13,7 @@ namespace ModSistema.src
 
         public void CrearIniciarFrm_PanelPrincipal(Gestion ctr)
         {
-            var frm = new Form1();
+            var frm = new src.PanelPrincipal.ModoSucursal.Principal();
             frm.setControlador(ctr);
             frm.ShowDialog();
         }
