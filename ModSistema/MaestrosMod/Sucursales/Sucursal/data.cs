@@ -18,6 +18,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         public string mSucGrupo{ get; set; }
         public bool mSucFactMayor { get; set; }
         public bool mSucFactCredito { get; set; }
+        public bool mSucPosVentaSurtido { get; set; }
+        public bool mSucPosVueltoDivisa { get; set; }
 
 
         public data() 
@@ -29,6 +31,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             mSucGrupo = "";
             mSucFactMayor = false;
             mSucFactCredito = false;
+            mSucPosVentaSurtido = false;
+            mSucPosVueltoDivisa = false;
         }
 
 

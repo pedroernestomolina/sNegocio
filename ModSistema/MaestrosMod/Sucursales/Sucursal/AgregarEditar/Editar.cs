@@ -19,6 +19,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
         private bool _abandonarIsOk;
         private string _idItemEditar;
         private Helpers.Opcion.IOpcion _gGrupo;
+        private bool _posVentaSurtido;
+        private bool _posVueltoDivisa;
 
 
         public string Titulo { get { return "Editar: SUCURSAL"; } }
@@ -41,6 +43,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             _procesarIsOk = false;
             _abandonarIsOk = false;
             _idItemEditar = "";
+            _posVentaSurtido = false;
+            _posVueltoDivisa = false;
         }
 
 
@@ -53,6 +57,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             _procesarIsOk = false;
             _abandonarIsOk = false;
             _idItemEditar = "";
+            _posVentaSurtido = false;
+            _posVueltoDivisa = false;
         }
 
         AgregarEditarFrm frm;
@@ -95,6 +101,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             _gGrupo.setFicha(r02.Entidad.autoGrupo);
             _factMayor = r02.Entidad.activarFactMayor;
             _ventaCredito = r02.Entidad.activarVentaCredito;
+            _posVentaSurtido = r02.Entidad.habilitarPosVentaSurtido;
+            _posVueltoDivisa = r02.Entidad.habilitarPosVueltoDivisa;
 
             return true;
         }
@@ -138,15 +146,19 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
                     nombre = _nombre,
                     estatusFactMayor = _factMayor ? "1" : "0",
                     estatusVentaCredito = _ventaCredito ? "1" : "0",
+                    estatusPosVentaSurtido = _posVentaSurtido ? "1" : "0",
+                    estatusPosVueltoDivisa = _posVueltoDivisa ? "1" : "0",
                 };
-                var r01 = Sistema.MyData.Sucursal_Editar(fichaOOB);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                try
                 {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                    var r01 = Sistema.MyData.Sucursal_Editar(fichaOOB);
+                    _procesarIsOk = true;
+                    Helpers.Msg.EditarOk();
                 }
-                _procesarIsOk = true;
-                Helpers.Msg.EditarOk();
+                catch (Exception e)
+                {
+                    Helpers.Msg.Error(e.Message);
+                }
             }
         }
         
@@ -168,9 +180,19 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
 
 
         public bool GetFactCredito { get { return _ventaCredito; } }
+        public bool GetPosVentaSurtido { get { return _posVentaSurtido; } }
+        public bool GetPosVueltoDivisa { get { return _posVueltoDivisa; } }
         public void setVentaCredito(bool p)
         {
             _ventaCredito = p;
+        }
+        public void setPosVueltoDivisa(bool p)
+        {
+            _posVueltoDivisa = p;
+        }
+        public void setPosVentaSurtido(bool p)
+        {
+            _posVentaSurtido = p;
         }
 
     }

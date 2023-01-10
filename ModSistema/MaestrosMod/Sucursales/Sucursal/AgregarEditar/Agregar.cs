@@ -19,6 +19,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
         private string _idItemRegistrado;
         private Helpers.Opcion.IOpcion _gGrupo;
         private bool _ventaCredito;
+        private bool _posVentaSurtido;
+        private bool _posVueltoDivisa;
 
 
         public string Titulo { get { return "Agregar: SUCURSAL"; } }
@@ -44,6 +46,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             _abandonarIsOk = false;
             _idItemRegistrado = "";
             _gGrupo = new Helpers.Opcion.Gestion();
+            _posVentaSurtido = false;
+            _posVueltoDivisa = false;
         }
 
 
@@ -56,6 +60,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             _abandonarIsOk = false;
             _idItemRegistrado = "";
             _gGrupo.Inicializa();
+            _posVentaSurtido = false;
+            _posVueltoDivisa = false;
         }
 
         AgregarEditarFrm frm;
@@ -132,16 +138,20 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
                     estatusFactMayor = _factMayor ? "1" : "0",
                     estatusVentaCredito = _ventaCredito ? "1" : "0",
                     nombre = _nombre,
+                    estatusPosVentaSurtido = _posVentaSurtido ? "1" : "0",
+                    estatusPosVueltoDivisa = _posVueltoDivisa ? "1" : "0",
                 };
-                var r01 = Sistema.MyData.Sucursal_Agregar(fichaOOB);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                try
                 {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                    var r01 = Sistema.MyData.Sucursal_Agregar(fichaOOB);
+                    _procesarIsOk = true;
+                    _idItemRegistrado = r01.Auto;
+                    Helpers.Msg.AgregarOk();
                 }
-                _procesarIsOk = true;
-                _idItemRegistrado = r01.Auto;
-                Helpers.Msg.AgregarOk();
+                catch (Exception e)
+                {
+                    Helpers.Msg.Error(e.Message);
+                }
             }
         }
         
@@ -154,6 +164,17 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             {
                 _abandonarIsOk = true; 
             }
+        }
+
+        public bool GetPosVentaSurtido { get { return _posVentaSurtido; } }
+        public bool GetPosVueltoDivisa { get { return _posVueltoDivisa; } }
+        public void setPosVueltoDivisa(bool p)
+        {
+            _posVueltoDivisa = p;
+        }
+        public void setPosVentaSurtido(bool p)
+        {
+            _posVentaSurtido = p;
         }
 
     }

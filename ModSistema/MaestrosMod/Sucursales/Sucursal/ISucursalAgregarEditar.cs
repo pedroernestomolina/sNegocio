@@ -25,6 +25,10 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
         bool GetFactCredito { get; }
         void setVentaCredito(bool p);
 
+        void setPosVueltoDivisa(bool p);
+        void setPosVentaSurtido(bool p);
+        bool GetPosVentaSurtido { get; }
+        bool GetPosVueltoDivisa { get; }
     }
 
 }

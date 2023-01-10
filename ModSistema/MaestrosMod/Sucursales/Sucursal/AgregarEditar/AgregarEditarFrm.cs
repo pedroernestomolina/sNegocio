@@ -41,10 +41,21 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             TB_NOMBRE.Text = _controlador.GetNombre;
             CHK_MAYOR.Checked = _controlador.GetFactMayor;
             CHK_VENTA_CREDITO.Checked = _controlador.GetFactCredito;
+            CHK_POS_VENTA_SURTIDO.Checked = _controlador.GetPosVentaSurtido;
+            CHK_POS_VUELTO_DIVISA.Checked = _controlador.GetPosVueltoDivisa;
             CB_GRUPO.SelectedValue = _controlador.GetGrupoId;
             _modoInicializa = false;
             TB_NOMBRE.Focus();
         }
+        private void AgregarEditarFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            if (_controlador.ProcesarIsOk || _controlador.AbandonarIsOk)
+            {
+                e.Cancel = false;
+            }
+        }
+
 
         private void TB_NOMBRE_Leave(object sender, EventArgs e)
         {
@@ -58,17 +69,27 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
         {
             _controlador.setVentaCredito(CHK_VENTA_CREDITO.Checked);
         }
+        private void CHK_POS_VUELTO_DIVISA_Leave(object sender, EventArgs e)
+        {
+            _controlador.setPosVueltoDivisa(CHK_POS_VUELTO_DIVISA.Checked);
+        }
+        private void CHK_POS_VENTA_SURTIDO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setPosVentaSurtido(CHK_POS_VENTA_SURTIDO.Checked);
+        }
+
+
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_modoInicializa)
-                return;
-
+            if (_modoInicializa) { return; }
             _controlador.SetGrupo("");
             if (CB_GRUPO.SelectedIndex != -1)
             {
                 _controlador.SetGrupo(CB_GRUPO.SelectedValue.ToString());
             }
         }
+
+
         private void TB_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -88,6 +109,12 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
         {
             Procesar();
         }
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Abandonar();
+        }
+
+
         private void Procesar()
         {
             _controlador.Procesar();
@@ -95,10 +122,6 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
             {
                 Salir();
             }
-        }
-        private void BT_SALIR_Click(object sender, EventArgs e)
-        {
-            Abandonar();
         }
         private void Abandonar()
         {
@@ -114,15 +137,7 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal.AgregarEditar
         {
             this.Close();
         }
-        private void AgregarEditarFrm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            if (_controlador.ProcesarIsOk || _controlador.AbandonarIsOk)
-            {
-                e.Cancel = false;
-            }
-        }
- 
+
     }
 
 }

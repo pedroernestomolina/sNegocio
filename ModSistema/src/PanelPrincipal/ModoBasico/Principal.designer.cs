@@ -437,7 +437,7 @@
             // 
             this.TSM_ARCHIVO_SALIR.Image = global::ModSistema.Properties.Resources.bt_salida_2;
             this.TSM_ARCHIVO_SALIR.Name = "TSM_ARCHIVO_SALIR";
-            this.TSM_ARCHIVO_SALIR.Size = new System.Drawing.Size(96, 22);
+            this.TSM_ARCHIVO_SALIR.Size = new System.Drawing.Size(152, 22);
             this.TSM_ARCHIVO_SALIR.Text = "Salir";
             this.TSM_ARCHIVO_SALIR.Click += new System.EventHandler(this.TSM_ARCHIVO_SALIR_Click);
             // 
@@ -456,14 +456,14 @@
             // 
             this.TSM_MAESTRO_SERIES_FISCAL.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_SERIES_FISCAL.Image")));
             this.TSM_MAESTRO_SERIES_FISCAL.Name = "TSM_MAESTRO_SERIES_FISCAL";
-            this.TSM_MAESTRO_SERIES_FISCAL.Size = new System.Drawing.Size(136, 22);
+            this.TSM_MAESTRO_SERIES_FISCAL.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_SERIES_FISCAL.Text = "Series Fiscal";
             this.TSM_MAESTRO_SERIES_FISCAL.Click += new System.EventHandler(this.TSM_MAESTRO_SERIES_FISCAL_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -472,14 +472,14 @@
             this.TSM_MAESTROS_Usuario});
             this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // TSM_MAESTROS_UsuarioGrupo
             // 
             this.TSM_MAESTROS_UsuarioGrupo.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTROS_UsuarioGrupo.Name = "TSM_MAESTROS_UsuarioGrupo";
-            this.TSM_MAESTROS_UsuarioGrupo.Size = new System.Drawing.Size(114, 22);
+            this.TSM_MAESTROS_UsuarioGrupo.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTROS_UsuarioGrupo.Text = "Grupos";
             this.TSM_MAESTROS_UsuarioGrupo.Click += new System.EventHandler(this.TSM_MAESTROS_UsuarioGrupo_Click);
             // 
@@ -487,14 +487,14 @@
             // 
             this.TSM_MAESTROS_Usuario.Image = global::ModSistema.Properties.Resources.master;
             this.TSM_MAESTROS_Usuario.Name = "TSM_MAESTROS_Usuario";
-            this.TSM_MAESTROS_Usuario.Size = new System.Drawing.Size(114, 22);
+            this.TSM_MAESTROS_Usuario.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTROS_Usuario.Text = "Usuario";
             this.TSM_MAESTROS_Usuario.Click += new System.EventHandler(this.TSM_MAESTROS_Usuario_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
             // 
             // ajustesToolStripMenuItem
             // 
@@ -555,7 +555,7 @@
             // 
             this.TSM_CONF_MODULO.Image = global::ModSistema.Properties.Resources.setup;
             this.TSM_CONF_MODULO.Name = "TSM_CONF_MODULO";
-            this.TSM_CONF_MODULO.Size = new System.Drawing.Size(116, 22);
+            this.TSM_CONF_MODULO.Size = new System.Drawing.Size(152, 22);
             this.TSM_CONF_MODULO.Text = "Módulo";
             this.TSM_CONF_MODULO.Click += new System.EventHandler(this.TSM_CONF_MODULO_Click);
             // 

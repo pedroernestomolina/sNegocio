@@ -118,11 +118,29 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
 
+            var c6 = new DataGridViewCheckBoxColumn();
+            c6.DataPropertyName = "mSucPosVentaSurtido";
+            c6.HeaderText = "Act/Venta/Surtido";
+            c6.Visible = true;
+            c6.Width = 80;
+            c6.HeaderCell.Style.Font = f;
+            c6.DefaultCellStyle.Font = f1;
+
+            var c7 = new DataGridViewCheckBoxColumn();
+            c7.DataPropertyName = "mSucPosVueltoDivisa";
+            c7.HeaderText = "Act/Vuelto/Divisa";
+            c7.Visible = true;
+            c7.Width = 80;
+            c7.HeaderCell.Style.Font = f;
+            c7.DefaultCellStyle.Font = f1;
+
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c4b);
+            DGV.Columns.Add(c6);
+            DGV.Columns.Add(c7);
             DGV.Columns.Add(c5);
         }
 

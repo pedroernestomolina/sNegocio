@@ -121,26 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="TSM_MAESTRO_SERIES_FISCAL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAANJJREFUWEft1zsKwkAUheGU4qP1UYr7ULBQxEqwUHBLLkMQEcRVBdE1qP+RBNPE
-        TCZDQLgHPsIMmczJkCbRj7SxwCaAKUplggdegTzhHL25Nr+gp4mK0QmohHN07FqgzXc4ezphhNIF0gV9
-        bHH0dMAQ3gWuGGiiYrwLxMk1FH2I+rgLkxZoYoZ1QnP7zLgsrde1MHlH5vyAnFgBK2AFrIAVsAJWwApY
-        gf8psIRu7n5G39RWoIM79F+Q/TWrrYAyxg1aFNIKzmlhDrUOQZs3kEkUvQHETc/FKJZuQgAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="usuariosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAANJJREFUWEft1zsKwkAUheGU4qP1UYr7ULBQxEqwUHBLLkMQEcRVBdE1qP+RBNPE
-        TCZDQLgHPsIMmczJkCbRj7SxwCaAKUplggdegTzhHL25Nr+gp4mK0QmohHN07FqgzXc4ezphhNIF0gV9
-        bHH0dMAQ3gWuGGiiYrwLxMk1FH2I+rgLkxZoYoZ1QnP7zLgsrde1MHlH5vyAnFgBK2AFrIAVsAJWwApY
-        gf8psIRu7n5G39RWoIM79F+Q/TWrrYAyxg1aFNIKzmlhDrUOQZs3kEkUvQHETc/FKJZuQgAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
   <data name="Menu_Ajuste_TasaDivisa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -1199,6 +1179,26 @@
         P1a088T+niQPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQGiYm/j/wttwZ
         YmdINgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TSM_MAESTRO_SERIES_FISCAL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAANJJREFUWEft1zsKwkAUheGU4qP1UYr7ULBQxEqwUHBLLkMQEcRVBdE1qP+RBNPE
+        TCZDQLgHPsIMmczJkCbRj7SxwCaAKUplggdegTzhHL25Nr+gp4mK0QmohHN07FqgzXc4ezphhNIF0gV9
+        bHH0dMAQ3gWuGGiiYrwLxMk1FH2I+rgLkxZoYoZ1QnP7zLgsrde1MHlH5vyAnFgBK2AFrIAVsAJWwApY
+        gf8psIRu7n5G39RWoIM79F+Q/TWrrYAyxg1aFNIKzmlhDrUOQZs3kEkUvQHETc/FKJZuQgAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="usuariosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAANJJREFUWEft1zsKwkAUheGU4qP1UYr7ULBQxEqwUHBLLkMQEcRVBdE1qP+RBNPE
+        TCZDQLgHPsIMmczJkCbRj7SxwCaAKUplggdegTzhHL25Nr+gp4mK0QmohHN07FqgzXc4ezphhNIF0gV9
+        bHH0dMAQ3gWuGGiiYrwLxMk1FH2I+rgLkxZoYoZ1QnP7zLgsrde1MHlH5vyAnFgBK2AFrIAVsAJWwApY
+        gf8psIRu7n5G39RWoIM79F+Q/TWrrYAyxg1aFNIKzmlhDrUOQZs3kEkUvQHETc/FKJZuQgAAAABJRU5E
+        rkJggg==
 </value>
   </data>
 </root>

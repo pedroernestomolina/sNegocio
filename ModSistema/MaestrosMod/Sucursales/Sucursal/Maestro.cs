@@ -68,6 +68,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                     mSucGrupo = rg.nombreGrupo,
                     mSucFactMayor = rg.activarFactMayor,
                     mSucFactCredito = rg.activarVentaCredito,
+                    mSucPosVentaSurtido = rg.habilitarPosVentaSurtido,
+                    mSucPosVueltoDivisa = rg.habilitarPosVueltoDivisa,
                 };
                 _lst.Add(nr);
             }
@@ -175,6 +177,8 @@ namespace ModSistema.MaestrosMod.Sucursales.Sucursal
                         mSucGrupo = rg.nombreGrupo,
                         mSucFactMayor = rg.activarFactMayor,
                         mSucFactCredito = rg.activarVentaCredito,
+                        mSucPosVentaSurtido= rg.habilitarPosVentaSurtido,
+                        mSucPosVueltoDivisa=rg.habilitarPosVueltoDivisa,
                     };
                     _gLista.Actualizar(_dataAgregarEditar);
                 }

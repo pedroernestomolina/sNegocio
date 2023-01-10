@@ -22,9 +22,14 @@ namespace OOB.LibSistema.Sucursal.Entidad
         public string estatusVentaCredito { get; set; }
         public string nombreGrupo { get; set; }
         public string nombreDepositoPrincipal { get; set; }
+        public string estatusPosVentaSurtido { get; set; }
+        public string estatusPosVueltoDivisa { get; set; }
+        //
         public bool esActivo { get { return estatus == "1" ? true : false; } }
         public bool activarFactMayor { get { return estatusFactMayor == "1" ? true : false; } }
         public bool activarVentaCredito { get { return estatusVentaCredito == "1" ? true : false; } }
+        public bool habilitarPosVentaSurtido { get { return estatusPosVentaSurtido == "1" ? true : false; } }
+        public bool habilitarPosVueltoDivisa { get { return estatusPosVueltoDivisa == "1" ? true : false; } }
 
 
         public Ficha() 
@@ -39,6 +44,8 @@ namespace OOB.LibSistema.Sucursal.Entidad
             estatusVentaCredito= "";
             nombreGrupo = "";
             nombreDepositoPrincipal = "";
+            estatusPosVentaSurtido = "";
+            estatusPosVueltoDivisa = "";
         }
 
     }

@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Data
 {
-
     public partial class DataProv: IData
     {
-
         public OOB.ResultadoLista<OOB.LibSistema.Sucursal.Entidad.Ficha> 
             Sucursal_GetLista(OOB.LibSistema.Sucursal.Lista.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibSistema.Sucursal.Entidad.Ficha>();
-
             var filtroDTO = new DtoLibSistema.Sucursal.Lista.Filtro()
             {
                 autoGrupo = filtro.autoGrupo,
@@ -45,12 +42,13 @@ namespace DataProvSistema.Data
                             nombre = s.nombre,
                             nombreDepositoPrincipal = s.nombreDeposito,
                             nombreGrupo = s.nombreGrupo,
+                            estatusPosVentaSurtido=s.estatusPosVentaSurtido,
+                            estatusPosVueltoDivisa=s.estatusPosVueltoDivisa,
                         };
                     }).ToList();
                 }
             }
             rt.Lista = lst;
-
             return rt;
         }
         public OOB.ResultadoEntidad<OOB.LibSistema.Sucursal.Entidad.Ficha> 
@@ -83,7 +81,9 @@ namespace DataProvSistema.Data
                 estatusVentaCredito = s.estatusVentaCredito,
                 nombre = s.nombre,
                 nombreGrupo = s.nombreGrupo,
-                nombreDepositoPrincipal=nombreDepositoAsignado,
+                nombreDepositoPrincipal = nombreDepositoAsignado,
+                estatusPosVentaSurtido = s.estatusPosVentaSurtido,
+                estatusPosVueltoDivisa = s.estatusPosVueltoDivisa,
             };
             rt.Entidad = nr;
 
@@ -93,30 +93,27 @@ namespace DataProvSistema.Data
             Sucursal_Agregar(OOB.LibSistema.Sucursal.Agregar.Ficha ficha)
         {
             var rt = new OOB.ResultadoAuto();
-
             var fichaDTO = new DtoLibSistema.Sucursal.Agregar.Ficha()
             {
                 autoGrupo = ficha.autoGrupo,
                 nombre = ficha.nombre,
                 estatusFactMayor = ficha.estatusFactMayor,
                 estatusVentaCredito = ficha.estatusVentaCredito,
+                estatusPosVentaSurtido = ficha.estatusPosVentaSurtido,
+                estatusPosVueltoDivisa = ficha.estatusPosVueltoDivisa,
             };
             var r01 = MyData.Sucursal_Agregar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
+                throw new Exception(r01.Mensaje);
             }
             rt.Auto = r01.Auto;
-
             return rt;
         }
         public OOB.Resultado 
             Sucursal_Editar(OOB.LibSistema.Sucursal.Editar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
-
             var fichaDTO = new DtoLibSistema.Sucursal.Editar.Ficha()
             {
                 auto = ficha.auto,
@@ -124,15 +121,14 @@ namespace DataProvSistema.Data
                 nombre = ficha.nombre,
                 estatusFactMayor = ficha.estatusFactMayor,
                 estatusVentaCredito = ficha.estatusVentaCredito,
+                estatusPosVentaSurtido=ficha.estatusPosVentaSurtido,
+                estatusPosVueltoDivisa=ficha.estatusPosVueltoDivisa,
             };
             var r01 = MyData.Sucursal_Editar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
+                throw new Exception(r01.Mensaje);
             }
-
             return rt;
         }
         public OOB.Resultado 
@@ -200,7 +196,5 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
     }
-
 }
