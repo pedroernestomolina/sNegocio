@@ -67,33 +67,34 @@ namespace ModSistema.ReconversionMonetaria
 
         private bool CargarData()
         {
-            var rt = true;
-
-            var r01 = Sistema.MyData.Configuracion_TasaCambioActual();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            try
             {
-                Helpers.Msg.Error(r01.Mensaje);
+                var r01 = Sistema.MyData.Configuracion_TasaCambioActual();
+                _tasaDivisa = r01.Entidad;
+
+                var r02 = Sistema.MyData.Configuracion_TasaRecepcionPos();
+                if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return false;
+                }
+                _tasaRecepcionPos = r02.Entidad;
+
+                var r03 = Sistema.MyData.ReconversionMonetaria_GetData();
+                if (r03.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r03.Mensaje);
+                    return false;
+                }
+                _data = r03.Entidad;
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Helpers.Msg.Error(e.Message);
                 return false;
             }
-            _tasaDivisa = r01.Entidad;
-
-            var r02 = Sistema.MyData.Configuracion_TasaRecepcionPos();
-            if (r02.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r02.Mensaje);
-                return false;
-            }
-            _tasaRecepcionPos = r02.Entidad;
-
-            var r03 = Sistema.MyData.ReconversionMonetaria_GetData();
-            if (r03.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r03.Mensaje);
-                return false;
-            }
-            _data = r03.Entidad;
-
-            return rt;
         }
 
         public void Procesar()

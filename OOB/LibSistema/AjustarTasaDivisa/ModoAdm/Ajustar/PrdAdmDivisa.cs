@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModSistema
+namespace OOB.LibSistema.AjustarTasaDivisa.ModoAdm.Ajustar
 {
-    public interface IGestion
+    public class PrdAdmDivisa
     {
-        void Inicializa();
-        void Inicia();
     }
 }

@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace ModSistema.src
 {
-    
     public interface IFabrica
     {
-
         void CrearIniciarFrm_PanelPrincipal(Gestion gestion);
         TasaDivisa.IGestion CrearInstancia_TasaDivisa();
-
+        ActualizarTasaDivisa.ITasa CrearInstancia_ActualizarTasaDivisa();
     }
-
 }

@@ -11,7 +11,8 @@ namespace DataProvSistema.Infra
     public interface IData: IDeposito, ISucursal, IUsuario, IPrecioEtiqueta,
         IFuncion, IUsuarioGrupo, IServConf, IPermisos, IConfiguracion, IVendedor, ICobrador ,
         ISerieFiscal, IReconversionMonetaria, INegocio, IControlAcceso, IPrueba,
-        ITablaPrecio, ISucursalGrupo, IMediosCobroPago
+        ITablaPrecio, ISucursalGrupo, IMediosCobroPago,
+        IAjustarTasaDivisa_ModoAdm
 
     {
 

@@ -40,6 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerados.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\Ficha.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\Historia.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\NoAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\PrdAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\PrdNoAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\PrdSiAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\PrecioNoAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\PrecioSiAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\SiAdmDivisa.cs" />
+    <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\CapturarData.cs" />
     <Compile Include="LibSistema\Cobrador\Agregar\Ficha.cs" />
     <Compile Include="LibSistema\Cobrador\Editar\Ficha.cs" />
     <Compile Include="LibSistema\Cobrador\Entidad\Ficha.cs" />

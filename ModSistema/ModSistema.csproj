@@ -366,9 +366,25 @@
     </Compile>
     <Compile Include="Sistema.cs" />
     <Compile Include="MaestrosMod\Lista.cs" />
+    <Compile Include="src\ActualizarTasaDivisa\ITasa.cs" />
+    <Compile Include="src\ActualizarTasaDivisa\ModoAdm\Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\ActualizarTasaDivisa\ModoAdm\Frm.Designer.cs">
+      <DependentUpon>Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\ActualizarTasaDivisa\ModoAdm\IModoAdm.cs" />
+    <Compile Include="src\ActualizarTasaDivisa\ModoAdm\ImpModoAdm.cs" />
+    <Compile Include="src\FabModoAdm.cs" />
     <Compile Include="src\FabModoBasico.cs" />
     <Compile Include="src\FabModoSucursal.cs" />
     <Compile Include="src\IFabrica.cs" />
+    <Compile Include="src\PanelPrincipal\ModoAdm\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PanelPrincipal\ModoAdm\Principal.designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\PanelPrincipal\ModoBasico\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -519,6 +535,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\IniciarBDFrm.resx">
       <DependentUpon>IniciarBDFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\ActualizarTasaDivisa\ModoAdm\Frm.resx">
+      <DependentUpon>Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PanelPrincipal\ModoAdm\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PanelPrincipal\ModoBasico\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

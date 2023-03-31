@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Data
 {
-
     public partial class DataProv : IData
     {
-
         public OOB.ResultadoLista<OOB.LibSistema.Cobrador.Entidad.Ficha> Cobrador_GetLista(OOB.LibSistema.Cobrador.Lista.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibSistema.Cobrador.Entidad.Ficha>();
@@ -111,7 +109,5 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
     }
-
 }

@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModSistema
+namespace ModSistema.src.ActualizarTasaDivisa
 {
-    public interface IGestion
+    public interface ITasa: IGestion, Helpers.IAbandonar, Helpers.IProcesar
     {
-        void Inicializa();
-        void Inicia();
     }
 }

@@ -501,6 +501,30 @@ namespace ModSistema
             }
         }
 
+        private src.ActualizarTasaDivisa.ITasa _actualizarTasaDivisa;
+        public void ActualizarTasaDivisa()
+        {
+            try
+            {
+                var r00 = Sistema.MyData.Permiso_AjustarTasaDivisa(Sistema.UsuarioP.autoGrupo);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    throw new Exception(r00.Mensaje);
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    if (_actualizarTasaDivisa == null) 
+                    {
+                        _actualizarTasaDivisa = _fabrica.CrearInstancia_ActualizarTasaDivisa();
+                    }
+                    _actualizarTasaDivisa.Inicializa();
+                    _actualizarTasaDivisa.Inicia();
+                }
+            }
+            catch (Exception e)
+            {
+                Helpers.Msg.Error(e.Message);
+            }
+        }
     }
-
 }

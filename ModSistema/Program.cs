@@ -44,8 +44,11 @@ namespace ModSistema
                         case DataProvSistema.Enumerados.modoConfSistema.Sucursal:
                             fabrica = new src.FabModoSucursal();
                             break;
+                        case DataProvSistema.Enumerados.modoConfSistema.Administrativo:
+                            fabrica = new src.FabModoAdm();
+                            break;
                         default:
-                            throw new Exception("NO SE HA DEFINIDO UN MODO DE CONFIGURACION PARA INVENTARIO");
+                            throw new Exception("NO SE HA DEFINIDO UN MODO DE CONFIGURACION PARA SISTEMA");
                     }
                     var _gestionId = new Identificacion.Gestion();
                     _gestionId.Inicia();

@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Data
 {
-
     public partial class DataProv: IData
     {
-
         public OOB.ResultadoEntidad<Enumerados.modoConfSistema> 
             Configuracion_ModuloSistema_Modo()
         {
@@ -22,7 +20,6 @@ namespace DataProvSistema.Data
             {
                 throw new Exception(r01.Mensaje);
             }
-
             Enumerados.modoConfSistema _modo = Enumerados.modoConfSistema.SinDefinir;
             var _dato = r01.Entidad;
             switch (_dato.Trim().ToUpper())
@@ -33,9 +30,11 @@ namespace DataProvSistema.Data
                 case "SUCURSAL":
                     _modo = Enumerados.modoConfSistema.Sucursal;
                     break;
+                case "ADMINISTRATIVO":
+                    _modo = Enumerados.modoConfSistema.Administrativo;
+                    break;
             }
             rt.Entidad = _modo;
-
             return rt;
         }
         public OOB.ResultadoEntidad<Enumerados.modoCalculoDiferenciaEntreTasas> 
@@ -535,7 +534,5 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
     }
-
 }

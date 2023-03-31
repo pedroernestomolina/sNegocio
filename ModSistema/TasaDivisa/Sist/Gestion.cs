@@ -32,17 +32,17 @@ namespace ModSistema.TasaDivisa.Sist
 
         public bool CargarData()
         {
-            var rt = true;
-
-            var r01 = Sistema.MyData.Configuracion_TasaCambioActual();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            try
             {
-                Helpers.Msg.Error(r01.Mensaje);
-                rt = false;
+                var r01 = Sistema.MyData.Configuracion_TasaCambioActual();
+                ValorActual = r01.Entidad;
+                return true;
             }
-
-            ValorActual = r01.Entidad;
-            return rt;
+            catch (Exception e)
+            {
+                Helpers.Msg.Error(e.Message);
+                return false;
+            }
         }
 
         public bool Procesar()

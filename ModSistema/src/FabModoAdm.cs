@@ -7,24 +7,25 @@ using System.Threading.Tasks;
 
 namespace ModSistema.src
 {
-    public class FabModoBasico: IFabrica
+    
+    public class FabModoAdm: IFabrica
     {
         public void 
             CrearIniciarFrm_PanelPrincipal(Gestion ctr)
         {
-            var frm = new PanelPrincipal.ModoBasico.Principal();
+            var frm = new PanelPrincipal.ModoAdm.Principal();
             frm.setControlador(ctr);
             frm.ShowDialog();
         }
         public TasaDivisa.IGestion 
             CrearInstancia_TasaDivisa()
         {
-            return new TasaDivisa.Sist.GestionBasico();
+            return null;
         }
         public ActualizarTasaDivisa.ITasa 
             CrearInstancia_ActualizarTasaDivisa()
         {
-            return null;
+            return new ActualizarTasaDivisa.ModoAdm.ImpModoAdm();
         }
     }
 }
