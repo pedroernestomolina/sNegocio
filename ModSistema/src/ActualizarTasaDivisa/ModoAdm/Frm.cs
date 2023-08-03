@@ -26,7 +26,7 @@ namespace ModSistema.src.ActualizarTasaDivisa.ModoAdm
         private void Frm_Load(object sender, EventArgs e)
         {
             L_TASA.Text = _controlador.Get_TituloFuncion;
-            TB_TASA.Text = _controlador.Get_TasaDivisaValorActual.ToString("n2", CultureInfo.CurrentCulture);
+            TB_TASA.Text = _controlador.Get_TasaDivisaValorActual.ToString("n3", CultureInfo.CurrentCulture);
         }
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -54,7 +54,7 @@ namespace ModSistema.src.ActualizarTasaDivisa.ModoAdm
         private void TB_TASA_Leave(object sender, EventArgs e)
         {
             _controlador.setTasaDivisa(decimal.Parse(TB_TASA.Text));
-            TB_TASA.Text = _controlador.Get_TasaDivisaValorNuevo.ToString("n2", CultureInfo.CurrentCulture);
+            TB_TASA.Text = _controlador.Get_TasaDivisaValorNuevo.ToString("n3", CultureInfo.CurrentCulture);
         }
 
 

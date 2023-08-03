@@ -10,8 +10,6 @@ namespace DataProvSistema.Infra
     
     class Helpers
     {
-        
-
         public static OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> 
             PermisoRt(Func<string, DtoLib.ResultadoEntidad<DtoLibSistema.Permiso.Ficha>> met, string grupo) 
         {
@@ -33,7 +31,5 @@ namespace DataProvSistema.Infra
 
             return rs;
         }
-
     }
-
 }

@@ -31,7 +31,7 @@ namespace ModSistema.src.PanelPrincipal.ModoAdm
         {
             var s = DateTime.Now;
             L_FECHA.Text = s.ToLongDateString();
-            L_HORA.Text = s.ToShortTimeString();
+            L_HORA.Text = s.ToLongTimeString();
         }
 
         public void setControlador(Gestion ctr)
@@ -141,6 +141,15 @@ namespace ModSistema.src.PanelPrincipal.ModoAdm
         private void Vendedor()
         {
             _controlador.Vendedor();
+        }
+
+        private void TSM_MAESTRO_COBRADOR_Click(object sender, EventArgs e)
+        {
+            Cobrador();
+        }
+        private void Cobrador()
+        {
+            _controlador.Cobrador();
         }
     }
 }

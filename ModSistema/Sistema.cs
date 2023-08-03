@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ModSistema
 {
-    
     public class Sistema
     {
-
         static public DataProvSistema.Infra.IData MyData;
         static public OOB.LibSistema.Usuario.Ficha UsuarioP;
         static public OOB.LibSistema.Empresa.Data.Ficha Negocio;
@@ -28,7 +26,5 @@ namespace ModSistema
                 return rt;
             }
         }
-
     }
-
 }

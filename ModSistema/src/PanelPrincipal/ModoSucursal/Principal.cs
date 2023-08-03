@@ -62,6 +62,7 @@ namespace ModSistema.src.PanelPrincipal.ModoSucursal
             L_USUARIO.Text = _controlador.Usuario;
             L_FECHA.Text = "";
             L_HORA.Text = "";
+            P_ICONO.BackgroundImage = _controlador.EmpresaLogo;
         }
 
         private void TSM_MAESTRO_Sucursal_Click(object sender, EventArgs e)

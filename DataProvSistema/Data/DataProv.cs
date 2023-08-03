@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Data
 {
-    
     public partial class DataProv: IData
     {
-
         public static IService MyData;
 
 
@@ -20,7 +18,6 @@ namespace DataProvSistema.Data
         {
             MyData = new ServiceSistema.MyService.Service(instancia, bd, usuario);
         }
-
 
         public OOB.ResultadoEntidad<DateTime> 
             FechaServidor()
@@ -43,7 +40,6 @@ namespace DataProvSistema.Data
             Empresa_Datos()
         {
             var result = new OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha>();
-
             var r01 = MyData.Empresa_Datos();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
@@ -56,12 +52,10 @@ namespace DataProvSistema.Data
                 DireccionFiscal = s.DireccionFiscal,
                 Nombre = s.Nombre,
                 Telefono = s.Telefono,
+                logo=s.logo,
             };
             result.Entidad = nr;
-
             return result;
         }
-
     }
-
 }

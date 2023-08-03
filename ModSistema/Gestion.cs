@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +10,8 @@ using System.Windows.Forms;
 
 namespace ModSistema
 {
-
     public class Gestion
     {
-
-
         private UsuarioGrupo.Gestion _gestionUsuarioGrupo;
         private Usuario.Gestion _gestionUsuario;
         private Servicio.Gestion _gestionServicio;
@@ -60,22 +59,9 @@ namespace ModSistema
         private Configuracion.Pos.ICnfPos _gCnfPos;
 
 
-        public string Host 
-        {
-            get 
-            {
-                return Sistema.Host; 
-            }
-        }
-
-        public string Version 
-        {
-            get 
-            {
-                return "Ver. 2 - " + Application.ProductVersion; 
-            }
-        }
-
+        public System.Drawing.Image EmpresaLogo { get { return logo(); } }
+        public string Host { get { return Sistema.Host; } }
+        public string Version { get { return "Ver. 2 - " + Application.ProductVersion; } }
         public string Usuario
         {
             get
@@ -525,6 +511,19 @@ namespace ModSistema
             {
                 Helpers.Msg.Error(e.Message);
             }
+        }
+
+        private System.Drawing.Image logo()
+        {
+            if (Sistema.Negocio.logo.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(Sistema.Negocio.logo))
+                {
+                    Image image = Image.FromStream(ms);
+                    return image;
+                }
+            }
+            return null;
         }
     }
 }
