@@ -58,12 +58,14 @@
             this.TSM_ARCHIVO_SALIR = new System.Windows.Forms.ToolStripMenuItem();
             this.maestrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTRO_VENDEDOR = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTRO_COBRADOR = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_MAESTRO_SERIES_FISCAL = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTROS_UsuarioGrupo = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTROS_Usuario = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTE_Datos_Negocio = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
@@ -85,8 +87,8 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_MAESTRO_COBRADOR = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_MAESTRO_MEDIOS_COBRO = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -447,6 +449,8 @@
             // maestrosToolStripMenuItem
             // 
             this.maestrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_MAESTRO_MEDIOS_COBRO,
+            this.toolStripMenuItem3,
             this.TSM_MAESTRO_VENDEDOR,
             this.TSM_MAESTRO_COBRADOR,
             this.toolStripMenuItem5,
@@ -462,22 +466,35 @@
             // 
             this.TSM_MAESTRO_VENDEDOR.Image = global::ModSistema.Properties.Resources.libro;
             this.TSM_MAESTRO_VENDEDOR.Name = "TSM_MAESTRO_VENDEDOR";
-            this.TSM_MAESTRO_VENDEDOR.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_VENDEDOR.Size = new System.Drawing.Size(165, 22);
             this.TSM_MAESTRO_VENDEDOR.Text = "Vendedores";
             this.TSM_MAESTRO_VENDEDOR.Click += new System.EventHandler(this.TSM_MAESTRO_VENDEDOR_Click);
+            // 
+            // TSM_MAESTRO_COBRADOR
+            // 
+            this.TSM_MAESTRO_COBRADOR.Image = global::ModSistema.Properties.Resources.libro;
+            this.TSM_MAESTRO_COBRADOR.Name = "TSM_MAESTRO_COBRADOR";
+            this.TSM_MAESTRO_COBRADOR.Size = new System.Drawing.Size(165, 22);
+            this.TSM_MAESTRO_COBRADOR.Text = "Cobradores";
+            this.TSM_MAESTRO_COBRADOR.Click += new System.EventHandler(this.TSM_MAESTRO_COBRADOR_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(162, 6);
             // 
             // TSM_MAESTRO_SERIES_FISCAL
             // 
             this.TSM_MAESTRO_SERIES_FISCAL.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_SERIES_FISCAL.Image")));
             this.TSM_MAESTRO_SERIES_FISCAL.Name = "TSM_MAESTRO_SERIES_FISCAL";
-            this.TSM_MAESTRO_SERIES_FISCAL.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_SERIES_FISCAL.Size = new System.Drawing.Size(165, 22);
             this.TSM_MAESTRO_SERIES_FISCAL.Text = "Series Fiscal";
             this.TSM_MAESTRO_SERIES_FISCAL.Click += new System.EventHandler(this.TSM_MAESTRO_SERIES_FISCAL_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(162, 6);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -486,7 +503,7 @@
             this.TSM_MAESTROS_Usuario});
             this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // TSM_MAESTROS_UsuarioGrupo
@@ -505,10 +522,10 @@
             this.TSM_MAESTROS_Usuario.Text = "Usuario";
             this.TSM_MAESTROS_Usuario.Click += new System.EventHandler(this.TSM_MAESTROS_Usuario_Click);
             // 
-            // toolStripMenuItem5
+            // toolStripMenuItem1
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(162, 6);
             // 
             // ajustesToolStripMenuItem
             // 
@@ -742,18 +759,18 @@
             this.panel10.Size = new System.Drawing.Size(104, 360);
             this.panel10.TabIndex = 0;
             // 
-            // TSM_MAESTRO_COBRADOR
+            // TSM_MAESTRO_MEDIOS_COBRO
             // 
-            this.TSM_MAESTRO_COBRADOR.Image = global::ModSistema.Properties.Resources.libro;
-            this.TSM_MAESTRO_COBRADOR.Name = "TSM_MAESTRO_COBRADOR";
-            this.TSM_MAESTRO_COBRADOR.Size = new System.Drawing.Size(152, 22);
-            this.TSM_MAESTRO_COBRADOR.Text = "Cobradores";
-            this.TSM_MAESTRO_COBRADOR.Click += new System.EventHandler(this.TSM_MAESTRO_COBRADOR_Click);
+            this.TSM_MAESTRO_MEDIOS_COBRO.Image = global::ModSistema.Properties.Resources.libro;
+            this.TSM_MAESTRO_MEDIOS_COBRO.Name = "TSM_MAESTRO_MEDIOS_COBRO";
+            this.TSM_MAESTRO_MEDIOS_COBRO.Size = new System.Drawing.Size(165, 22);
+            this.TSM_MAESTRO_MEDIOS_COBRO.Text = "Medios de Cobro";
+            this.TSM_MAESTRO_MEDIOS_COBRO.Click += new System.EventHandler(this.TSM_MAESTRO_MEDIOS_COBRO_Click);
             // 
-            // toolStripMenuItem1
+            // toolStripMenuItem3
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(162, 6);
             // 
             // Principal
             // 
@@ -859,6 +876,8 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_VENDEDOR;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_COBRADOR;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_MEDIOS_COBRO;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
     }
 }
 

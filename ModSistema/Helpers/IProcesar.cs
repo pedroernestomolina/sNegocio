@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace ModSistema.Helpers
 {
-    
     public interface IProcesar
     {
-
         bool ProcesarIsOK { get; }
         void Procesar();
-
     }
-
 }
