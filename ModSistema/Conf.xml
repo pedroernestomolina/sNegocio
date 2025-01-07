@@ -2,7 +2,7 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>transportejj</Catalogo>
+    <Catalogo>pan001</Catalogo>
     <Usuario></Usuario>
   </Servidor>
 </Configuracion>

@@ -67,7 +67,11 @@
     <Compile Include="Data\Permiso.cs" />
     <Compile Include="Data\PrecioEtiqueta.cs" />
     <Compile Include="Data\ReconversionMonetaria.cs" />
-    <Compile Include="Data\SerieFiscal.cs" />
+    <Compile Include="Data\SerieFiscal_Agregar.cs" />
+    <Compile Include="Data\SerieFiscal_CambiarEstatus.cs" />
+    <Compile Include="Data\SerieFiscal_Editar.cs" />
+    <Compile Include="Data\SerieFiscal_GetFicha.cs" />
+    <Compile Include="Data\SerieFiscal_GetLista.cs" />
     <Compile Include="Data\ServConf.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\SucursalGrupo.cs" />

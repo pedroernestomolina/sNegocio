@@ -45,9 +45,32 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.TB_CORRELATIVO = new ModSistema.LibControl.NumeroEnt();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.CHB_FACTURA = new System.Windows.Forms.CheckBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.CHB_DEBITO = new System.Windows.Forms.CheckBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.CHB_CREDITO = new System.Windows.Forms.CheckBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.CHB_NOTA_ENT = new System.Windows.Forms.CheckBox();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.CHB_APLICAR_LIBRO_VENTA = new System.Windows.Forms.CheckBox();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -56,6 +79,7 @@
             this.BT_PROCESAR = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.L_TITULO = new System.Windows.Forms.Label();
+            this.TB_CORRELATIVO = new ModSistema.LibControl.NumeroEnt();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -68,6 +92,19 @@
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -281,7 +318,7 @@
             this.label3.Size = new System.Drawing.Size(139, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "* Correlativo:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel12
             // 
@@ -293,20 +330,6 @@
             this.panel12.Padding = new System.Windows.Forms.Padding(1);
             this.panel12.Size = new System.Drawing.Size(415, 26);
             this.panel12.TabIndex = 5;
-            // 
-            // TB_CORRELATIVO
-            // 
-            this.TB_CORRELATIVO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_CORRELATIVO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_CORRELATIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CORRELATIVO.Location = new System.Drawing.Point(1, 1);
-            this.TB_CORRELATIVO.Name = "TB_CORRELATIVO";
-            this.TB_CORRELATIVO.Size = new System.Drawing.Size(74, 22);
-            this.TB_CORRELATIVO.TabIndex = 0;
-            this.TB_CORRELATIVO.Text = "0";
-            this.TB_CORRELATIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_CORRELATIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_CORRELATIVO.Leave += new System.EventHandler(this.TB_CORRELATIVO_Leave);
             // 
             // panel16
             // 
@@ -321,12 +344,300 @@
             // panel21
             // 
             this.panel21.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel21.Controls.Add(this.groupBox2);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel21.Location = new System.Drawing.Point(20, 100);
             this.panel21.Margin = new System.Windows.Forms.Padding(0);
             this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(2);
             this.panel21.Size = new System.Drawing.Size(560, 170);
             this.panel21.TabIndex = 2;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tableLayoutPanel5);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(2, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(556, 166);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Estatus";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.27273F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.72727F));
+            this.tableLayoutPanel5.Controls.Add(this.panel13, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel14, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel15, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.panel17, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.panel18, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.panel19, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.panel20, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.panel22, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.panel23, 0, 4);
+            this.tableLayoutPanel5.Controls.Add(this.panel24, 1, 4);
+            this.tableLayoutPanel5.Controls.Add(this.panel25, 0, 5);
+            this.tableLayoutPanel5.Controls.Add(this.panel26, 1, 5);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 6;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(550, 147);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.label4);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(1, 1);
+            this.panel13.Margin = new System.Windows.Forms.Padding(1);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(2);
+            this.panel13.Size = new System.Drawing.Size(324, 22);
+            this.panel13.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(2, 2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(320, 18);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Aplicar Para Factura:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.CHB_FACTURA);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(327, 1);
+            this.panel14.Margin = new System.Windows.Forms.Padding(1);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(2);
+            this.panel14.Size = new System.Drawing.Size(222, 22);
+            this.panel14.TabIndex = 1;
+            // 
+            // CHB_FACTURA
+            // 
+            this.CHB_FACTURA.AutoSize = true;
+            this.CHB_FACTURA.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CHB_FACTURA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_FACTURA.Location = new System.Drawing.Point(2, 2);
+            this.CHB_FACTURA.Name = "CHB_FACTURA";
+            this.CHB_FACTURA.Size = new System.Drawing.Size(15, 18);
+            this.CHB_FACTURA.TabIndex = 0;
+            this.CHB_FACTURA.UseVisualStyleBackColor = true;
+            this.CHB_FACTURA.Leave += new System.EventHandler(this.CHB_FACTURA_Leave);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.label5);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(1, 25);
+            this.panel15.Margin = new System.Windows.Forms.Padding(1);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(2);
+            this.panel15.Size = new System.Drawing.Size(324, 22);
+            this.panel15.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(2, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(320, 18);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Aplicar Para Nota Debito:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.CHB_DEBITO);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel17.Location = new System.Drawing.Point(327, 25);
+            this.panel17.Margin = new System.Windows.Forms.Padding(1);
+            this.panel17.Name = "panel17";
+            this.panel17.Padding = new System.Windows.Forms.Padding(2);
+            this.panel17.Size = new System.Drawing.Size(222, 22);
+            this.panel17.TabIndex = 3;
+            // 
+            // CHB_DEBITO
+            // 
+            this.CHB_DEBITO.AutoSize = true;
+            this.CHB_DEBITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CHB_DEBITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_DEBITO.Location = new System.Drawing.Point(2, 2);
+            this.CHB_DEBITO.Name = "CHB_DEBITO";
+            this.CHB_DEBITO.Size = new System.Drawing.Size(15, 18);
+            this.CHB_DEBITO.TabIndex = 1;
+            this.CHB_DEBITO.UseVisualStyleBackColor = true;
+            this.CHB_DEBITO.Leave += new System.EventHandler(this.CHB_DEBITO_Leave);
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.label6);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(1, 49);
+            this.panel18.Margin = new System.Windows.Forms.Padding(1);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(2);
+            this.panel18.Size = new System.Drawing.Size(324, 22);
+            this.panel18.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(2, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(320, 18);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Aplicar Para Nota Credito:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.CHB_CREDITO);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(327, 49);
+            this.panel19.Margin = new System.Windows.Forms.Padding(1);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(2);
+            this.panel19.Size = new System.Drawing.Size(222, 22);
+            this.panel19.TabIndex = 5;
+            // 
+            // CHB_CREDITO
+            // 
+            this.CHB_CREDITO.AutoSize = true;
+            this.CHB_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CHB_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.CHB_CREDITO.Name = "CHB_CREDITO";
+            this.CHB_CREDITO.Size = new System.Drawing.Size(15, 18);
+            this.CHB_CREDITO.TabIndex = 1;
+            this.CHB_CREDITO.UseVisualStyleBackColor = true;
+            this.CHB_CREDITO.Leave += new System.EventHandler(this.CHB_CREDITO_Leave);
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.label7);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(1, 73);
+            this.panel20.Margin = new System.Windows.Forms.Padding(1);
+            this.panel20.Name = "panel20";
+            this.panel20.Padding = new System.Windows.Forms.Padding(2);
+            this.panel20.Size = new System.Drawing.Size(324, 22);
+            this.panel20.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(2, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(320, 18);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Aplicar Para Nota Entrega:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.CHB_NOTA_ENT);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel22.Location = new System.Drawing.Point(327, 73);
+            this.panel22.Margin = new System.Windows.Forms.Padding(1);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(2);
+            this.panel22.Size = new System.Drawing.Size(222, 22);
+            this.panel22.TabIndex = 7;
+            // 
+            // CHB_NOTA_ENT
+            // 
+            this.CHB_NOTA_ENT.AutoSize = true;
+            this.CHB_NOTA_ENT.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CHB_NOTA_ENT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_NOTA_ENT.Location = new System.Drawing.Point(2, 2);
+            this.CHB_NOTA_ENT.Name = "CHB_NOTA_ENT";
+            this.CHB_NOTA_ENT.Size = new System.Drawing.Size(15, 18);
+            this.CHB_NOTA_ENT.TabIndex = 1;
+            this.CHB_NOTA_ENT.UseVisualStyleBackColor = true;
+            this.CHB_NOTA_ENT.Leave += new System.EventHandler(this.CHB_NOTA_ENT_Leave);
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.label8);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(1, 97);
+            this.panel23.Margin = new System.Windows.Forms.Padding(1);
+            this.panel23.Name = "panel23";
+            this.panel23.Padding = new System.Windows.Forms.Padding(2);
+            this.panel23.Size = new System.Drawing.Size(324, 22);
+            this.panel23.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(2, 2);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(320, 18);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Aplicar Para Libro Venta Seniat:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.CHB_APLICAR_LIBRO_VENTA);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(327, 97);
+            this.panel24.Margin = new System.Windows.Forms.Padding(1);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(2);
+            this.panel24.Size = new System.Drawing.Size(222, 22);
+            this.panel24.TabIndex = 9;
+            // 
+            // CHB_APLICAR_LIBRO_VENTA
+            // 
+            this.CHB_APLICAR_LIBRO_VENTA.AutoSize = true;
+            this.CHB_APLICAR_LIBRO_VENTA.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CHB_APLICAR_LIBRO_VENTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_APLICAR_LIBRO_VENTA.Location = new System.Drawing.Point(2, 2);
+            this.CHB_APLICAR_LIBRO_VENTA.Name = "CHB_APLICAR_LIBRO_VENTA";
+            this.CHB_APLICAR_LIBRO_VENTA.Size = new System.Drawing.Size(15, 18);
+            this.CHB_APLICAR_LIBRO_VENTA.TabIndex = 1;
+            this.CHB_APLICAR_LIBRO_VENTA.UseVisualStyleBackColor = true;
+            this.CHB_APLICAR_LIBRO_VENTA.Leave += new System.EventHandler(this.CHB_APLICAR_LIBRO_VENTA_Leave);
+            // 
+            // panel25
+            // 
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(1, 121);
+            this.panel25.Margin = new System.Windows.Forms.Padding(1);
+            this.panel25.Name = "panel25";
+            this.panel25.Padding = new System.Windows.Forms.Padding(2);
+            this.panel25.Size = new System.Drawing.Size(324, 25);
+            this.panel25.TabIndex = 10;
+            // 
+            // panel26
+            // 
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(327, 121);
+            this.panel26.Margin = new System.Windows.Forms.Padding(1);
+            this.panel26.Name = "panel26";
+            this.panel26.Padding = new System.Windows.Forms.Padding(2);
+            this.panel26.Size = new System.Drawing.Size(222, 25);
+            this.panel26.TabIndex = 11;
             // 
             // panel2
             // 
@@ -437,6 +748,20 @@
             this.L_TITULO.Text = "Actualizar Ficha";
             this.L_TITULO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // TB_CORRELATIVO
+            // 
+            this.TB_CORRELATIVO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CORRELATIVO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_CORRELATIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CORRELATIVO.Location = new System.Drawing.Point(1, 1);
+            this.TB_CORRELATIVO.Name = "TB_CORRELATIVO";
+            this.TB_CORRELATIVO.Size = new System.Drawing.Size(74, 22);
+            this.TB_CORRELATIVO.TabIndex = 0;
+            this.TB_CORRELATIVO.Text = "0";
+            this.TB_CORRELATIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_CORRELATIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_CORRELATIVO.Leave += new System.EventHandler(this.TB_CORRELATIVO_Leave);
+            // 
             // AgregarEditarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,6 +789,24 @@
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -503,5 +846,29 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel21;
         private LibControl.NumeroEnt TB_CORRELATIVO;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox CHB_FACTURA;
+        private System.Windows.Forms.CheckBox CHB_DEBITO;
+        private System.Windows.Forms.CheckBox CHB_CREDITO;
+        private System.Windows.Forms.CheckBox CHB_NOTA_ENT;
+        private System.Windows.Forms.CheckBox CHB_APLICAR_LIBRO_VENTA;
     }
 }

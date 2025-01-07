@@ -58,7 +58,5 @@ namespace ModSistema.Maestros
             this.correlativo = it.correlativo.ToString();
             this.estatus = it.estatus;
         }
-
     }
-
 }
