@@ -20,6 +20,7 @@ namespace ModSistema.Configuracion.Pos
         private Models.ActualizarTasaPos _modeloTasaPos;
         private UseCase.ProcesarCambio _ucProcesarCambio;
         private UseCase.CapturarDataAjustar _ucCapturarDataAjustar;
+        private UseCase.CapturarModoCalculoPrecioProductosNacionales _ucCapturaModoCalculoPrecioPrdNac;
         //
         public bool AbandonarIsOK { get { return _abandonarIsOk; } }
         public bool ProcesarIsOK { get { return _procesarIsOk; } }
@@ -37,6 +38,7 @@ namespace ModSistema.Configuracion.Pos
             _modeloTasaPos = new Models.ActualizarTasaPos();
             _ucProcesarCambio = new UseCase.ProcesarCambio();
             _ucCapturarDataAjustar = new UseCase.CapturarDataAjustar();
+            _ucCapturaModoCalculoPrecioPrdNac = new UseCase.CapturarModoCalculoPrecioProductosNacionales();
         }
         public void Inicializa()
         {
@@ -93,7 +95,6 @@ namespace ModSistema.Configuracion.Pos
                         _modeloTasaPos.setDesctoPermitir(_maximoPorcDsctoPermitido);
                         _modeloTasaPos.setTasaPosNueva(_tasaManejoDivPos);
                         _modeloTasaPos.setAceptarDsctoPorPagoDivisa(_permitirDsctoUnicamentoPagoDivisa);
-                        _modeloTasaPos.setAplicarFormulaCalculoPrecio(Models.ActualizarTasaPos.formulaCalculoPrecioVenta.EnBaseAlPrecioDivisaSinBono);
                         _ucCapturarDataAjustar.Execute(_modeloTasaPos);
                     }
                     _ucProcesarCambio.Execute(_modeloTasaPos);
@@ -119,6 +120,8 @@ namespace ModSistema.Configuracion.Pos
                     _modoCalculoDifTasa = "BCV";
                 }
                 var r01 = Sistema.MyData.Configuracion_Pos_Capturar();
+                var _modoCalculoPrecioPrdNac = _ucCapturaModoCalculoPrecioPrdNac.Execute();
+                //
                 _tasaManejoDivSist = r01.Entidad.tasaManejoDivisaSist;
                 _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
                 _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
@@ -128,6 +131,7 @@ namespace ModSistema.Configuracion.Pos
                 _modeloTasaPos.setTasaPosActual(r01.Entidad.tasaManejoDivisaPos);
                 _modeloTasaPos.setTasaDivisa(r01.Entidad.tasaManejoDivisaSist);
                 _modeloTasaPos.setPorctDifEntreTasas(r01.Entidad.valorMaximoDescuentoPermitido);
+                _modeloTasaPos.setAplicarFormulaCalculoPrecio(_modoCalculoPrecioPrdNac);
                 //
                 return true;
             }

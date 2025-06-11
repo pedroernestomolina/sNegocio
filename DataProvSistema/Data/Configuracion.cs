@@ -60,17 +60,16 @@ namespace DataProvSistema.Data
             Configuracion_Actualizar_CalculoDiferenciaEnreTasas(string modo)
         {
             var rt = new OOB.Resultado();
-
+            //
             var r01 = MyData.Configuracion_Actualizar_CalculoDiferenciaEntreTasas(modo);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 throw new Exception(r01.Mensaje);
             }
-
+            //
             return rt;
         }
-
-
+        
         public OOB.ResultadoEntidad<decimal> 
             Configuracion_TasaCambioActual()
         {
@@ -449,7 +448,7 @@ namespace DataProvSistema.Data
             Configuracion_Modulo_Actualizar(OOB.LibSistema.Configuracion.Modulo.Actualizar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
-
+            //
             var fichaDTO = new DtoLibSistema.Configuracion.Modulo.Actualizar.Ficha()
             {
                 claveNivMaximo = ficha.claveNivMaximo,
@@ -457,14 +456,15 @@ namespace DataProvSistema.Data
                 claveNivMinimo = ficha.claveNivMinimo,
                 visualizarPrdInactivos = ficha.visualizarPrdInactivos,
                 cantDocVisualizar = ficha.cantDocVisualizar,
-                modoCalculoDifTasa= ficha.modoCalculoDifTasa,
+                modoCalculoDifTasa = ficha.modoCalculoDifTasa,
+                modoCalculoPrecioPrdNac = ficha.modoCalculoPrecioPrdNac,
             };
             var r01 = MyData.Configuracion_Modulo_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 throw new Exception(r01.Mensaje);
             }
-
+            //
             return rt;
         }
 
@@ -569,6 +569,58 @@ namespace DataProvSistema.Data
                 rt.Mensaje = r01.Mensaje;
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
+            }
+            //
+            return rt;
+        }
+        
+        public OOB.ResultadoEntidad<Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales>
+            Configuracion_ModoCalculoPrecioProductosNacionales()
+        {
+            var rt = new OOB.ResultadoEntidad<Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales>();
+            //
+            var r01 = MyData.Configuracion_ModoCalculoPrecioProductosNacionales();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                throw new Exception(r01.Mensaje);
+            }
+            Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales modo;
+            switch (r01.Entidad.Trim().ToUpper())
+            {
+                case "EN BASE AL PRECIO EN DIVISA SIN BONO":
+                    {
+                        modo = Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales.EnBasePrecioDivisaSinBono;
+                        break;
+                    }
+                case "EN BASE AL PRECIO EN DIVISA CON BONO":
+                    {
+                        modo = Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales.EnBasePrecioDivisaConBono;
+                        break;
+                    }
+                case "NINGUNA":
+                    {
+                        modo = Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales.Ninguna;
+                        break;
+                    }
+                default:
+                    {
+                        modo = Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales.Ninguna;
+                        break;
+                    }
+            }
+            rt.Entidad = modo;
+            //
+            return rt;
+        }
+        public OOB.Resultado 
+            Configuracion_Actualizar_ModoCalculoPrecioProductosNacionales(string modo)
+        {
+            var rt = new OOB.Resultado();
+            //
+            var r01 = MyData.Configuracion_Actualizar_ModoCalculoPrecioProductosNacionales(modo);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                throw new Exception(r01.Mensaje);
             }
             //
             return rt;

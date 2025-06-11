@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Infra
 {
-    
     public interface IConfiguracion
     {
-
         OOB.ResultadoEntidad<Enumerados.modoConfSistema>
             Configuracion_ModuloSistema_Modo();
         OOB.ResultadoEntidad<Enumerados.modoCalculoDiferenciaEntreTasas>
@@ -48,6 +46,9 @@ namespace DataProvSistema.Infra
         OOB.Resultado
             Configuracion_Pos_Actualizar(OOB.LibSistema.Configuracion.Pos.Actualizar.Ficha ficha);
 
+        OOB.ResultadoEntidad<MisEnumerados.ModoCalculoPrecioProductosNacionales>
+            Configuracion_ModoCalculoPrecioProductosNacionales();
+        OOB.Resultado
+            Configuracion_Actualizar_ModoCalculoPrecioProductosNacionales(string modo);
     }
-
 }

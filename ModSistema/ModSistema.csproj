@@ -79,10 +79,12 @@
       <DependentUpon>CnfPosFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\Pos\CnfPos.cs" />
+    <Compile Include="Configuracion\Pos\Enumerados.cs" />
     <Compile Include="Configuracion\Pos\ICnfPos.cs" />
     <Compile Include="Configuracion\Pos\Models\ActualizarTasaPos.cs" />
     <Compile Include="Configuracion\Pos\Models\Item.cs" />
     <Compile Include="Configuracion\Pos\UseCase\CapturarDataAjustar.cs" />
+    <Compile Include="Configuracion\Pos\UseCase\CapturarModoCalculoPrecioProductosNacionales.cs" />
     <Compile Include="Configuracion\Pos\UseCase\ProcesarCambio.cs" />
     <Compile Include="ControlAcceso\Cliente\Gestion.cs" />
     <Compile Include="ControlAcceso\Cliente\item.cs" />

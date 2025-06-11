@@ -82,6 +82,7 @@
     <Compile Include="Data\Vendedor.cs" />
     <Compile Include="Data\Helpers.cs" />
     <Compile Include="Enumerados.cs" />
+    <Compile Include="Infra\MisEnumerados.cs" />
     <Compile Include="Infra\IAjustarTasaDivisa_ModoAdm.cs" />
     <Compile Include="Infra\IAjustarTasaPos.cs" />
     <Compile Include="Infra\ICobrador.cs" />

@@ -17,6 +17,7 @@ namespace ModSistema.Configuracion.Modulo
         private data _data;
         private Filtros.IOpcion _opcVisDoc;
         private Filtros.IOpcion _opcCalculoDifTasa;
+        private Filtros.IOpcion _opcCalculoPrecioPrdNac;
 
 
         public BindingSource SourcePrdInactivo { get { return _opcVisDoc.Source; } }
@@ -33,6 +34,7 @@ namespace ModSistema.Configuracion.Modulo
         {
             _opcVisDoc = new Filtros.Opcion.Gestion();
             _opcCalculoDifTasa = new Filtros.Opcion.Gestion();
+            _opcCalculoPrecioPrdNac = new Filtros.Opcion.Gestion();
             _data = new data();
             limpiar();
         }
@@ -62,6 +64,7 @@ namespace ModSistema.Configuracion.Modulo
             try
             {
                 var r01 = Sistema.MyData.Configuracion_Modulo_Capturar();
+                var r02 = Sistema.MyData.Configuracion_ModoCalculoPrecioProductosNacionales();
 
                 var lst = new List<Filtros.ficha>();
                 lst.Add(new Filtros.ficha("1", "", "SI"));
@@ -86,6 +89,18 @@ namespace ModSistema.Configuracion.Modulo
                 else
                     _opcCalculoDifTasa.setFicha("2");
 
+                var lst_3 = new List<Filtros.ficha>();
+                lst_3.Add(new Filtros.ficha("1", "", "EN BASE A PRECIO DIVISA SIN BONO"));
+                lst_3.Add(new Filtros.ficha("2", "", "EN BASE A PRECIO DIVISA CON BONO"));
+                lst_3.Add(new Filtros.ficha("3", "", "NINGUNA OPCION"));
+                _opcCalculoPrecioPrdNac.setData(lst_3);
+                if (r02.Entidad == DataProvSistema.Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales.EnBasePrecioDivisaSinBono)
+                    _opcCalculoPrecioPrdNac.setFicha("1");
+                else if (r02.Entidad == DataProvSistema.Infra.MisEnumerados.ModoCalculoPrecioProductosNacionales.EnBasePrecioDivisaConBono)
+                    _opcCalculoPrecioPrdNac.setFicha("2");
+                else 
+                    _opcCalculoPrecioPrdNac.setFicha("3");
+
                 return true;
             }
             catch (Exception e)
@@ -109,6 +124,14 @@ namespace ModSistema.Configuracion.Modulo
 
         public void ProcesarFicha()
         {
+            var _calculoPrecioPrdNac = "";
+            if (_opcCalculoPrecioPrdNac.GetId == "1")
+                _calculoPrecioPrdNac = "EN BASE AL PRECIO EN DIVISA SIN BONO";
+            else if (_opcCalculoPrecioPrdNac.GetId == "2")
+                _calculoPrecioPrdNac = "EN BASE AL PRECIO EN DIVISA CON BONO";
+            else
+                _calculoPrecioPrdNac = "NINGUNA";
+
             _procesarFichaIsOk = false;
             var xmsg = "Procesar Cambios ?";
             var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -122,6 +145,7 @@ namespace ModSistema.Configuracion.Modulo
                     cantDocVisualizar = (int)_data.CntDocVisualizar,
                     visualizarPrdInactivos = _opcVisDoc.GetId == "1" ? "Si" : "No",
                     modoCalculoDifTasa = _opcCalculoDifTasa.GetId =="1" ?"BCV" : "PARALELO",
+                    modoCalculoPrecioPrdNac= _calculoPrecioPrdNac,
                 };
                 var rt1 = Sistema.MyData.Configuracion_Modulo_Actualizar(fichaOOB);
                 if (rt1.Result == OOB.Enumerados.EnumResult.isError) 
@@ -172,6 +196,12 @@ namespace ModSistema.Configuracion.Modulo
             _opcCalculoDifTasa.setFicha(id);
         }
 
-    }
 
+        public object SourceCalculoPrecioPrdNac { get { return _opcCalculoPrecioPrdNac.Source; } }
+        public object GetId_CalculoPrecioPrdNac { get {return _opcCalculoPrecioPrdNac.GetId ;} }
+        public void setCalculoPrecioPrdNac(string id)
+        {
+            _opcCalculoPrecioPrdNac.setFicha(id);
+        }
+    }
 }

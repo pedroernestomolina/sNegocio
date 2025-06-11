@@ -13,7 +13,7 @@ namespace ModSistema.Configuracion.Pos.Models
         private decimal _tasaPosNueva;
         private decimal _porctDifTasa_Div_Pos;
         private decimal _tasaDivisa;
-        private ActualizarTasaPos.formulaCalculoPrecioVenta _modoCalculoPrecio;
+        private Enumerados.ModoCalculoPrecioProductosNacionales _modoCalculoPrecio;
         //
         public string idPrd { get; set; }
         public string codigoPrd { get; set; }
@@ -70,7 +70,7 @@ namespace ModSistema.Configuracion.Pos.Models
         {
             _porctDifTasa_Div_Pos = porct;
         }
-        public void setModoCalculoPrecio(ActualizarTasaPos.formulaCalculoPrecioVenta modo)
+        public void setModoCalculoPrecio(Enumerados.ModoCalculoPrecioProductosNacionales modo)
         {
             _modoCalculoPrecio = modo;
         }
@@ -80,12 +80,12 @@ namespace ModSistema.Configuracion.Pos.Models
             var rt = 0m;
             switch (_modoCalculoPrecio) 
             {
-                case ActualizarTasaPos.formulaCalculoPrecioVenta.EnBaseAlPrecioDivisaConBono:
+                case Enumerados.ModoCalculoPrecioProductosNacionales.EnBaseAlPrecioDivisaConBono:
                     {
                         rt= formula_1(monto);
                         break;
                     }
-                case ActualizarTasaPos.formulaCalculoPrecioVenta.EnBaseAlPrecioDivisaSinBono:
+                case Enumerados.ModoCalculoPrecioProductosNacionales.EnBaseAlPrecioDivisaSinBono:
                     {
                         rt= formula_2(monto);
                         break;
@@ -100,6 +100,7 @@ namespace ModSistema.Configuracion.Pos.Models
         }
         private decimal formula_1(decimal monto)
         {
+            //CON EL BONO APLICADO
             //LO QUE SE QUIERE ES ACTUALIZAR EL PRECIO DE VENTA EN Bs, 
             //PERO MANTENIENDO EL MISMO PRECIO INFLADO EN DIVISA
             var tasaPosActual = _tasaPosActual;
@@ -115,6 +116,7 @@ namespace ModSistema.Configuracion.Pos.Models
         }
         private decimal formula_2(decimal monto)
         {
+            //SIN EL BONO APLICADO
             //LO QUE SE QUIERE ES HALLAR EL PRECIO DE VENTA REAL SI SE PAGARA EN DIVISA 
             //PARA LUEGO AJUSTARLO A LA NUEVA TASA EN DIVISA PARA COSEGUIR EL PRECIO EN Bs INFLADO
             var porctDifTasaDivPos = _porctDifTasa_Div_Pos;

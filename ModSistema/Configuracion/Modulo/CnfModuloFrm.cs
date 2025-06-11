@@ -33,6 +33,8 @@ namespace ModSistema.Configuracion.Modulo
             CB_PRD_INACTIVO.ValueMember = "id";
             CB_CALCULO_DIF_TASA.DisplayMember = "desc";
             CB_CALCULO_DIF_TASA.ValueMember = "id";
+            CB_CALCULO_PRECIO_PRD_NAC.DisplayMember = "desc";
+            CB_CALCULO_PRECIO_PRD_NAC.ValueMember = "id"; 
         }
 
         public void setControlador(Gestion ctr)
@@ -92,6 +94,9 @@ namespace ModSistema.Configuracion.Modulo
             CB_PRD_INACTIVO.SelectedValue = _controlador.PrdInactivoID;
             CB_CALCULO_DIF_TASA.DataSource = _controlador.GetCalculoDifTasa_Source;
             CB_CALCULO_DIF_TASA.SelectedValue = _controlador.GetCalculoDifTasa_Id;
+            CB_CALCULO_PRECIO_PRD_NAC.DataSource = _controlador.SourceCalculoPrecioPrdNac;
+            CB_CALCULO_PRECIO_PRD_NAC.SelectedValue = _controlador.GetId_CalculoPrecioPrdNac;
+
             TB_CLAVE_MAX.Text = _controlador.ClaveMaxima;
             TB_CLAVE_MED.Text = _controlador.ClaveMedia;
             TB_CLAVE_MIN.Text = _controlador.ClaveMinima;
@@ -164,7 +169,14 @@ namespace ModSistema.Configuracion.Modulo
                 _controlador.setCalculoDifTasa(CB_CALCULO_DIF_TASA.SelectedValue.ToString());
             }
         }
-
+        private void CB_CALCULO_PRECIO_PRD_NAC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_modoInicializar) { return; }
+            _controlador.setCalculoPrecioPrdNac("");
+            if (CB_CALCULO_PRECIO_PRD_NAC.SelectedIndex != -1)
+            {
+                _controlador.setCalculoPrecioPrdNac(CB_CALCULO_PRECIO_PRD_NAC.SelectedValue.ToString());
+            }
+        }
     }
-
 }

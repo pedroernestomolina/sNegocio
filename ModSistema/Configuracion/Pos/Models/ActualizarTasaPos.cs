@@ -9,8 +9,6 @@ namespace ModSistema.Configuracion.Pos.Models
 {
     public class ActualizarTasaPos
     {
-        public enum formulaCalculoPrecioVenta { SinDefinir = -1, EnBaseAlPrecioDivisaSinBono = 1, EnBaseAlPrecioDivisaConBono };
-        //
         private decimal _tasaPosActual;
         private decimal _tasaPosNueva;
         private List<Item> _itemsActualzar;
@@ -18,7 +16,7 @@ namespace ModSistema.Configuracion.Pos.Models
         private bool _aceptarDsctoPorPagoDivisa;
         private decimal _tasaDivisa;
         private decimal _porctDifEntreTasas;
-        private formulaCalculoPrecioVenta _modoCalculoPrecio;
+        private Enumerados.ModoCalculoPrecioProductosNacionales _modoCalculoPrecio;
         //
         public decimal GetTasaPosNueva { get { return _tasaPosNueva; } }
         public decimal GetDesctoPermitir { get { return _dsctoPermitir; } }
@@ -27,7 +25,7 @@ namespace ModSistema.Configuracion.Pos.Models
         //
         public ActualizarTasaPos()
         {
-            _modoCalculoPrecio = formulaCalculoPrecioVenta.SinDefinir;
+            _modoCalculoPrecio = Enumerados.ModoCalculoPrecioProductosNacionales.SinDefinir;
             _tasaPosActual = 0m;
             _tasaPosNueva = 0m;
             _tasaDivisa = 0m;
@@ -38,7 +36,7 @@ namespace ModSistema.Configuracion.Pos.Models
         }
         public void Inicializa()
         {
-            _modoCalculoPrecio = formulaCalculoPrecioVenta.SinDefinir;
+            _modoCalculoPrecio = Enumerados.ModoCalculoPrecioProductosNacionales.SinDefinir;
             _tasaPosActual = 0m;
             _tasaPosNueva = 0m;
             _tasaDivisa = 0m;
@@ -71,7 +69,7 @@ namespace ModSistema.Configuracion.Pos.Models
         {
             _porctDifEntreTasas = porct;
         }
-        public void setAplicarFormulaCalculoPrecio(formulaCalculoPrecioVenta modo)
+        public void setAplicarFormulaCalculoPrecio(Enumerados.ModoCalculoPrecioProductosNacionales modo)
         {
             _modoCalculoPrecio = modo;
         }
