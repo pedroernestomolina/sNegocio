@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ModSistema.Configuracion.Pos
 {
-    
     public class CnfPos: ICnfPos
     {
-
         private bool _abandonarIsOk;
         private bool _procesarIsOk;
         private decimal _maximoPorcDsctoPermitido;
@@ -18,12 +16,14 @@ namespace ModSistema.Configuracion.Pos
         private decimal _tasaManejoDivSist;
         private decimal _tasaManejoDivPos;
         private decimal _difPorct;
-
-
+        //
+        private Models.ActualizarTasaPos _modeloTasaPos;
+        private UseCase.ProcesarCambio _ucProcesarCambio;
+        private UseCase.CapturarDataAjustar _ucCapturarDataAjustar;
+        //
         public bool AbandonarIsOK { get { return _abandonarIsOk; } }
         public bool ProcesarIsOK { get { return _procesarIsOk; } }
-
-
+        //
         public CnfPos()
         {
             _abandonarIsOk = false;
@@ -33,9 +33,11 @@ namespace ModSistema.Configuracion.Pos
             _tasaManejoDivPos = 0m;
             _tasaManejoDivSist = 0m;
             _difPorct = 0m;
+            //
+            _modeloTasaPos = new Models.ActualizarTasaPos();
+            _ucProcesarCambio = new UseCase.ProcesarCambio();
+            _ucCapturarDataAjustar = new UseCase.CapturarDataAjustar();
         }
-
-
         public void Inicializa()
         {
             _abandonarIsOk = false;
@@ -46,6 +48,8 @@ namespace ModSistema.Configuracion.Pos
             _tasaManejoDivSist = 0m;
             _difPorct = 0m;
             _modoCalculoDifTasa = "";
+            //
+            _modeloTasaPos.Inicializa();
         }
         private CnfPosFrm frm;
         public void Inicia()
@@ -71,32 +75,35 @@ namespace ModSistema.Configuracion.Pos
             _procesarIsOk = false;
             if (Helpers.Msg.Procesar())
             {
-                if (_tasaManejoDivPos <=0m)
+                try
                 {
-                    var msg = "TASA RECEPCION POS DEBE SER MAYOR A CERO(0)";
-                    Helpers.Msg.Alerta(msg);
-                    return;
+                    if (_tasaManejoDivPos <= 0m)
+                    {
+                        var msg = "TASA RECEPCION POS DEBE SER MAYOR A CERO(0)";
+                        throw new Exception(msg);
+                    }
+                    if (_permitirDsctoUnicamentoPagoDivisa && _maximoPorcDsctoPermitido <= 0m)
+                    {
+                        var msg = "TASA/BONO PARA PAGO CON DIVISA DEBE SER MAYOR A CERO(0)";
+                        throw new Exception(msg);
+                    }
+                    //
+                    if (1 == 1)
+                    {
+                        _modeloTasaPos.setDesctoPermitir(_maximoPorcDsctoPermitido);
+                        _modeloTasaPos.setTasaPosNueva(_tasaManejoDivPos);
+                        _modeloTasaPos.setAceptarDsctoPorPagoDivisa(_permitirDsctoUnicamentoPagoDivisa);
+                        _modeloTasaPos.setAplicarFormulaCalculoPrecio(Models.ActualizarTasaPos.formulaCalculoPrecioVenta.EnBaseAlPrecioDivisaSinBono);
+                        _ucCapturarDataAjustar.Execute(_modeloTasaPos);
+                    }
+                    _ucProcesarCambio.Execute(_modeloTasaPos);
+                    _procesarIsOk = true;
+                    Helpers.Msg.OK();
                 }
-                if (_permitirDsctoUnicamentoPagoDivisa && _maximoPorcDsctoPermitido <= 0m)
+                catch (Exception e)
                 {
-                    var msg = "TASA/BONO PARA PAGO CON DIVISA DEBE SER MAYOR A CERO(0)";
-                    Helpers.Msg.Alerta(msg);
-                    return;
+                    Helpers.Msg.Error(e.Message);
                 }
-                var fichaOOB = new OOB.LibSistema.Configuracion.Pos.Actualizar.Ficha()
-                {
-                    tasaManejoDivisaPos= _tasaManejoDivPos,
-                    permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = _permitirDsctoUnicamentoPagoDivisa,
-                    valorMaximoDescuentoPermitido = _maximoPorcDsctoPermitido,
-                };
-                var r01 = Sistema.MyData.Configuracion_Pos_Actualizar(fichaOOB);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                Helpers.Msg.OK();
-                _procesarIsOk = true;
             }
         }
 
@@ -111,14 +118,17 @@ namespace ModSistema.Configuracion.Pos
                 {
                     _modoCalculoDifTasa = "BCV";
                 }
-
                 var r01 = Sistema.MyData.Configuracion_Pos_Capturar();
                 _tasaManejoDivSist = r01.Entidad.tasaManejoDivisaSist;
                 _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
                 _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
                 _permitirDsctoUnicamentoPagoDivisa = r01.Entidad.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa;
                 setTasaPos(_tasaManejoDivPos);
-
+                //
+                _modeloTasaPos.setTasaPosActual(r01.Entidad.tasaManejoDivisaPos);
+                _modeloTasaPos.setTasaDivisa(r01.Entidad.tasaManejoDivisaSist);
+                _modeloTasaPos.setPorctDifEntreTasas(r01.Entidad.valorMaximoDescuentoPermitido);
+                //
                 return true;
             }
             catch (Exception e)
@@ -155,7 +165,6 @@ namespace ModSistema.Configuracion.Pos
         public decimal GetTasaManejoDivSist { get { return _tasaManejoDivSist; } }
         public decimal GetTasaManejoDivPos { get { return _tasaManejoDivPos; } }
         public decimal GetDiferenciaPorct { get { return _difPorct; } }
-
     }
 
 }

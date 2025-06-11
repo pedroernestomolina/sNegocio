@@ -517,12 +517,51 @@ namespace DataProvSistema.Data
             Configuracion_Pos_Actualizar(OOB.LibSistema.Configuracion.Pos.Actualizar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
-
+            //
             var fichaDTO = new DtoLibSistema.Configuracion.Pos.Actualizar.Ficha()
             {
+                Estacion = ficha.estacion,
+                Usuario = ficha.usuario,
                 tasaRecepcionPos = ficha.tasaManejoDivisaPos.ToString(),
+                factorCambio = ficha.tasaManejoDivisaPos,
                 valorMaximoDescuentoPermitido = ficha.valorMaximoDescuentoPermitido.ToString(),
                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = ficha.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa ? "Si" : "No",
+                productosAjustar = ficha.productosAjustar.Select(s =>
+                {
+                    var it = new DtoLibSistema.AjustarTasaPos.AjustarData.Producto()
+                    {
+                        codigoPrd = s.codigoPrd,
+                        dsp1New = s.dsp1New,
+                        dsp2New = s.dsp2New,
+                        dsp3New = s.dsp3New,
+                        dsp4New = s.dsp4New,
+                        idPrd = s.idPrd,
+                        may1New = s.may1New,
+                        may2New = s.may2New,
+                        may3New = s.may3New,
+                        may4New = s.may4New,
+                        nombrePrd = s.nombrePrd,
+                        p1New = s.p1New,
+                        p2New = s.p2New,
+                        p3New = s.p3New,
+                        p4New = s.p4New,
+                    };
+                    return it;
+                }).ToList(),
+                historicoPreciosAgregar = ficha.historicoPreciosAgregar.Select(s =>
+                {
+                    var it = new DtoLibSistema.AjustarTasaPos.AjustarData.HistoricoPrecio()
+                    {
+                        contEmpq = s.contEmpq,
+                        descEmpq = s.descEmpq,
+                        identificadorPrecio = s.identificadorPrecio,
+                        idPrd = s.idPrd,
+                        motivoCambio = s.motivoCambio,
+                        nombrePrd = s.nombrePrd,
+                        precioNuevo = s.precioNuevo,
+                    };
+                    return it;
+                }).ToList(),
             };
             var r01 = MyData.Configuracion_Pos_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -531,7 +570,7 @@ namespace DataProvSistema.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
-
+            //
             return rt;
         }
     }

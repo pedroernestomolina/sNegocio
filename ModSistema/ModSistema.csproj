@@ -80,6 +80,10 @@
     </Compile>
     <Compile Include="Configuracion\Pos\CnfPos.cs" />
     <Compile Include="Configuracion\Pos\ICnfPos.cs" />
+    <Compile Include="Configuracion\Pos\Models\ActualizarTasaPos.cs" />
+    <Compile Include="Configuracion\Pos\Models\Item.cs" />
+    <Compile Include="Configuracion\Pos\UseCase\CapturarDataAjustar.cs" />
+    <Compile Include="Configuracion\Pos\UseCase\ProcesarCambio.cs" />
     <Compile Include="ControlAcceso\Cliente\Gestion.cs" />
     <Compile Include="ControlAcceso\Cliente\item.cs" />
     <Compile Include="ControlAcceso\Cobrar\Gestion.cs" />
@@ -581,6 +585,7 @@
     <Content Include="CambiosVersion.txt" />
     <Content Include="Conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Imagenes\administrador.png" />
     <Content Include="Imagenes\automatizacion.jpg" />

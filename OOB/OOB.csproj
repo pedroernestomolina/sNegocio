@@ -50,6 +50,10 @@
     <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\PrecioSiAdmDivisa.cs" />
     <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\Ajustar\SiAdmDivisa.cs" />
     <Compile Include="LibSistema\AjustarTasaDivisa\ModoAdm\CapturarData.cs" />
+    <Compile Include="LibSistema\AjustarTasaPos\AjustarData\HistoricoPrecio.cs" />
+    <Compile Include="LibSistema\AjustarTasaPos\AjustarData\Producto.cs" />
+    <Compile Include="LibSistema\AjustarTasaPos\CapturarData\Ficha.cs" />
+    <Compile Include="LibSistema\AjustarTasaPos\CapturarData\Item.cs" />
     <Compile Include="LibSistema\Cobrador\Agregar\Ficha.cs" />
     <Compile Include="LibSistema\Cobrador\Editar\Ficha.cs" />
     <Compile Include="LibSistema\Cobrador\Entidad\Ficha.cs" />
