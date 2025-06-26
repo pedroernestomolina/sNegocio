@@ -8,8 +8,8 @@ using System.Windows.Forms;
 
 namespace ModSistema.TasaDivisa.Sist
 {
-    
-    public class GestionBasico: IGestion
+
+    public class GestionBasico : IGestion
     {
 
         private decimal _valorNuevo { get; set; }
@@ -45,7 +45,7 @@ namespace ModSistema.TasaDivisa.Sist
             }
         }
 
-        public bool Procesar()
+        public bool Procesar(Func<bool> rg1, Func<bool> rg2)
         {
             var rt = false;
             _dataDivisa = new List<data>();
@@ -109,20 +109,26 @@ namespace ModSistema.TasaDivisa.Sist
                     //}
 
 
-                    if (r01.Lista != null) 
+                    if (r01.Lista != null)
                     {
-                        if (r01.Lista.Count > 0) 
+                        if (r01.Lista.Count > 0)
                         {
-                            foreach (var it in r01.Lista.Where(f => !f.isAdmDivisa).ToList())
+                            if (rg1())
                             {
-                                _dataSinDivisa.Add(new data2(it, _valorNuevo));
+                                foreach (var it in r01.Lista.Where(f => !f.isAdmDivisa).ToList())
+                                {
+                                    var rdata = new data2(it, _valorNuevo);
+                                    rdata.setActualizarCostoPrecioProductosEnBaseMonedaActual(rg2());
+                                    //_dataSinDivisa.Add(new data2(it, _valorNuevo));
+                                    _dataSinDivisa.Add(rdata);
+                                }
                             }
-                            foreach (var it in r01.Lista.Where(f=>f.isAdmDivisa).ToList())
+                            foreach (var it in r01.Lista.Where(f => f.isAdmDivisa).ToList())
                             {
                                 _dataDivisa.Add(new data(it, _valorNuevo, r02.Entidad, r03.Entidad));
                             }
 
-                            rt= ProcesarCambios(lst);
+                            rt = ProcesarCambios(lst);
                         }
                     }
                 }
@@ -142,13 +148,13 @@ namespace ModSistema.TasaDivisa.Sist
                 EstacionEquipo = Environment.MachineName,
                 nombreUsuario = Sistema.UsuarioP.nombre,
                 ValorDivisa = _valorNuevo,
-                ValorDivisaPos=_valorNuevo,
+                ValorDivisaPos = _valorNuevo,
             };
             var lst = new List<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoPrecioDivisa>();
             var lst2 = new List<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico>();
             var lst3 = new List<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoSinDivisa>();
 
-            foreach (var rg in _dataSinDivisa) 
+            foreach (var rg in _dataSinDivisa)
             {
                 var nr = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoSinDivisa()
                 {
@@ -173,7 +179,7 @@ namespace ModSistema.TasaDivisa.Sist
             }
             ficha.productosCostoSinDivisa = lst3;
 
-            foreach (var rg in _dataDivisa) 
+            foreach (var rg in _dataDivisa)
             {
                 var nr = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoPrecioDivisa()
                 {
@@ -194,7 +200,7 @@ namespace ModSistema.TasaDivisa.Sist
                     precio_3 = rg.Precio_3,
                     precio_4 = rg.Precio_4,
                     precio_5 = rg.Precio_5,
-                    precioMay_1= rg.PrecioMay_1,
+                    precioMay_1 = rg.PrecioMay_1,
                     precioMay_2 = rg.PrecioMay_2,
                     precioMay_3 = rg.PrecioMay_3,
                     precioMay_4 = rg.PrecioMay_4,
@@ -208,7 +214,7 @@ namespace ModSistema.TasaDivisa.Sist
                 };
                 lst.Add(nr);
 
-                if (rg.Precio_1>0)
+                if (rg.Precio_1 > 0)
                 {
                     var ph1 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
                     {
@@ -420,7 +426,7 @@ namespace ModSistema.TasaDivisa.Sist
 
 
             var r01 = Sistema.MyData.Configuracion_Actualizar_TasaDivisa_ActualizarData(ficha);
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
@@ -430,7 +436,5 @@ namespace ModSistema.TasaDivisa.Sist
 
             return rt;
         }
-
     }
-
 }

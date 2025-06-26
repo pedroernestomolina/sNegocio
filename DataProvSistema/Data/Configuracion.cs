@@ -272,6 +272,8 @@ namespace DataProvSistema.Data
                 {
                     autoPrd = rg.autoPrd,
                     costoDivisa = rg.costoDivisa,
+                    costoMonActual= rg.costoMonedaActual,
+                    costoMonActualUnd= rg.costoMonedaActualUnd,
                     precioMonedaEnDivisaFull_1 = rg.precioMonedaEnDivisaFull_1,
                     precioMonedaEnDivisaFull_2 = rg.precioMonedaEnDivisaFull_2,
                     precioMonedaEnDivisaFull_3 = rg.precioMonedaEnDivisaFull_3,
@@ -285,6 +287,19 @@ namespace DataProvSistema.Data
                     precioMonedaEnDivisaFull_Dsp_2 = rg.precioMonedaEnDivisaFull_Dsp_2,
                     precioMonedaEnDivisaFull_Dsp_3 = rg.precioMonedaEnDivisaFull_Dsp_3,
                     precioMonedaEnDivisaFull_Dsp_4 = rg.precioMonedaEnDivisaFull_Dsp_4,
+                    precio_1 = rg.precio_1,
+                    precio_2 = rg.precio_2,
+                    precio_3 = rg.precio_3,
+                    precio_4 = rg.precio_4,
+                    precio_5 = rg.precio_5,
+                    precioMay_1 = rg.precioMay_1,
+                    precioMay_2 = rg.precioMay_2,
+                    precioMay_3 = rg.precioMay_3,
+                    precioMay_4 = rg.precioMay_4,
+                    precioDsp_1 = rg.precioDsp_1,
+                    precioDsp_2 = rg.precioDsp_2,
+                    precioDsp_3 = rg.precioDsp_3,
+                    precioDsp_4 = rg.precioDsp_4,
                 };
                 lstProdCostoSinDivisa.Add(nr);
             }
@@ -472,7 +487,7 @@ namespace DataProvSistema.Data
             Configuracion_Pos_Capturar()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Pos.Capturar.Ficha>();
-
+            //
             var r01 = MyData.Configuracion_Pos_Capturar();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
@@ -503,14 +518,22 @@ namespace DataProvSistema.Data
                 //var culture = CultureInfo.CreateSpecificCulture("en-EN");
                 decimal.TryParse(f.tasaManejoDivisaPos, style, culture, out tasaDivPos);
             }
+            var porcAumentoEnPreciosPrdNoAdmPorDivisa = 0m;
+            if (f.porcAumentoEnPreciosProductosNoAdmPorDivisa.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                decimal.TryParse(f.porcAumentoEnPreciosProductosNoAdmPorDivisa, style, culture, out porcAumentoEnPreciosPrdNoAdmPorDivisa);
+            }
             rt.Entidad = new OOB.LibSistema.Configuracion.Pos.Capturar.Ficha()
             {
                 tasaManejoDivisaSist = tasaDivSist,
                 tasaManejoDivisaPos = tasaDivPos,
                 valorMaximoDescuentoPermitido = mont,
                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = f.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa.Trim().ToUpper() == "SI" ? true : false,
+                porcAumentoEnPreciosProductosNoAdmPorDivisa =  porcAumentoEnPreciosPrdNoAdmPorDivisa,
             };
-
             return rt;
         }
         public OOB.Resultado 
@@ -525,6 +548,7 @@ namespace DataProvSistema.Data
                 tasaRecepcionPos = ficha.tasaManejoDivisaPos.ToString(),
                 factorCambio = ficha.tasaManejoDivisaPos,
                 valorMaximoDescuentoPermitido = ficha.valorMaximoDescuentoPermitido.ToString(),
+                porcAumentoPreciosDeProductosNoAdmPorDivisa = ficha.porcAumentoPreciosDePrdNoAdmPorDivisa.ToString(),
                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = ficha.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa ? "Si" : "No",
                 productosAjustar = ficha.productosAjustar.Select(s =>
                 {

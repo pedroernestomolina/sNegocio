@@ -191,6 +191,7 @@ namespace ModSistema.Configuracion.Pos.UseCase
                 tasaManejoDivisaPos = modelo.GetTasaPosNueva,
                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = modelo.GetAceptarDsctoPorPagoDivisa,
                 valorMaximoDescuentoPermitido = modelo.GetDesctoPermitir,
+                porcAumentoPreciosDePrdNoAdmPorDivisa = modelo.GetPorcAumentoPreciosPrdNoAdmDivisa,
                 productosAjustar = _lst,
                 historicoPreciosAgregar = _lst2,
             };

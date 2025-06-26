@@ -43,7 +43,7 @@ namespace ModSistema.TasaDivisa.Pos
             return rt;
         }
 
-        public bool Procesar()
+        public bool Procesar(Func<bool> rg1, Func<bool> rg2)
         {
             var rt = false;
 
@@ -68,7 +68,5 @@ namespace ModSistema.TasaDivisa.Pos
 
             return rt;
         }
-
     }
-
 }

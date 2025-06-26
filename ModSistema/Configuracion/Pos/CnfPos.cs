@@ -16,6 +16,7 @@ namespace ModSistema.Configuracion.Pos
         private decimal _tasaManejoDivSist;
         private decimal _tasaManejoDivPos;
         private decimal _difPorct;
+        private decimal _porcAumentoPreciosPosPrdNoAdmPorDivisa;
         //
         private Models.ActualizarTasaPos _modeloTasaPos;
         private UseCase.ProcesarCambio _ucProcesarCambio;
@@ -50,6 +51,7 @@ namespace ModSistema.Configuracion.Pos
             _tasaManejoDivSist = 0m;
             _difPorct = 0m;
             _modoCalculoDifTasa = "";
+            _porcAumentoPreciosPosPrdNoAdmPorDivisa = 0m;
             //
             _modeloTasaPos.Inicializa();
         }
@@ -95,6 +97,7 @@ namespace ModSistema.Configuracion.Pos
                         _modeloTasaPos.setDesctoPermitir(_maximoPorcDsctoPermitido);
                         _modeloTasaPos.setTasaPosNueva(_tasaManejoDivPos);
                         _modeloTasaPos.setAceptarDsctoPorPagoDivisa(_permitirDsctoUnicamentoPagoDivisa);
+                        _modeloTasaPos.setPorcAumentoPreciosPrdNoAdmDivisa(_porcAumentoPreciosPosPrdNoAdmPorDivisa);
                         _ucCapturarDataAjustar.Execute(_modeloTasaPos);
                     }
                     _ucProcesarCambio.Execute(_modeloTasaPos);
@@ -126,12 +129,14 @@ namespace ModSistema.Configuracion.Pos
                 _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
                 _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
                 _permitirDsctoUnicamentoPagoDivisa = r01.Entidad.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa;
+                _porcAumentoPreciosPosPrdNoAdmPorDivisa = r01.Entidad.porcAumentoEnPreciosProductosNoAdmPorDivisa;
                 setTasaPos(_tasaManejoDivPos);
                 //
                 _modeloTasaPos.setTasaPosActual(r01.Entidad.tasaManejoDivisaPos);
                 _modeloTasaPos.setTasaDivisa(r01.Entidad.tasaManejoDivisaSist);
                 _modeloTasaPos.setPorctDifEntreTasas(r01.Entidad.valorMaximoDescuentoPermitido);
                 _modeloTasaPos.setAplicarFormulaCalculoPrecio(_modoCalculoPrecioPrdNac);
+                _modeloTasaPos.setPorcAumentoPreciosPrdNoAdmDivisa(_porcAumentoPreciosPosPrdNoAdmPorDivisa);
                 //
                 return true;
             }
@@ -162,13 +167,16 @@ namespace ModSistema.Configuracion.Pos
                     _difPorct = (1 - (_tasaManejoDivPos / _tasaManejoDivSist)) * 100;
             }
         }
-
+        public void setPorcAumentoPrecioNoAdmDivisa(decimal porc)
+        {
+            _porcAumentoPreciosPosPrdNoAdmPorDivisa = porc;
+        }
 
         public decimal GetDsctoMaximoPermitido { get { return _maximoPorcDsctoPermitido; } }
         public bool GetPermisoDsctoPagoDivisa { get { return _permitirDsctoUnicamentoPagoDivisa; } }
         public decimal GetTasaManejoDivSist { get { return _tasaManejoDivSist; } }
         public decimal GetTasaManejoDivPos { get { return _tasaManejoDivPos; } }
         public decimal GetDiferenciaPorct { get { return _difPorct; } }
+        public decimal GetPorcAumentoPrecioPosNoAdmDivisa { get { return _porcAumentoPreciosPosPrdNoAdmPorDivisa; } }
     }
-
 }

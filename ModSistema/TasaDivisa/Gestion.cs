@@ -10,8 +10,10 @@ namespace ModSistema.TasaDivisa
     
     public class Gestion
     {
-
         private IGestion miGestion;
+        private ModSistema.src.IFabrica _fabrica;
+        private Func<bool> _rg1;
+        private Func<bool> _rg2;
 
 
         public string TituloFuncion { get { return miGestion.TituloFuncion; } }
@@ -48,9 +50,17 @@ namespace ModSistema.TasaDivisa
 
         public void Procesar()
         {
-            ActualizacionIsOk = miGestion.Procesar();
+            ActualizacionIsOk = miGestion.Procesar(_rg1, _rg2);
         }
 
-    }
 
+        public void InyectarReglaNegocio_ActualizarCostoProductos_NoAdmDivisa(Func<bool> func)
+        {
+            _rg1 = func;
+        }
+        public void InyectarReglaNegocio_ActualizarCostoPrecio_EnBaseMonedaActual(Func<bool> func)
+        {
+            _rg2 = func;
+        }
+    }
 }

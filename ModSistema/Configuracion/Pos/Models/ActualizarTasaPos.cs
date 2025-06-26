@@ -16,11 +16,13 @@ namespace ModSistema.Configuracion.Pos.Models
         private bool _aceptarDsctoPorPagoDivisa;
         private decimal _tasaDivisa;
         private decimal _porctDifEntreTasas;
+        private decimal _porcAumentoPreciosPrdNoAdmDivisa;
         private Enumerados.ModoCalculoPrecioProductosNacionales _modoCalculoPrecio;
         //
         public decimal GetTasaPosNueva { get { return _tasaPosNueva; } }
         public decimal GetDesctoPermitir { get { return _dsctoPermitir; } }
         public bool GetAceptarDsctoPorPagoDivisa { get { return _aceptarDsctoPorPagoDivisa; } }
+        public decimal GetPorcAumentoPreciosPrdNoAdmDivisa { get { return _porcAumentoPreciosPrdNoAdmDivisa; } }
         public List<Item> ItemsActualizar { get { return _itemsActualzar; } }
         //
         public ActualizarTasaPos()
@@ -31,6 +33,7 @@ namespace ModSistema.Configuracion.Pos.Models
             _tasaDivisa = 0m;
             _dsctoPermitir = 0m;
             _porctDifEntreTasas = 0m;
+            _porcAumentoPreciosPrdNoAdmDivisa = 0m;
             _aceptarDsctoPorPagoDivisa = false;
             _itemsActualzar = new List<Item>();
         }
@@ -42,6 +45,7 @@ namespace ModSistema.Configuracion.Pos.Models
             _tasaDivisa = 0m;
             _dsctoPermitir = 0m;
             _porctDifEntreTasas = 0m;
+            _porcAumentoPreciosPrdNoAdmDivisa = 0m;
             _aceptarDsctoPorPagoDivisa = false;
             _itemsActualzar.Clear();
         }
@@ -73,15 +77,23 @@ namespace ModSistema.Configuracion.Pos.Models
         {
             _modoCalculoPrecio = modo;
         }
+        public void setPorcAumentoPreciosPrdNoAdmDivisa(decimal porct)
+        {
+            _porcAumentoPreciosPrdNoAdmDivisa = porct;
+        }
+
         public void AgregarItemParaActualizar(Item it)
         {
-            _itemsActualzar.Clear();
             it.setTasaPosActual(_tasaPosActual);
             it.setTasaPosNueva(_tasaPosNueva);
             it.setTasaDivisa(_tasaDivisa);
             it.setPorctDifEntreTasa(_porctDifEntreTasas);
             it.setModoCalculoPrecio(_modoCalculoPrecio);
             _itemsActualzar.Add(it);
+        }
+        public void LimpiarItems()
+        {
+            _itemsActualzar.Clear();
         }
     }
 }

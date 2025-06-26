@@ -27,5 +27,13 @@ namespace ModSistema.src
         {
             return new ActualizarTasaDivisa.ModoAdm.ImpModoAdm();
         }
+        public bool ReglaNegocio_ActualizarCostoProductos_NoAdmDivisa()
+        {
+            return true;
+        }
+        public bool ReglaNegocio_ActualizarCostoPrecioProductos_EnBaseMonedaActual()
+        {
+            return true;
+        }
     }
 }

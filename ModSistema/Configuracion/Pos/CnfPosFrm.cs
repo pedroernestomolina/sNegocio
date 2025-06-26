@@ -11,28 +11,22 @@ using System.Windows.Forms;
 
 namespace ModSistema.Configuracion.Pos
 {
-
     public partial class CnfPosFrm : Form
     {
-
         private ICnfPos _controlador;
-
-
+        //
         public CnfPosFrm()
         {
             InitializeComponent();
             Inicializa();
         }
-
         private void Inicializa()
         {
         }
-
         public void setControlador(ICnfPos ctr)
         {
             _controlador = ctr;
         }
-
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
             Abandonar();
@@ -81,6 +75,7 @@ namespace ModSistema.Configuracion.Pos
             L_DIFERENCIA_PORC.Text = _controlador.GetDiferenciaPorct.ToString("n2") + "%";
             TB_TASA_POS.Text = _controlador.GetTasaManejoDivPos.ToString();
             TB_MAXIMO_DSCTO.Text = _controlador.GetDsctoMaximoPermitido.ToString();
+            TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Text = _controlador.GetPorcAumentoPrecioPosNoAdmDivisa.ToString();
             CHB_VALIDAR_DSCTO_PAGO_DIVISA.Checked = _controlador.GetPermisoDsctoPagoDivisa;
             _modoInicializar = false;
         }
@@ -113,6 +108,11 @@ namespace ModSistema.Configuracion.Pos
             L_DIFERENCIA_PORC.Text = _controlador.GetDiferenciaPorct.ToString("n2") + "%";
         }
 
+        private void TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA_Leave(object sender, EventArgs e)
+        {
+            if (_modoInicializar) { return; }
+            var porcAumentoPrecioNoAdmDivisa= decimal.Parse(TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Text);
+            _controlador.setPorcAumentoPrecioNoAdmDivisa(porcAumentoPrecioNoAdmDivisa);
+        }
     }
-
 }

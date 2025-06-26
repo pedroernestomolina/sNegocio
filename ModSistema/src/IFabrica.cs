@@ -12,5 +12,8 @@ namespace ModSistema.src
         void CrearIniciarFrm_PanelPrincipal(Gestion gestion);
         TasaDivisa.IGestion CrearInstancia_TasaDivisa();
         ActualizarTasaDivisa.ITasa CrearInstancia_ActualizarTasaDivisa();
+        //
+        bool ReglaNegocio_ActualizarCostoProductos_NoAdmDivisa();
+        bool ReglaNegocio_ActualizarCostoPrecioProductos_EnBaseMonedaActual();
     }
 }

@@ -26,5 +26,14 @@ namespace ModSistema.src
         {
             return null;
         }
+        public bool ReglaNegocio_ActualizarCostoProductos_NoAdmDivisa()
+        {
+            return true;
+        }
+
+        public bool ReglaNegocio_ActualizarCostoPrecioProductos_EnBaseMonedaActual()
+        {
+            return true;
+        }
     }
 }

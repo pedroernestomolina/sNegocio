@@ -11,12 +11,10 @@ namespace ModSistema.TasaDivisa.Porcentaje
     
     public class Gestion: IGestion
     {
-
         private decimal _valorNuevo { get; set; }
         private List<data> _dataDivisa { get; set; }
         private List<data2> _dataSinDivisa { get; set; }
-
-
+        //
         public string TituloFuncion
         {
             get { return "Ajustar Precio Venta Según Porcentaje Incremento (%)?"; }
@@ -29,6 +27,11 @@ namespace ModSistema.TasaDivisa.Porcentaje
 
         public decimal ValorActual { get; set; }
 
+        public Gestion()
+        {
+
+        }
+
 
         public bool CargarData()
         {
@@ -36,7 +39,7 @@ namespace ModSistema.TasaDivisa.Porcentaje
             return rt;
         }
 
-        public bool Procesar()
+        public bool Procesar(Func<bool> rg1, Func<bool> rg2)
         {
             var rt = false;
             _dataDivisa = new List<data>();
@@ -104,9 +107,14 @@ namespace ModSistema.TasaDivisa.Porcentaje
                     {
                         if (r01.Lista.Count > 0) 
                         {
-                            foreach (var it in r01.Lista.Where(f => !f.isAdmDivisa).ToList())
+                            if (rg1()) 
                             {
-                                _dataSinDivisa.Add(new data2(it, _valorNuevo));
+                                foreach (var it in r01.Lista.Where(f => !f.isAdmDivisa).ToList())
+                                {
+                                    var rdata = new data2(it, _valorNuevo);
+                                    _dataSinDivisa.Add(rdata);
+                                    //_dataSinDivisa.Add(new data2(it, _valorNuevo));
+                                }
                             }
                             foreach (var it in r01.Lista.Where(f=>f.isAdmDivisa).ToList())
                             {
@@ -420,7 +428,5 @@ namespace ModSistema.TasaDivisa.Porcentaje
 
             return rt;
         }
-
     }
-
 }

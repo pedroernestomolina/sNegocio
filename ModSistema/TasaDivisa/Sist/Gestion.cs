@@ -11,23 +11,17 @@ namespace ModSistema.TasaDivisa.Sist
     
     public class Gestion: IGestion
     {
-
         private decimal _valorNuevo { get; set; }
         private List<data> _dataDivisa { get; set; }
         private List<data2> _dataSinDivisa { get; set; }
-
-
-        public string TituloFuncion
-        {
-            get { return "Tasa Divisa Actual ?"; }
-        }
-
-        public decimal ValorNuevo
-        {
-            set { _valorNuevo = value; }
-        }
-
+        //
+        public string TituloFuncion { get { return "Tasa Divisa Actual ?"; } }
+        public decimal ValorNuevo { set { _valorNuevo = value; } }
         public decimal ValorActual { get; set; }
+        //
+        public Gestion()
+        {
+        }
 
 
         public bool CargarData()
@@ -45,7 +39,7 @@ namespace ModSistema.TasaDivisa.Sist
             }
         }
 
-        public bool Procesar()
+        public bool Procesar(Func<bool> rg1, Func<bool> rg2)
         {
             var rt = false;
             _dataDivisa = new List<data>();
@@ -113,9 +107,15 @@ namespace ModSistema.TasaDivisa.Sist
                     {
                         if (r01.Lista.Count > 0) 
                         {
-                            foreach (var it in r01.Lista.Where(f => !f.isAdmDivisa).ToList())
+                            if (rg1())
                             {
-                                _dataSinDivisa.Add(new data2(it, _valorNuevo));
+                                foreach (var it in r01.Lista.Where(f => !f.isAdmDivisa).ToList())
+                                {
+                                    var rdata = new data2(it, _valorNuevo);
+                                    rdata.setActualizarCostoPrecioProductosEnBaseMonedaActual(rg2());
+                                    _dataSinDivisa.Add(rdata);
+                                    //_dataSinDivisa.Add(new data2(it, _valorNuevo));
+                                }
                             }
                             foreach (var it in r01.Lista.Where(f=>f.isAdmDivisa).ToList())
                             {
@@ -153,6 +153,8 @@ namespace ModSistema.TasaDivisa.Sist
                 {
                     autoPrd = rg.AutoPrd,
                     costoDivisa = rg.CostoDivisa,
+                    costoMonedaActual= rg.CostoMonedaActual,
+                    costoMonedaActualUnd = rg.CostoMonedaActualUnd,
                     precioMonedaEnDivisaFull_1 = rg.precioFullMoneda_EnDivisa(1),
                     precioMonedaEnDivisaFull_2 = rg.precioFullMoneda_EnDivisa(2),
                     precioMonedaEnDivisaFull_3 = rg.precioFullMoneda_EnDivisa(3),
@@ -162,11 +164,23 @@ namespace ModSistema.TasaDivisa.Sist
                     precioMonedaEnDivisaFull_May_2 = rg.precioFullMoneda_EnDivisa(7),
                     precioMonedaEnDivisaFull_May_3 = rg.precioFullMoneda_EnDivisa(8),
                     precioMonedaEnDivisaFull_May_4 = rg.precioFullMoneda_EnDivisa(9),
-                    //
                     precioMonedaEnDivisaFull_Dsp_1 = rg.precioFullMoneda_EnDivisa(10),
                     precioMonedaEnDivisaFull_Dsp_2 = rg.precioFullMoneda_EnDivisa(11),
                     precioMonedaEnDivisaFull_Dsp_3 = rg.precioFullMoneda_EnDivisa(12),
                     precioMonedaEnDivisaFull_Dsp_4 = rg.precioFullMoneda_EnDivisa(13),
+                    precio_1 = rg.Precio_1,
+                    precio_2 = rg.Precio_2,
+                    precio_3 = rg.Precio_3,
+                    precio_4 = rg.Precio_4,
+                    precio_5 = rg.Precio_5,
+                    precioMay_1 = rg.PrecioMay_1,
+                    precioMay_2 = rg.PrecioMay_2,
+                    precioMay_3 = rg.PrecioMay_3,
+                    precioMay_4 = rg.PrecioMay_4,
+                    precioDsp_1 = rg.PrecioDsp_1,
+                    precioDsp_2 = rg.PrecioDsp_2,
+                    precioDsp_3 = rg.PrecioDsp_3,
+                    precioDsp_4 = rg.PrecioDsp_4,
                 };
                 lst3.Add(nr);
             }
@@ -197,7 +211,6 @@ namespace ModSistema.TasaDivisa.Sist
                     precioMay_2 = rg.PrecioMay_2,
                     precioMay_3 = rg.PrecioMay_3,
                     precioMay_4 = rg.PrecioMay_4,
-                    //
                     precioDsp_1 = rg.PrecioDsp_1,
                     precioDsp_2 = rg.PrecioDsp_2,
                     precioDsp_3 = rg.PrecioDsp_3,
@@ -429,7 +442,5 @@ namespace ModSistema.TasaDivisa.Sist
 
             return rt;
         }
-
     }
-
 }

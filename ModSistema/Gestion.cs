@@ -79,12 +79,19 @@ namespace ModSistema
         public Gestion(src.IFabrica fabrica)
         {
             _fabrica = fabrica;
-
-
+            
             _gestionUsuarioGrupo = new UsuarioGrupo.Gestion();
             _gestionUsuario = new Usuario.Gestion();
             _gestionServicio = new Servicio.Gestion();
+
+            //
             _gestionTasaDivisa = new TasaDivisa.Gestion();
+            _gestionTasaDivisa.InyectarReglaNegocio_ActualizarCostoProductos_NoAdmDivisa(
+                _fabrica.ReglaNegocio_ActualizarCostoProductos_NoAdmDivisa);
+            _gestionTasaDivisa.InyectarReglaNegocio_ActualizarCostoPrecio_EnBaseMonedaActual(
+                _fabrica.ReglaNegocio_ActualizarCostoPrecioProductos_EnBaseMonedaActual);
+            //_gestionTasaDivisa = _fabrica.CrearInstancia_TasaDivisa();
+
             _gestionMaestro = new Maestros.Gestion();
             _gestionRecMon = new ReconversionMonetaria.Gestion();
             _gestionDatosNegocio = new DatosNegocio.Editar.Gestion();

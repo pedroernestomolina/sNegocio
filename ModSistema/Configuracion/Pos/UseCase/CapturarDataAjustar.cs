@@ -12,6 +12,7 @@ namespace ModSistema.Configuracion.Pos.UseCase
         public void Execute(Models.ActualizarTasaPos modelo)
         {
             var r0 = Sistema.MyData.AjustarTasaPos_CapturarData();
+            modelo.LimpiarItems();
             foreach (var it in r0.Entidad.items)
             {
                 var item = new Models.Item()
