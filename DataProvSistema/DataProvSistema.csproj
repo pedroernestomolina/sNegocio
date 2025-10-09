@@ -64,6 +64,7 @@
     <Compile Include="Data\Deposito.cs" />
     <Compile Include="Data\Funcion.cs" />
     <Compile Include="Data\MediosCobroPago.cs" />
+    <Compile Include="Data\Moneda.cs" />
     <Compile Include="Data\Negocio.cs" />
     <Compile Include="Data\Permiso.cs" />
     <Compile Include="Data\PrecioEtiqueta.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Data\Vendedor.cs" />
     <Compile Include="Data\Helpers.cs" />
     <Compile Include="Enumerados.cs" />
+    <Compile Include="Infra\IMoneda.cs" />
     <Compile Include="Infra\MisEnumerados.cs" />
     <Compile Include="Infra\IAjustarTasaDivisa_ModoAdm.cs" />
     <Compile Include="Infra\IAjustarTasaPos.cs" />

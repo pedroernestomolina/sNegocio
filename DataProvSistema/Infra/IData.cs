@@ -12,7 +12,8 @@ namespace DataProvSistema.Infra
         ISerieFiscal, IReconversionMonetaria, INegocio, IControlAcceso, IPrueba,
         ITablaPrecio, ISucursalGrupo, IMediosCobroPago,
         IAjustarTasaDivisa_ModoAdm,
-        IAjustarTasaPos
+        IAjustarTasaPos,
+        IMoneda
     {
 
         OOB.ResultadoEntidad<DateTime> 

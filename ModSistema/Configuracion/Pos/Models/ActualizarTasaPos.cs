@@ -18,11 +18,13 @@ namespace ModSistema.Configuracion.Pos.Models
         private decimal _porctDifEntreTasas;
         private decimal _porcAumentoPreciosPrdNoAdmDivisa;
         private Enumerados.ModoCalculoPrecioProductosNacionales _modoCalculoPrecio;
+        private int _idMonLocal;
         //
         public decimal GetTasaPosNueva { get { return _tasaPosNueva; } }
         public decimal GetDesctoPermitir { get { return _dsctoPermitir; } }
         public bool GetAceptarDsctoPorPagoDivisa { get { return _aceptarDsctoPorPagoDivisa; } }
         public decimal GetPorcAumentoPreciosPrdNoAdmDivisa { get { return _porcAumentoPreciosPrdNoAdmDivisa; } }
+        public int GetIdMonLocal { get { return _idMonLocal; } }
         public List<Item> ItemsActualizar { get { return _itemsActualzar; } }
         //
         public ActualizarTasaPos()
@@ -36,6 +38,7 @@ namespace ModSistema.Configuracion.Pos.Models
             _porcAumentoPreciosPrdNoAdmDivisa = 0m;
             _aceptarDsctoPorPagoDivisa = false;
             _itemsActualzar = new List<Item>();
+            _idMonLocal = -1;
         }
         public void Inicializa()
         {
@@ -48,6 +51,7 @@ namespace ModSistema.Configuracion.Pos.Models
             _porcAumentoPreciosPrdNoAdmDivisa = 0m;
             _aceptarDsctoPorPagoDivisa = false;
             _itemsActualzar.Clear();
+            _idMonLocal = -1;
         }
         public void setTasaPosActual(decimal tasaPosActual)
         {
@@ -81,7 +85,10 @@ namespace ModSistema.Configuracion.Pos.Models
         {
             _porcAumentoPreciosPrdNoAdmDivisa = porct;
         }
-
+        public void setIdMonLocal(int id)
+        {
+            _idMonLocal = id;
+        }
         public void AgregarItemParaActualizar(Item it)
         {
             it.setTasaPosActual(_tasaPosActual);

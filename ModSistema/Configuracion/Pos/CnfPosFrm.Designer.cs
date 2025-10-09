@@ -67,15 +67,15 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA = new ModSistema.LibControl.NumeroDec();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.BT_GUARDAR = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA = new ModSistema.LibControl.NumeroDec();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -102,12 +102,12 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -371,8 +371,8 @@
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.36559F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.63441F));
             this.tableLayoutPanel7.Controls.Add(this.panel6, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(2, 2);
@@ -393,7 +393,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(91, 32);
+            this.panel6.Size = new System.Drawing.Size(113, 32);
             this.panel6.TabIndex = 0;
             // 
             // TB_MAXIMO_DSCTO
@@ -403,7 +403,8 @@
             this.TB_MAXIMO_DSCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_MAXIMO_DSCTO.Location = new System.Drawing.Point(2, 2);
             this.TB_MAXIMO_DSCTO.Name = "TB_MAXIMO_DSCTO";
-            this.TB_MAXIMO_DSCTO.Size = new System.Drawing.Size(87, 29);
+            this.TB_MAXIMO_DSCTO.ReadOnly = true;
+            this.TB_MAXIMO_DSCTO.Size = new System.Drawing.Size(109, 29);
             this.TB_MAXIMO_DSCTO.TabIndex = 0;
             this.TB_MAXIMO_DSCTO.Text = "0";
             this.TB_MAXIMO_DSCTO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -489,8 +490,8 @@
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.57895F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.42105F));
             this.tableLayoutPanel8.Controls.Add(this.panel19, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
@@ -511,7 +512,7 @@
             this.panel19.Margin = new System.Windows.Forms.Padding(1);
             this.panel19.Name = "panel19";
             this.panel19.Padding = new System.Windows.Forms.Padding(2);
-            this.panel19.Size = new System.Drawing.Size(93, 32);
+            this.panel19.Size = new System.Drawing.Size(115, 32);
             this.panel19.TabIndex = 0;
             // 
             // TB_TASA_POS
@@ -521,7 +522,7 @@
             this.TB_TASA_POS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_TASA_POS.Location = new System.Drawing.Point(2, 2);
             this.TB_TASA_POS.Name = "TB_TASA_POS";
-            this.TB_TASA_POS.Size = new System.Drawing.Size(89, 29);
+            this.TB_TASA_POS.Size = new System.Drawing.Size(111, 29);
             this.TB_TASA_POS.TabIndex = 0;
             this.TB_TASA_POS.Text = "0";
             this.TB_TASA_POS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -605,6 +606,48 @@
             this.panel23.Size = new System.Drawing.Size(190, 44);
             this.panel23.TabIndex = 11;
             // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.90322F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.09678F));
+            this.tableLayoutPanel9.Controls.Add(this.panel24, 0, 1);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 3;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(186, 40);
+            this.tableLayoutPanel9.TabIndex = 2;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(1, 3);
+            this.panel24.Margin = new System.Windows.Forms.Padding(1);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(2);
+            this.panel24.Size = new System.Drawing.Size(114, 32);
+            this.panel24.TabIndex = 0;
+            // 
+            // TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA
+            // 
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.BackColor = System.Drawing.Color.Yellow;
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Location = new System.Drawing.Point(2, 2);
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Name = "TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA";
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Size = new System.Drawing.Size(110, 29);
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.TabIndex = 0;
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Text = "0";
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CTRL_KeyDown);
+            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Leave += new System.EventHandler(this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA_Leave);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DimGray;
@@ -686,48 +729,6 @@
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.panel24, 0, 1);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 3;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(186, 40);
-            this.tableLayoutPanel9.TabIndex = 2;
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(1, 3);
-            this.panel24.Margin = new System.Windows.Forms.Padding(1);
-            this.panel24.Name = "panel24";
-            this.panel24.Padding = new System.Windows.Forms.Padding(2);
-            this.panel24.Size = new System.Drawing.Size(91, 32);
-            this.panel24.TabIndex = 0;
-            // 
-            // TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA
-            // 
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.BackColor = System.Drawing.Color.Yellow;
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Location = new System.Drawing.Point(2, 2);
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Name = "TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA";
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Size = new System.Drawing.Size(87, 29);
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.TabIndex = 0;
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Text = "0";
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CTRL_KeyDown);
-            this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA.Leave += new System.EventHandler(this.TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA_Leave);
-            // 
             // CnfPosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,13 +771,13 @@
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
             this.ResumeLayout(false);
 
         }

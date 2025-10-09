@@ -91,6 +91,8 @@ namespace ModSistema.Configuracion.Pos
                         var msg = "TASA/BONO PARA PAGO CON DIVISA DEBE SER MAYOR A CERO(0)";
                         throw new Exception(msg);
                     }
+                    var rst = Sistema.MyData.Configuracion_MonedaLocal();
+
                     //
                     if (1 == 1)
                     {
@@ -100,6 +102,7 @@ namespace ModSistema.Configuracion.Pos
                         _modeloTasaPos.setPorcAumentoPreciosPrdNoAdmDivisa(_porcAumentoPreciosPosPrdNoAdmPorDivisa);
                         _ucCapturarDataAjustar.Execute(_modeloTasaPos);
                     }
+                    _modeloTasaPos.setIdMonLocal(rst.Entidad.id);
                     _ucProcesarCambio.Execute(_modeloTasaPos);
                     _procesarIsOk = true;
                     Helpers.Msg.OK();
@@ -165,6 +168,10 @@ namespace ModSistema.Configuracion.Pos
                     _difPorct = ((_tasaManejoDivSist / _tasaManejoDivPos) - 1) * 100;
                 else
                     _difPorct = (1 - (_tasaManejoDivPos / _tasaManejoDivSist)) * 100;
+
+                var _tasaBono = ((1m - (tasaPos / _tasaManejoDivSist)) * 100m);
+                _tasaBono = Math.Round(_tasaBono, 4, MidpointRounding.AwayFromZero);
+                setMaximoDscto(_tasaBono);
             }
         }
         public void setPorcAumentoPrecioNoAdmDivisa(decimal porc)

@@ -50,5 +50,10 @@ namespace DataProvSistema.Infra
             Configuracion_ModoCalculoPrecioProductosNacionales();
         OOB.Resultado
             Configuracion_Actualizar_ModoCalculoPrecioProductosNacionales(string modo);
+
+
+        //
+        OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha>
+            Configuracion_MonedaLocal();
     }
 }

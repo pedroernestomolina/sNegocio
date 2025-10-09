@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Data
 {
-
     public partial class DataProv: IData
     {
 

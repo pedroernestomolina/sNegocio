@@ -543,6 +543,7 @@ namespace DataProvSistema.Data
             //
             var fichaDTO = new DtoLibSistema.Configuracion.Pos.Actualizar.Ficha()
             {
+                idMonLocal = ficha.idMonLocal,
                 Estacion = ficha.estacion,
                 Usuario = ficha.usuario,
                 tasaRecepcionPos = ficha.tasaManejoDivisaPos.ToString(),
@@ -648,6 +649,47 @@ namespace DataProvSistema.Data
             }
             //
             return rt;
+        }
+        //
+
+
+
+        //
+        public OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha> 
+            Configuracion_MonedaLocal()
+        {
+            var result = new OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha>();
+            //
+            try
+            {
+                var r01 = MyData.Configuracion_MonedaLocal();
+                if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+                {
+                    throw new Exception(r01.Mensaje);
+                }
+                if (r01.Entidad == null)
+                {
+                    throw new Exception("PROBLEMA AL CARGAR DATA");
+                }
+                if (r01.Entidad.Trim() == "")
+                {
+                    throw new Exception("ID MONEDA LOCAL, NO CONFIGURADO");
+                }
+                //
+                var id = -1;
+                if (!int.TryParse(r01.Entidad.ToString().Trim(), out id))
+                {
+                    throw new Exception("PROBLEMA DE CONVERSION [ ID ]");
+                }
+                return Moneda_GetFichaById(id);
+            }
+            catch (Exception e)
+            {
+                result.Mensaje = e.Message;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+            }
+            //
+            return result;
         }
     }
 }

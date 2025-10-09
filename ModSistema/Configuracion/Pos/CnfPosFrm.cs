@@ -106,6 +106,7 @@ namespace ModSistema.Configuracion.Pos
             var tasaPos = decimal.Parse(TB_TASA_POS.Text);
             _controlador.setTasaPos(tasaPos);
             L_DIFERENCIA_PORC.Text = _controlador.GetDiferenciaPorct.ToString("n2") + "%";
+            TB_MAXIMO_DSCTO.Text = _controlador.GetDsctoMaximoPermitido.ToString();
         }
 
         private void TB_PORC_AUMENTO_PRECIO_POS_NO_ADM_DIVISA_Leave(object sender, EventArgs e)

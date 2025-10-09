@@ -17,6 +17,7 @@ namespace OOB.LibSistema.Configuracion.Pos.Actualizar
         public decimal porcAumentoPreciosDePrdNoAdmPorDivisa { get; set; }
         public List<OOB.LibSistema.AjustarTasaPos.AjustarData.Producto> productosAjustar { get; set; }
         public List<OOB.LibSistema.AjustarTasaPos.AjustarData.HistoricoPrecio> historicoPreciosAgregar { get; set; }
+        public int idMonLocal { get; set; }
         //
         public Ficha()
         {
@@ -28,6 +29,7 @@ namespace OOB.LibSistema.Configuracion.Pos.Actualizar
             porcAumentoPreciosDePrdNoAdmPorDivisa = 0m;
             productosAjustar = null;
             historicoPreciosAgregar = null;
+            idMonLocal = -1;
         }
     }
 }

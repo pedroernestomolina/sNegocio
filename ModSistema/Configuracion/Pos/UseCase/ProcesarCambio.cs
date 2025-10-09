@@ -194,6 +194,7 @@ namespace ModSistema.Configuracion.Pos.UseCase
                 porcAumentoPreciosDePrdNoAdmPorDivisa = modelo.GetPorcAumentoPreciosPrdNoAdmDivisa,
                 productosAjustar = _lst,
                 historicoPreciosAgregar = _lst2,
+                idMonLocal= modelo.GetIdMonLocal,
             };
             var r01 = Sistema.MyData.Configuracion_Pos_Actualizar(fichaOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)

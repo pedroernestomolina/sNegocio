@@ -86,6 +86,7 @@
     <Compile Include="LibSistema\MediosCobroPago\Editar\Ficha.cs" />
     <Compile Include="LibSistema\MediosCobroPago\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\MediosCobroPago\Lista\Filtro.cs" />
+    <Compile Include="LibSistema\Moneda\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Negocio\Editar\Ficha.cs" />
     <Compile Include="LibSistema\Negocio\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Permiso\Enumerados.cs" />
