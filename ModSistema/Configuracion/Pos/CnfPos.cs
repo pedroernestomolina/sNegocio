@@ -92,7 +92,14 @@ namespace ModSistema.Configuracion.Pos
                         throw new Exception(msg);
                     }
                     var rst = Sistema.MyData.Configuracion_MonedaLocal();
-
+                    if (rst.Result == OOB.Enumerados.EnumResult.isError) 
+                    {
+                        throw new Exception(rst.Mensaje);
+                    }
+                    if (_modeloTasaPos.GetMonedaReferencia == null)
+                    {
+                        throw new Exception("MONEDA REFERENCIA NO DEFINIDA");
+                    }
                     //
                     if (1 == 1)
                     {
@@ -100,6 +107,7 @@ namespace ModSistema.Configuracion.Pos
                         _modeloTasaPos.setTasaPosNueva(_tasaManejoDivPos);
                         _modeloTasaPos.setAceptarDsctoPorPagoDivisa(_permitirDsctoUnicamentoPagoDivisa);
                         _modeloTasaPos.setPorcAumentoPreciosPrdNoAdmDivisa(_porcAumentoPreciosPosPrdNoAdmPorDivisa);
+                        _modeloTasaPos.setPorctDiferenciaTasaSistemaTasaPos(_difPorct);
                         _ucCapturarDataAjustar.Execute(_modeloTasaPos);
                     }
                     _modeloTasaPos.setIdMonLocal(rst.Entidad.id);
@@ -127,6 +135,13 @@ namespace ModSistema.Configuracion.Pos
                 }
                 var r01 = Sistema.MyData.Configuracion_Pos_Capturar();
                 var _modoCalculoPrecioPrdNac = _ucCapturaModoCalculoPrecioPrdNac.Execute();
+                //
+                var rst = Sistema.MyData.Configuracion_MonedaReferencia();
+                if (rst.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    throw new Exception(rst.Mensaje);
+                }
+                _modeloTasaPos.setMonedaReferencia(rst.Entidad);
                 //
                 _tasaManejoDivSist = r01.Entidad.tasaManejoDivisaSist;
                 _tasaManejoDivPos = r01.Entidad.tasaManejoDivisaPos;
@@ -165,9 +180,13 @@ namespace ModSistema.Configuracion.Pos
             _tasaManejoDivPos = tasaPos;
             if (_tasaManejoDivSist > 0) {
                 if (_modoCalculoDifTasa == "BCV")
-                    _difPorct = ((_tasaManejoDivSist / _tasaManejoDivPos) - 1) * 100;
+                {
+                    _difPorct = ((_tasaManejoDivSist / _tasaManejoDivPos) ) * 100m;
+                }
                 else
+                {
                     _difPorct = (1 - (_tasaManejoDivPos / _tasaManejoDivSist)) * 100;
+                }
 
                 var _tasaBono = ((1m - (tasaPos / _tasaManejoDivSist)) * 100m);
                 _tasaBono = Math.Round(_tasaBono, 4, MidpointRounding.AwayFromZero);

@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModSistema.Helpers
+namespace OOB.LibSistema.Moneda
 {
-    public interface IAbandonar
+    public class Filtro
     {
-        bool AbandonarIsOK { get; }
-        void AbandonarFicha();
     }
 }

@@ -8,27 +8,25 @@ using System.Windows.Forms;
 
 namespace ModSistema.MaestrosMod.MediosCobro
 {
-
     public class Maestro : IMedioCobro
     {
-
-        private MediosCobro.AgregarEditar.IAgregar _gAgregar;
-        private MediosCobro.AgregarEditar.IEditar _gEditar;
+        private MediosCobro.AgregarEditar.vm.IAgregar _gAgregar;
+        private MediosCobro.AgregarEditar.vm.IEditar _gEditar;
         private IMedioCobroLista _gLista;
-
-
+        //
         public string Titulo { get { return "Maestro: MEDIOS DE COBRO"; } }
         public BindingSource Source { get { return _gLista.Source; } }
         public int CntItems { get { return _gLista.CntItems; } }
-
-
+        //
         public Maestro(IMedioCobroLista lista,  
-            MediosCobro.AgregarEditar.IAgregar agregar, 
-            MediosCobro.AgregarEditar.IEditar editar)
+            MediosCobro.AgregarEditar.vm.IAgregarEditar agregar, 
+            MediosCobro.AgregarEditar.vm.IAgregarEditar editar)
         {
             _gLista = lista;
-            _gAgregar = agregar;
-            _gEditar = editar;
+            //_gAgregar = agregar;
+            //_gEditar = editar;
+            _gAgregar = new AgregarEditar.vm.AgregarNew();
+            _gEditar = new  AgregarEditar.vm.EditarNew();
         }
 
 
@@ -69,8 +67,8 @@ namespace ModSistema.MaestrosMod.MediosCobro
                     auto = rg.auto.ToString(),
                     codigo = rg.codigo,
                     descripcion = rg.descripcion,
-                    isParaCobro = rg.isParaCobro,
-                    isParaPago= rg.isParaPago,
+                    isParaCobro = rg.estatusCobro,
+                    isParaPago= rg.estatusPago,
                 };
                 _lst.Add(nr);
             }
@@ -96,23 +94,15 @@ namespace ModSistema.MaestrosMod.MediosCobro
                 _gAgregar.Inicia();
                 if (_gAgregar.IsOk)
                 {
-                    var id = (string)_gAgregar.IdItemRegistrado;
-                    var r01 = Sistema.MyData.MediosCobroPago_GetFicha_ById(id);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    var rg = r01.Entidad;
-                    var _data = new data()
+                    var rg = _gAgregar.GetItemRegistrado;
+                    _gLista.Agregar(new data()
                     {
                         auto = rg.auto.ToString(),
                         codigo = rg.codigo,
                         descripcion = rg.descripcion,
-                        isParaCobro = rg.isParaCobro,
-                        isParaPago = rg.isParaPago,
-                    };
-                    _gLista.Agregar(_data);
+                        isParaCobro = rg.estatusCobro,
+                        isParaPago = rg.estatusPago,
+                    });
                 }
             }
         }
@@ -143,26 +133,17 @@ namespace ModSistema.MaestrosMod.MediosCobro
                 _gEditar.Inicia();
                 if (_gEditar.IsOk)
                 {
-                    var r01 = Sistema.MyData.MediosCobroPago_GetFicha_ById(_idEditar);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    var rg = r01.Entidad;
-                    var _data = new data()
-                    {
-                        auto = rg.auto.ToString(),
-                        codigo = rg.codigo,
-                        descripcion = rg.descripcion,
-                        isParaCobro = rg.isParaCobro,
-                        isParaPago = rg.isParaPago,
-                    };
-                    _gLista.Actualizar(_data);
+                     var rg= _gEditar.GetItemRegistrado;
+                     _gLista.Actualizar(new data()
+                     {
+                         auto = rg.auto.ToString(),
+                         codigo = rg.codigo,
+                         descripcion = rg.descripcion,
+                         isParaCobro = rg.estatusCobro,
+                         isParaPago = rg.estatusPago,
+                     });
                 }
             }
         }
-
     }
-
 }

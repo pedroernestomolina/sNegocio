@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 
 namespace OOB.LibSistema.MediosCobroPago.Agregar
 {
-    
     public class Ficha: baseAgregarEditar
     {
-
         public Ficha()
         {
             codigo = "";
             descripcion = "";
             estatusCobro = "";
             estatusPago = "";
+            aplicaLoteRef = "";
+            aplicaParaPos = "";
+            aplicaIGTF = "";
+            aplicaBonoPagoDivisa = "";
+            aplicaRetornoCambioVuelto = "";
+            aplicaModuloCobroAnticipo = "";
+            idMoneda = 0;
         }
-
     }
-
 }

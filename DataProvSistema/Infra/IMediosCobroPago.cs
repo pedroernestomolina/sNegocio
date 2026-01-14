@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataProvSistema.Infra
 {
-    
     public interface IMediosCobroPago
     {
-
         OOB.ResultadoLista<OOB.LibSistema.MediosCobroPago.Entidad.Ficha>
             MediosCobroPago_GetLista(OOB.LibSistema.MediosCobroPago.Lista.Filtro filtro);
         OOB.ResultadoEntidad<OOB.LibSistema.MediosCobroPago.Entidad.Ficha>
@@ -19,7 +17,5 @@ namespace DataProvSistema.Infra
             MediosCobroPago_AgregarFicha(OOB.LibSistema.MediosCobroPago.Agregar.Ficha ficha);
         OOB.Resultado
             MediosCobroPago_EditarFicha(OOB.LibSistema.MediosCobroPago.Editar.Ficha ficha);
-
     }
-
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configuracion>
   <Servidor>
-    <Instancia>192.168.100.227</Instancia>
-    <Catalogo>zufu</Catalogo>
+    <Instancia>10.10.100.138</Instancia>
+    <Catalogo>zufu26</Catalogo>
     <Usuario></Usuario>
   </Servidor>
 </Configuracion>

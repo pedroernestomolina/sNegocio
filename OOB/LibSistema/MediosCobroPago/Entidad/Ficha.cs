@@ -7,28 +7,34 @@ using System.Threading.Tasks;
 
 namespace OOB.LibSistema.MediosCobroPago.Entidad
 {
-    
     public class Ficha
     {
-
         public string auto { get; set; }
         public string codigo { get; set; }
         public string descripcion { get; set; }
-        public string estatusCobro { get; set; }
-        public string estatusPago { get; set; }
-        public bool isParaCobro { get { return estatusCobro.Trim().ToUpper() == "1"; } }
-        public bool isParaPago { get { return estatusPago.Trim().ToUpper() == "1"; } }
-
-
+        public bool estatusCobro { get; set; }
+        public bool estatusPago { get; set; }
+        public bool aplicaParaBonoPagoEnDivisa { get; set; }
+        public bool aplicaParaIGTF { get; set; }
+        public bool aplicaParaModuloCobroAnticipo { get; set; }
+        public bool aplicaParaPOS { get; set; }
+        public bool aplicaParaRetornoCambioVuelto { get; set; }
+        public bool aplicaParaSolicitarLoteReferencia { get; set; }
+        public int idMoneda { get; set; }
         public Ficha()
         {
             auto = "";
             codigo = "";
             descripcion = "";
-            estatusCobro = "";
-            estatusPago = "";
+            estatusCobro = false;
+            estatusPago = false;
+            aplicaParaBonoPagoEnDivisa = false;
+            aplicaParaIGTF = false;
+            aplicaParaModuloCobroAnticipo = false;
+            aplicaParaPOS = false;
+            aplicaParaRetornoCambioVuelto = false;
+            aplicaParaSolicitarLoteReferencia = false;
+            idMoneda = 0;
         }
-
     }
-
 }

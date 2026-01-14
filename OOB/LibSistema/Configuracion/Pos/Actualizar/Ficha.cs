@@ -19,6 +19,16 @@ namespace OOB.LibSistema.Configuracion.Pos.Actualizar
         public List<OOB.LibSistema.AjustarTasaPos.AjustarData.HistoricoPrecio> historicoPreciosAgregar { get; set; }
         public int idMonLocal { get; set; }
         //
+        public decimal FactorVariacion { get; set; }
+        public string HabilitarBono { get; set; }
+        public string MonedaCodigo { get; set; }
+        public string MonedaSimbolo { get; set; }
+        public decimal PorctAumentoPrdNoDivisa { get; set; }
+        public decimal PorctBono { get; set; }
+        public decimal PorctDiferenciaTasaSistemaTasaPos { get; set; }
+        public decimal TasaDivisaSistema { get; set; }
+        public string UsuarioCodigo { get; set; }
+        public decimal ValorAnterior { get; set; }
         public Ficha()
         {
             estacion = "";
@@ -30,6 +40,17 @@ namespace OOB.LibSistema.Configuracion.Pos.Actualizar
             productosAjustar = null;
             historicoPreciosAgregar = null;
             idMonLocal = -1;
+            //
+            FactorVariacion = 0m;
+            HabilitarBono = "";
+            MonedaCodigo = "";
+            MonedaSimbolo = "";
+            PorctAumentoPrdNoDivisa = 0m;
+            PorctBono = 0m;
+            PorctDiferenciaTasaSistemaTasaPos = 0m;
+            TasaDivisaSistema = 0m;
+            UsuarioCodigo = "";
+            ValorAnterior = 0m;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace ModSistema.TasaDivisa.Sist
         public string TituloFuncion { get { return "Tasa Divisa Actual ?"; } }
         public decimal ValorNuevo { set { _valorNuevo = value; } }
         public decimal ValorActual { get; set; }
+        public OOB.LibSistema.Moneda.Entidad.Ficha MonedaReferencia { get; set; }
         //
         public Gestion()
         {
@@ -29,7 +30,19 @@ namespace ModSistema.TasaDivisa.Sist
             try
             {
                 var r01 = Sistema.MyData.Configuracion_TasaCambioActual();
+                if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    throw new Exception(r01.Mensaje);
+                }
                 ValorActual = r01.Entidad;
+
+                var rst = Sistema.MyData.Configuracion_MonedaReferencia();
+                if (rst.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    throw new Exception(rst.Mensaje);
+                }
+                MonedaReferencia = rst.Entidad;
+                //
                 return true;
             }
             catch (Exception e)
@@ -135,6 +148,11 @@ namespace ModSistema.TasaDivisa.Sist
         {
             var rt = true;
 
+            var _factorVariacion= 0m;
+            if (ValorActual>0m)
+            {
+                _factorVariacion = ((_valorNuevo/ValorActual)-1m)*100m;
+            }
             var ficha = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha()
             {
                 autoUsuario = Sistema.UsuarioP.auto,
@@ -142,6 +160,10 @@ namespace ModSistema.TasaDivisa.Sist
                 EstacionEquipo = Environment.MachineName,
                 nombreUsuario = Sistema.UsuarioP.nombre,
                 ValorDivisa = _valorNuevo,
+                ValorDivisaAnterior = ValorActual,
+                FactorVariacion = _factorVariacion,
+                MonedaCodigo = MonedaReferencia.codigo,
+                MonedaSimbolo = MonedaReferencia.simbolo,
             };
             var lst = new List<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoPrecioDivisa>();
             var lst2 = new List<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico>();

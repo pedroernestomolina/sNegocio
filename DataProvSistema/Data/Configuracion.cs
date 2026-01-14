@@ -254,15 +254,19 @@ namespace DataProvSistema.Data
             Configuracion_Actualizar_TasaDivisa_ActualizarData(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha ficha)
         {
             var rt = new OOB.Resultado();
-
+            //
             var fichaDTO = new DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha()
             {
                 autoUsuario = ficha.autoUsuario,
                 codigoUsuario = ficha.codigoUsuario,
                 EstacionEquipo = ficha.EstacionEquipo,
                 nombreUsuario = ficha.nombreUsuario,
+                ValorDivisaAnterior = ficha.ValorDivisaAnterior,
                 ValorDivisa = ficha.ValorDivisa,
-                ValorDivisaPos=ficha.ValorDivisaPos,
+                ValorDivisaPos = ficha.ValorDivisaPos,
+                FactorVariacion = ficha.FactorVariacion ,
+                MonedaCodigo = ficha.MonedaCodigo,
+                MonedaSimbolo = ficha.MonedaSimbolo,
             };
 
             var lstProdCostoSinDivisa = new List<DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoSinDivisa>();
@@ -382,7 +386,7 @@ namespace DataProvSistema.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
-
+            //
             return rt;
         }
 
@@ -536,6 +540,7 @@ namespace DataProvSistema.Data
             };
             return rt;
         }
+
         public OOB.Resultado 
             Configuracion_Pos_Actualizar(OOB.LibSistema.Configuracion.Pos.Actualizar.Ficha ficha)
         {
@@ -546,11 +551,21 @@ namespace DataProvSistema.Data
                 idMonLocal = ficha.idMonLocal,
                 Estacion = ficha.estacion,
                 Usuario = ficha.usuario,
-                tasaRecepcionPos = ficha.tasaManejoDivisaPos.ToString(),
+                tasaRecepcionPos = ficha.tasaManejoDivisaPos,
                 factorCambio = ficha.tasaManejoDivisaPos,
                 valorMaximoDescuentoPermitido = ficha.valorMaximoDescuentoPermitido.ToString(),
                 porcAumentoPreciosDeProductosNoAdmPorDivisa = ficha.porcAumentoPreciosDePrdNoAdmPorDivisa.ToString(),
                 permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa = ficha.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa ? "Si" : "No",
+                FactorVariacion = ficha.FactorVariacion,
+                HabilitarBono = ficha.HabilitarBono,
+                MonedaCodigo = ficha.MonedaCodigo,
+                MonedaSimbolo = ficha.MonedaSimbolo,
+                PorctAumentoPrdNoDivisa = ficha.PorctAumentoPrdNoDivisa,
+                PorctBono = ficha.PorctBono,
+                PorctDiferenciaTasaSistemaTasaPos = ficha.PorctDiferenciaTasaSistemaTasaPos,
+                TasaDivisaSistema = ficha.TasaDivisaSistema,
+                UsuarioCodigo = ficha.UsuarioCodigo,
+                ValorAnterior = ficha.ValorAnterior,
                 productosAjustar = ficha.productosAjustar.Select(s =>
                 {
                     var it = new DtoLibSistema.AjustarTasaPos.AjustarData.Producto()
@@ -674,6 +689,42 @@ namespace DataProvSistema.Data
                 if (r01.Entidad.Trim() == "")
                 {
                     throw new Exception("ID MONEDA LOCAL, NO CONFIGURADO");
+                }
+                //
+                var id = -1;
+                if (!int.TryParse(r01.Entidad.ToString().Trim(), out id))
+                {
+                    throw new Exception("PROBLEMA DE CONVERSION [ ID ]");
+                }
+                return Moneda_GetFichaById(id);
+            }
+            catch (Exception e)
+            {
+                result.Mensaje = e.Message;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+            }
+            //
+            return result;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha> 
+            Configuracion_MonedaReferencia()
+        {
+            var result = new OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha>();
+            //
+            try
+            {
+                var r01 = MyData.Configuracion_MonedaReferencia();
+                if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+                {
+                    throw new Exception(r01.Mensaje);
+                }
+                if (r01.Entidad == null)
+                {
+                    throw new Exception("PROBLEMA AL CARGAR DATA");
+                }
+                if (r01.Entidad.Trim() == "")
+                {
+                    throw new Exception("ID MONEDA REFERENCIA, NO CONFIGURADO");
                 }
                 //
                 var id = -1;

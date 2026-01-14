@@ -19,6 +19,8 @@ namespace ModSistema.Configuracion.Pos.Models
         private decimal _porcAumentoPreciosPrdNoAdmDivisa;
         private Enumerados.ModoCalculoPrecioProductosNacionales _modoCalculoPrecio;
         private int _idMonLocal;
+        private decimal _porctDiferenciaTasaSistemaTasaPos;
+        private OOB.LibSistema.Moneda.Entidad.Ficha _monedaReferencia;
         //
         public decimal GetTasaPosNueva { get { return _tasaPosNueva; } }
         public decimal GetDesctoPermitir { get { return _dsctoPermitir; } }
@@ -26,6 +28,23 @@ namespace ModSistema.Configuracion.Pos.Models
         public decimal GetPorcAumentoPreciosPrdNoAdmDivisa { get { return _porcAumentoPreciosPrdNoAdmDivisa; } }
         public int GetIdMonLocal { get { return _idMonLocal; } }
         public List<Item> ItemsActualizar { get { return _itemsActualzar; } }
+        //
+        public OOB.LibSistema.Moneda.Entidad.Ficha GetMonedaReferencia { get { return _monedaReferencia; } }
+        public decimal GetTasaSistema { get { return _tasaDivisa; } }
+        public decimal GetTasaPosActual { get { return _tasaPosActual; } }
+        public decimal GetPorctDiferenciaTasaSistemaTasaPos { get { return _porctDiferenciaTasaSistemaTasaPos; } }
+        public decimal GetFactorVariacion 
+        { 
+            get 
+            {
+                var rt = 0m;
+                if (_tasaPosActual > 0m) 
+                {
+                    rt = ((_tasaPosNueva / _tasaPosActual) - 1m) * 100m;
+                }
+                return rt;
+            }
+        }
         //
         public ActualizarTasaPos()
         {
@@ -39,6 +58,7 @@ namespace ModSistema.Configuracion.Pos.Models
             _aceptarDsctoPorPagoDivisa = false;
             _itemsActualzar = new List<Item>();
             _idMonLocal = -1;
+            _monedaReferencia = null;
         }
         public void Inicializa()
         {
@@ -48,10 +68,12 @@ namespace ModSistema.Configuracion.Pos.Models
             _tasaDivisa = 0m;
             _dsctoPermitir = 0m;
             _porctDifEntreTasas = 0m;
+            _porctDiferenciaTasaSistemaTasaPos = 0m;
             _porcAumentoPreciosPrdNoAdmDivisa = 0m;
             _aceptarDsctoPorPagoDivisa = false;
             _itemsActualzar.Clear();
             _idMonLocal = -1;
+            _monedaReferencia = null;
         }
         public void setTasaPosActual(decimal tasaPosActual)
         {
@@ -88,6 +110,14 @@ namespace ModSistema.Configuracion.Pos.Models
         public void setIdMonLocal(int id)
         {
             _idMonLocal = id;
+        }
+        public void setPorctDiferenciaTasaSistemaTasaPos(decimal porct)
+        {
+            _porctDiferenciaTasaSistemaTasaPos = porct;
+        }
+        public void setMonedaReferencia(OOB.LibSistema.Moneda.Entidad.Ficha monedaRef)
+        {
+            _monedaReferencia = monedaRef;
         }
         public void AgregarItemParaActualizar(Item it)
         {

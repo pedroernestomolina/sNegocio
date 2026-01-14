@@ -194,7 +194,18 @@ namespace ModSistema.Configuracion.Pos.UseCase
                 porcAumentoPreciosDePrdNoAdmPorDivisa = modelo.GetPorcAumentoPreciosPrdNoAdmDivisa,
                 productosAjustar = _lst,
                 historicoPreciosAgregar = _lst2,
-                idMonLocal= modelo.GetIdMonLocal,
+                idMonLocal = modelo.GetIdMonLocal,
+                //
+                FactorVariacion = modelo.GetFactorVariacion,
+                HabilitarBono = modelo.GetAceptarDsctoPorPagoDivisa ? "1" : "",
+                MonedaCodigo = modelo.GetMonedaReferencia.codigo,
+                MonedaSimbolo = modelo.GetMonedaReferencia.simbolo,
+                PorctAumentoPrdNoDivisa = modelo.GetPorcAumentoPreciosPrdNoAdmDivisa,
+                PorctBono = modelo.GetDesctoPermitir,
+                PorctDiferenciaTasaSistemaTasaPos = modelo.GetPorctDiferenciaTasaSistemaTasaPos,
+                TasaDivisaSistema = modelo.GetTasaSistema,
+                UsuarioCodigo = Sistema.UsuarioP.codigo,
+                ValorAnterior = modelo.GetTasaPosActual,
             };
             var r01 = Sistema.MyData.Configuracion_Pos_Actualizar(fichaOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)

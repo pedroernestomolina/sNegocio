@@ -49,8 +49,8 @@ namespace ModSistema
         private MaestrosMod.Deposito.AgregarEditar.IAgregar _gAgregarDep;
         private MaestrosMod.Deposito.AgregarEditar.IEditar _gEditarDep;
         //
-        private MaestrosMod.MediosCobro.AgregarEditar.IAgregar _gMedioAgregar;
-        private MaestrosMod.MediosCobro.AgregarEditar.IEditar _gMedioEditar;
+        private MaestrosMod.MediosCobro.AgregarEditar.vm.IAgregar _gMedioAgregar;
+        private MaestrosMod.MediosCobro.AgregarEditar.vm.IAgregar _gMedioEditar;
         private MaestrosMod.MediosCobro.IMedioCobroLista _gMedioLista;
         private MaestrosMod.MediosCobro.IMedioCobro _gMedio;
         //
@@ -129,8 +129,8 @@ namespace ModSistema
             _gDeposito = new MaestrosMod.Deposito.Maestro(_gDepositoLista, _gAgregarDep, _gEditarDep);
             //
             _gMedioLista = new MaestrosMod.MediosCobro.Lista();
-            _gMedioAgregar = new MaestrosMod.MediosCobro.AgregarEditar.Agregar();
-            _gMedioEditar = new MaestrosMod.MediosCobro.AgregarEditar.Editar();
+            _gMedioAgregar = new MaestrosMod.MediosCobro.AgregarEditar.vm.AgregarNew();
+            _gMedioEditar = new MaestrosMod.MediosCobro.AgregarEditar.vm.AgregarNew();
             _gMedio = new MaestrosMod.MediosCobro.Maestro(_gMedioLista, _gMedioAgregar, _gMedioEditar);
             //
             _gEtiquetaPrecio = new EtiquetaPrecio.Gestion();

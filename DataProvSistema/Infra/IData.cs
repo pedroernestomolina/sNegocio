@@ -15,7 +15,6 @@ namespace DataProvSistema.Infra
         IAjustarTasaPos,
         IMoneda
     {
-
         OOB.ResultadoEntidad<DateTime> 
             FechaServidor();
         OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha> 

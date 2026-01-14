@@ -43,6 +43,9 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LibUtilitis">
+      <HintPath>..\..\..\LibUtilitis\LibUtilitis\bin\Debug\LibUtilitis.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -178,16 +181,22 @@
     <Compile Include="MaestrosMod\IMaestroTipo.cs" />
     <Compile Include="MaestrosMod\ITipoMaestro.cs" />
     <Compile Include="MaestrosMod\Maestro.cs" />
-    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Agregar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Domain\Models\Monedas.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\vm\baseAgregarEditar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\vm\EditarNew.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\vm\AgregarNew.cs" />
     <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Editar.cs" />
-    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\IAgregar.cs" />
-    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\IEditar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Domain\Models\MiModelo.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Domain\UseCase\IUseCase.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\Domain\UseCase\UseCaseImpl.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\vm\IAgregar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\vm\IEditar.cs" />
+    <Compile Include="MaestrosMod\MediosCobro\AgregarEditar\vm\IAgregarEditar.cs" />
     <Compile Include="MaestrosMod\MediosCobro\IMedioCobroAgregarEditar.cs" />
     <Compile Include="MaestrosMod\MediosCobro\data.cs" />
     <Compile Include="MaestrosMod\MediosCobro\IMedioCobro.cs" />

@@ -55,5 +55,7 @@ namespace DataProvSistema.Infra
         //
         OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha>
             Configuracion_MonedaLocal();
+        OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha>
+            Configuracion_MonedaReferencia();
     }
 }

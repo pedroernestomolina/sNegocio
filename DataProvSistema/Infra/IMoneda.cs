@@ -11,5 +11,7 @@ namespace DataProvSistema.Infra
     {
         OOB.ResultadoEntidad<OOB.LibSistema.Moneda.Entidad.Ficha>
             Moneda_GetFichaById(int id);
+        OOB.ResultadoLista<OOB.LibSistema.Moneda.Entidad.Ficha>
+            Moneda_GetLista(OOB.LibSistema.Moneda.Filtro filtro);
     }
 }
