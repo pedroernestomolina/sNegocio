@@ -98,6 +98,7 @@ namespace ModSistema.Configuracion.Pos
         {
             if (_modoInicializar) { return; }
             _controlador.setHabilitarDsctoPagoDivisa(CHB_VALIDAR_DSCTO_PAGO_DIVISA.Checked);
+            TB_MAXIMO_DSCTO.Text = _controlador.GetDsctoMaximoPermitido.ToString();
         }
 
         private void TB_TASA_POS_Leave(object sender, EventArgs e)

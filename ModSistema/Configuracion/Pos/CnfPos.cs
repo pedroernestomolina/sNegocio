@@ -148,7 +148,14 @@ namespace ModSistema.Configuracion.Pos
                 _maximoPorcDsctoPermitido = r01.Entidad.valorMaximoDescuentoPermitido;
                 _permitirDsctoUnicamentoPagoDivisa = r01.Entidad.permitirDarDescuentoEnPosUnicamenteSiPagoEnDivisa;
                 _porcAumentoPreciosPosPrdNoAdmPorDivisa = r01.Entidad.porcAumentoEnPreciosProductosNoAdmPorDivisa;
-                setTasaPos(_tasaManejoDivPos);
+                if (_permitirDsctoUnicamentoPagoDivisa)
+                {
+                    setTasaPos(_tasaManejoDivPos);
+                }
+                else 
+                {
+                    setMaximoDscto(0m);
+                }
                 //
                 _modeloTasaPos.setTasaPosActual(r01.Entidad.tasaManejoDivisaPos);
                 _modeloTasaPos.setTasaDivisa(r01.Entidad.tasaManejoDivisaSist);
@@ -173,6 +180,14 @@ namespace ModSistema.Configuracion.Pos
         public void setHabilitarDsctoPagoDivisa(bool permiso)
         {
             _permitirDsctoUnicamentoPagoDivisa = permiso;
+            if (permiso == false)
+            {
+                setMaximoDscto(0m);
+            }
+            else 
+            {
+                setTasaPos(_tasaManejoDivPos);
+            }
         }
         public void setTasaPos(decimal tasaPos)
         {
